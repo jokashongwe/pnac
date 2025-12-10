@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body onload="document.forms['maxicash_form'].submit()">
+    <div style="text-align: center; margin-top: 20%;">
+        <h1>Redirection vers MaxiCash...</h1>
+        <p>Veuillez patienter, transaction sécurisée en cours.</p>
+        <img src="https://maxicashapp.com/assets/images/logo.png" alt="MaxiCash" style="width: 150px;">
+    </div>
+
+    <form name="maxicash_form" action="{{ gateway_url }}" method="POST">
+        <input type="hidden" name="MerchantID" value="{{ merchant_id }}">
+        <input type="hidden" name="MerchantPassword" value="{{ merchant_password }}">
+        <input type="hidden" name="Amount" value="{{ amount }}">
+        <input type="hidden" name="Currency" value="{{ currency }}">
+        <input type="hidden" name="Reference" value="{{ reference }}">
+        <input type="hidden" name="AcceptURL" value="{{ accept_url }}">
+        <input type="hidden" name="CancelURL" value="{{ cancel_url }}">
+        <input type="hidden" name="DeclineURL" value="{{ decline_url }}">
+        <input type="hidden" name="NotifyURL" value="{{ notify_url }}">
+        </form>
+</body>
+</html>

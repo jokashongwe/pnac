@@ -152,3 +152,11 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# settings.py
+
+MAXICASH_MERCHANT_ID = os.getenv("MAXICASH_MERCHANT_ID") # Fourni par MaxiCash
+MAXICASH_MERCHANT_PASSWORD = os.getenv("MAXICASH_MERCHANT_ID") # Fourni par MaxiCash
+MAXICASH_ENV = "sandbox" # ou "live" pour la production
+MAXICASH_GATEWAY_URL = "https://api-test.maxicashapp.com/PayEntryPost" # URL de test
+# Pour la prod : "https://api.maxicashapp.com/PayEntryPost"

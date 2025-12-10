@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.db.models import Sum, Count
 from events.models import Event, Volunteer
 from donations.models import Donation
+from .models import CarouselItem
+
+def mission(request):
+    return render(request, 'mission.html')
 
 def home(request):
     # 1. Calcul des statistiques pour la section "Impact"
@@ -17,11 +21,14 @@ def home(request):
     # 2. Récupérer les 3 prochains événements pour l'accueil
     upcoming_events = Event.objects.filter(is_active=True).order_by('date')[:3]
 
+    slides = CarouselItem.objects.filter(is_active=True)
+
     context = {
         'total_volunteers': total_volunteers,
         'total_raised': round(total_raised), # Arrondi pour l'affichage
         'total_events': total_events,
         'upcoming_events': upcoming_events,
+        'slides': slides,
     }
     
     return render(request, 'home.html', context)

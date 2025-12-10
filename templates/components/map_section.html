@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-extrabold text-gray-900">Carte des Interventions</h2>
+            <p class="mt-4 text-lg text-gray-500">
+                Découvrez où nos équipes et les communautés agissent en ce moment.
+            </p>
+            <div class="flex justify-center gap-6 mt-4 text-sm">
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span> Actions Planifiées</div>
+                <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-green-600 mr-2"></span> Actions Réalisées</div>
+            </div>
+        </div>
+
+        <div id="map" class="w-full h-[500px] rounded-xl shadow-lg border border-gray-200 z-0"></div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Initialisation de la carte (Centrée sur Kinshasa)
+    var map = L.map('map').setView([-4.4319, 15.2363], 12);
+
+    // 2. Ajout du fond de carte (OpenStreetMap - Gratuit)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // 3. Icônes personnalisées (Vert et Bleu PNAC)
+    var greenIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    var blueIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    // 4. Récupération des données depuis notre API Django
+    fetch('/api/map-data/')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(event => {
+                var icon = event.status === 'COMPLETED' ? greenIcon : blueIcon;
+                
+                var marker = L.marker([event.lat, event.lng], {icon: icon}).addTo(map);
+                
+                // Contenu de la popup
+                var popupContent = `
+                    <div class="text-center">
+                        <h3 class="font-bold text-gray-900 text-lg">${event.title}</h3>
+                        <p class="text-sm text-gray-600 mb-2">${event.date} - ${event.location}</p>
+                        <a href="${event.url}" class="inline-block bg-pnacBlue text-white text-xs px-3 py-1 rounded hover:bg-blue-600 transition">Voir détails</a>
+                    </div>
+                `;
+                
+                marker.bindPopup(popupContent);
+            });
+        })
+        .catch(error => console.error('Erreur chargement carte:', error));
+});
+</script>

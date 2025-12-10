@@ -6,6 +6,15 @@ class Event(models.Model):
         ('FORMATION', 'Formation & Sensibilisation'),
         ('CAMPAGNE', 'Campagne de Salubrité'),
     )
+
+    latitude = models.FloatField(verbose_name="Latitude", help_text="Ex: -4.325 (Kinshasa)", blank=True, null=True)
+    longitude = models.FloatField(verbose_name="Longitude", help_text="Ex: 15.322", blank=True, null=True)
+
+    STATUS_MAP = (
+        ('PLANNED', 'Planifié (Bleu)'),
+        ('COMPLETED', 'Réalisé (Vert)'),
+    )
+    map_status = models.CharField(max_length=20, choices=STATUS_MAP, default='PLANNED', verbose_name="Statut Carte")
     
     title = models.CharField(max_length=200)
     event_type = models.CharField(max_length=20, choices=TYPES, default='SALONGO')

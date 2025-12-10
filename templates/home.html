@@ -3,42 +3,71 @@
 
 {% block content %}
 
-<div class="relative bg-gray-900 min-h-[85vh] flex items-center">
-    <div class="absolute inset-0 overflow-hidden">
-        <img src="{% static 'pages/assainissement01.jpg' %}" 
-             alt="Communauté en action" 
-             class="w-full h-full object-cover opacity-60">
-        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full pt-20">
-        <div class="max-w-3xl">
-            <span class="inline-block py-1 px-3 rounded-sm bg-pnacBlue text-white text-xs font-bold tracking-widest uppercase mb-4">
-                Urgence Salubrité
-            </span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-                UNIS POUR ASSAINIR <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">NOTRE CADRE DE VIE</span>
-            </h1>
-            <p class="text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl">
-                En RDC, la salubrité est un défi quotidien. Le PNAC fédère les communautés, le secteur privé et les citoyens pour transformer nos quartiers. [cite: 3, 7]
-            </p>
+<div class="relative bg-gray-900 h-[85vh] overflow-hidden" id="hero-carousel">
+    
+    <div class="relative h-full w-full">
+        {% for slide in slides %}
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out {% if forloop.first %}opacity-100 z-10{% else %}opacity-0 z-0{% endif %} slide-item" 
+             data-index="{{ forloop.counter0 }}">
             
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="{% url 'donate' %}" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded shadow-lg transition transform hover:-translate-y-1 text-center">
-                    FAIRE UN DON
-                </a>
-                <a href="{% url 'event_list' %}" class="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-bold text-lg rounded shadow-lg transition text-center border-l-4 border-pnacGreen">
-                    REJOINDRE LE SALONGO
-                </a>
+            <div class="absolute inset-0">
+                <img src="{{ slide.image.url }}" alt="{{ slide.title }}" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent"></div>
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full pt-20">
+                <div class="max-w-3xl animate-fade-in-up"> <span class="inline-block py-1 px-3 rounded-sm bg-pnacBlue text-white text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
+                        Action PNAC
+                    </span>
+                    <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
+                        {{ slide.title|linebreaksbr }}
+                    </h1>
+                    <p class="text-xl text-gray-100 mb-8 leading-relaxed max-w-2xl drop-shadow-md">
+                        {{ slide.subtitle }}
+                    </p>
+                    
+                    {% if slide.button_text %}
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="{{ slide.button_link }}" class="px-8 py-4 bg-pnacGreen hover:bg-green-700 text-white font-bold text-lg rounded shadow-lg transition transform hover:-translate-y-1 text-center">
+                            {{ slide.button_text }}
+                        </a>
+                        <a href="{% url 'donate' %}" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white text-white font-bold text-lg rounded shadow-lg transition text-center">
+                            Faire un don
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
+        {% empty %}
+        <div class="absolute inset-0 flex items-center justify-center bg-gray-800">
+            <h2 class="text-white text-3xl">Veuillez ajouter des slides dans l'administration.</h2>
+        </div>
+        {% endfor %}
+    </div>
+
+    <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
+        {% for slide in slides %}
+        <button onclick="goToSlide({{ forloop.counter0 }})" 
+                class="w-3 h-3 rounded-full transition-all duration-300 bg-white/50 hover:bg-white dot-indicator {% if forloop.first %}bg-white w-8{% endif %}" 
+                data-index="{{ forloop.counter0 }}">
+        </button>
+        {% endfor %}
     </div>
 </div>
 
+
+
 <div class="bg-pnacGreen text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-green-500 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-green-500 text-center">
             <div class="p-4">
                 <p class="text-5xl font-extrabold mb-1">{{ total_volunteers }}</p>
                 <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Citoyens Mobilisés</p>
@@ -46,10 +75,6 @@
             <div class="p-4">
                 <p class="text-5xl font-extrabold mb-1">{{ total_events }}</p>
                 <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Quartiers Assainis</p>
-            </div>
-            <div class="p-4">
-                <p class="text-5xl font-extrabold mb-1">{{ total_raised }} $</p>
-                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Fonds Collectés</p>
             </div>
         </div>
     </div>
@@ -108,12 +133,14 @@
     </div>
 </section>
 
+{% include 'components/map_section.html' %}
+
 <section class="py-20 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl font-extrabold text-gray-900">Notre approche</h2>
             <p class="mt-4 text-lg text-gray-600">
-                Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action. [cite: 17, 18]
+                Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action.
             </p>
         </div>
 
@@ -123,7 +150,7 @@
                     <svg class="w-10 h-10 text-pnacGreen group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Mobilisation Citoyenne</h3>
-                <p class="text-gray-500">Encourager une citoyenneté active fondée sur le civisme et le Salongo populaire. [cite: 11]</p>
+                <p class="text-gray-500">Encourager une citoyenneté active fondée sur le civisme et le Salongo populaire. </p>
             </div>
             
             <div class="group">
@@ -131,7 +158,7 @@
                     <svg class="w-10 h-10 text-pnacBlue group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation Verte</h3>
-                <p class="text-gray-500">Tri sélectif, recyclage, points verts et création d'éco-brigades dans les quartiers. [cite: 14]</p>
+                <p class="text-gray-500">Tri sélectif, recyclage, points verts et création d'éco-brigades dans les quartiers. </p>
             </div>
 
             <div class="group">
@@ -170,5 +197,75 @@
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-item');
+        const dots = document.querySelectorAll('.dot-indicator');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        // Fonction pour afficher un slide spécifique
+        window.showSlide = function(index) {
+            // Gestion des limites
+            if (index >= totalSlides) index = 0;
+            if (index < 0) index = totalSlides - 1;
+            
+            currentSlide = index;
+
+            // Mise à jour des classes CSS pour l'affichage
+            slides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            // Mise à jour des points (dots)
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white', 'w-8');
+                } else {
+                    dot.classList.add('bg-white/50');
+                    dot.classList.remove('bg-white', 'w-8');
+                }
+            });
+        };
+
+        // Navigation Suivant/Précédent
+        window.moveSlide = function(step) {
+            showSlide(currentSlide + step);
+            resetTimer(); // On relance le timer si l'utilisateur clique
+        };
+
+        // Navigation par les points
+        window.goToSlide = function(index) {
+            showSlide(index);
+            resetTimer();
+        };
+
+        // Auto-play (toutes les 6 secondes)
+        function startTimer() {
+            slideInterval = setInterval(() => {
+                moveSlide(1);
+            }, 6000);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startTimer();
+        }
+
+        // Démarrage initial
+        if (totalSlides > 0) {
+            startTimer();
+        }
+    });
+</script>
 
 {% endblock %}
