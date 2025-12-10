@@ -1,0 +1,24 @@
+<div class="bg-gray-50 p-6 rounded-lg border-l-4 border-pnacGreen mt-8">
+    <h3 class="text-xl font-bold text-gray-900 mb-4">Rejoindre ce Salongo</h3>
+    <form method="POST" action="{% url 'join_event' event.id %}">
+        {% csrf_token %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" name="full_name" placeholder="Votre Nom" required 
+                   class="w-full p-2 border border-gray-300 rounded focus:ring-pnacGreen focus:border-pnacGreen">
+            
+            <input type="tel" name="phone" placeholder="Numéro de Téléphone" required 
+                   class="w-full p-2 border border-gray-300 rounded focus:ring-pnacGreen focus:border-pnacGreen">
+        </div>
+        
+        <div class="mt-4">
+            <label class="inline-flex items-center">
+                <input type="checkbox" name="is_eco_brigade" class="form-checkbox text-pnacGreen h-5 w-5">
+                <span class="ml-2 text-gray-700">Je souhaite rejoindre l'équipe des <span class="font-bold text-pnacGreen">Éco-brigades</span> (Formation requise)</span>
+                </label>
+        </div>
+
+        <button type="submit" class="mt-4 w-full bg-pnacBlue text-white font-bold py-3 rounded hover:bg-blue-600 transition">
+            Confirmer ma présence
+        </button>
+    </form>
+</div>

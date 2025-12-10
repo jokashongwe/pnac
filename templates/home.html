@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="relative bg-gray-900 min-h-[85vh] flex items-center">
+    <div class="absolute inset-0 overflow-hidden">
+        <img src="{% static 'pages/assainissement01.jpg' %}" 
+             alt="Communauté en action" 
+             class="w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full pt-20">
+        <div class="max-w-3xl">
+            <span class="inline-block py-1 px-3 rounded-sm bg-pnacBlue text-white text-xs font-bold tracking-widest uppercase mb-4">
+                Urgence Salubrité
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+                UNIS POUR ASSAINIR <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">NOTRE CADRE DE VIE</span>
+            </h1>
+            <p class="text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl">
+                En RDC, la salubrité est un défi quotidien. Le PNAC fédère les communautés, le secteur privé et les citoyens pour transformer nos quartiers. [cite: 3, 7]
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="{% url 'donate' %}" class="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-lg rounded shadow-lg transition transform hover:-translate-y-1 text-center">
+                    FAIRE UN DON
+                </a>
+                <a href="{% url 'event_list' %}" class="px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-bold text-lg rounded shadow-lg transition text-center border-l-4 border-pnacGreen">
+                    REJOINDRE LE SALONGO
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-pnacGreen text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-green-500 text-center">
+            <div class="p-4">
+                <p class="text-5xl font-extrabold mb-1">{{ total_volunteers }}</p>
+                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Citoyens Mobilisés</p>
+            </div>
+            <div class="p-4">
+                <p class="text-5xl font-extrabold mb-1">{{ total_events }}</p>
+                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Quartiers Assainis</p>
+            </div>
+            <div class="p-4">
+                <p class="text-5xl font-extrabold mb-1">{{ total_raised }} $</p>
+                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Fonds Collectés</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-extrabold text-gray-900">Nos Actions Terrain</h2>
+                <div class="h-1 w-20 bg-pnacBlue mt-4"></div>
+            </div>
+            <a href="{% url 'event_list' %}" class="hidden md:inline-flex items-center text-pnacGreen font-bold hover:underline">
+                Voir toutes les actions 
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for event in upcoming_events %}
+            <article class="flex flex-col bg-white shadow-sm hover:shadow-xl transition duration-300 rounded-lg overflow-hidden group">
+                <div class="relative h-64 overflow-hidden">
+                    {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                    {% else %}
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
+                            <span class="text-4xl font-bold opacity-20">PNAC</span>
+                        </div>
+                    {% endif %}
+                    <div class="absolute top-0 right-0 bg-pnacBlue text-white text-xs font-bold px-3 py-1 m-4 rounded">
+                        {{ event.get_event_type_display }}
+                    </div>
+                </div>
+                <div class="flex-1 p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="text-sm text-gray-500 mb-2">{{ event.date|date:"d M Y" }} | {{ event.location }}</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pnacGreen transition">
+                            <a href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
+                        </h3>
+                        <p class="text-gray-600 line-clamp-3">
+                            {{ event.description }}
+                        </p>
+                    </div>
+                    <a href="{% url 'join_event' event.id %}" class="mt-6 inline-block text-pnacGreen font-bold hover:text-green-700 uppercase text-sm tracking-wide">
+                        Participer &rarr;
+                    </a>
+                </div>
+            </article>
+            {% empty %}
+            <div class="col-span-3 bg-white p-12 text-center rounded-lg border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-400">Aucune campagne programmée pour l'instant.</h3>
+                <p class="mt-2 text-gray-500">Revenez bientôt pour les prochaines dates de Salongo.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-extrabold text-gray-900">Notre approche</h2>
+            <p class="mt-4 text-lg text-gray-600">
+                Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action. [cite: 17, 18]
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="group">
+                <div class="w-20 h-20 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacGreen transition duration-300">
+                    <svg class="w-10 h-10 text-pnacGreen group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Mobilisation Citoyenne</h3>
+                <p class="text-gray-500">Encourager une citoyenneté active fondée sur le civisme et le Salongo populaire. [cite: 11]</p>
+            </div>
+            
+            <div class="group">
+                <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacBlue transition duration-300">
+                    <svg class="w-10 h-10 text-pnacBlue group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation Verte</h3>
+                <p class="text-gray-500">Tri sélectif, recyclage, points verts et création d'éco-brigades dans les quartiers. [cite: 14]</p>
+            </div>
+
+            <div class="group">
+                <div class="w-20 h-20 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacGreen transition duration-300">
+                    <svg class="w-10 h-10 text-pnacGreen group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Partenariats Forts</h3>
+                <p class="text-gray-500">Un cadre de collaboration réunissant secteur public, privé et société civile. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-gray-900 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-white mb-8">Comment nous soutenir ?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <a href="{% url 'donate' %}" class="block bg-pnacGreen hover:bg-green-700 transition p-8 rounded-lg text-left group">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Faire un don</h3>
+                        <p class="text-green-100">Soutenez la logistique de nos équipes terrain.</p>
+                    </div>
+                    <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </div>
+            </a>
+            <a href="{% url 'event_list' %}" class="block bg-gray-800 hover:bg-gray-700 transition p-8 rounded-lg text-left group border border-gray-700">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Devenir Bénévole</h3>
+                        <p class="text-gray-400">Rejoignez une Éco-brigade près de chez vous.</p>
+                    </div>
+                    <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

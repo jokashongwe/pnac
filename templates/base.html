@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNAC - RDC | Assainissement Communautaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pnacGreen: '#16a34a', /* Vert logo */
+                        pnacBlue: '#3b82f6',  /* Bleu logo */
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+    {% if messages %}
+        <div class="max-w-7xl mx-auto px-4 mt-4">
+            {% for message in messages %}
+                <div class="p-4 rounded-md shadow-md {% if message.tags == 'success' %}bg-green-100 text-green-800 border-l-4 border-pnacGreen{% else %}bg-red-100 text-red-800 border-l-4 border-red-500{% endif %}">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            {% if message.tags == 'success' %}
+                                <svg class="h-5 w-5 text-green-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            {% endif %}
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium">{{ message }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <img class="h-16 w-auto" src="{% static 'images/Logo.png' %}" alt="Logo PNAC">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-pnacGreen font-medium">Accueil</a>
+                    <a href="#mission" class="text-gray-600 hover:text-pnacGreen font-medium">Mission</a>
+                    <a href="{% url 'team' %}" class="text-gray-600 hover:text-pnacGreen font-medium">L'Équipe</a>
+                    <a href="/events" class="text-gray-600 hover:text-pnacGreen font-medium">Événements</a>
+                    <a href="/donate" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg">Faire un Don</a>
+               
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold text-pnacBlue mb-4">PNAC RDC</h3>
+                <p class="text-gray-400 text-sm">
+                    Partenariat Novateur pour l’Assainissement Communautaire.
+                    Une initiative de l'Association Mouvement Jaune (AMOJA-RDC). [cite: 1]
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">Contact</h3>
+                <p class="text-gray-400 text-sm">Kinshasa, RDC</p>
+                <p class="text-gray-400 text-sm">contact@pnac-rdc.org</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">Valeurs</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-pnacGreen">Citoyenneté</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-pnacBlue">Solidarité</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-pnacGreen">Transparence</span>
+                    <span class="px-3 py-1 bg-gray-800 rounded-full text-xs text-pnacBlue">Innovation</span>
+                    </div>
+            </div>
+        </div>
+        <div class="text-center mt-10 text-gray-600 text-sm border-t border-gray-800 pt-6">
+            &copy; 2025 PNAC RDC. Tous droits réservés.
+        </div>
+    </footer>
+
+</body>
+</html>

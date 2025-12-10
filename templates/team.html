@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-gray-900 text-white py-20 text-center">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">L'équipe du PNAC</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+            Des citoyens engagés, des experts techniques et des leaders communautaires unis par une même vision : un Congo propre et résilient. 
+        </p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    
+    {% if leadership %}
+    <div class="mb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Coordination & Stratégie</h2>
+            <div class="w-24 h-1 bg-pnacBlue mx-auto mt-4 rounded"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
+            {% for member in leadership %}
+                {% include 'partials/member_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if operations %}
+    <div class="mb-20">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Opérations Terrain & Éco-Brigades</h2>
+            <div class="w-24 h-1 bg-pnacGreen mx-auto mt-4 rounded"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for member in operations %}
+                {% include 'partials/member_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if others %}
+    <div>
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-bold text-gray-900">Support & Communication</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for member in others %}
+                {% include 'partials/member_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="mt-24 bg-gray-50 rounded-2xl p-8 md:p-12 text-center border border-gray-200">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Envie de rejoindre le mouvement ?</h3>
+        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+            Le PNAC est une structure ouverte. Que vous soyez expert en environnement, logisticien ou simple citoyen motivé, votre place est ici. 
+        </p>
+        <a href="{% url 'donate' %}" class="inline-block bg-pnacGreen text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition shadow-lg">
+            Devenir Bénévole
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

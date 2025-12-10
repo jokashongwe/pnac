@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="{% url 'event_list' %}" class="inline-flex items-center text-gray-400 hover:text-white mb-6 text-sm font-medium transition">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            Retour aux actions
+        </a>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between">
+            <div>
+                <span class="inline-block py-1 px-3 rounded bg-pnacBlue text-white text-xs font-bold tracking-widest uppercase mb-3">
+                    {{ event.get_event_type_display }}
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-2">{{ event.title }}</h1>
+                <div class="flex items-center text-gray-300 text-sm md:text-base mt-2">
+                    <svg class="w-5 h-5 mr-2 text-pnacGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    {{ event.location }}
+                </div>
+            </div>
+            <div class="hidden md:block text-right">
+                <div class="text-5xl font-extrabold text-pnacGreen">{{ event.date|date:"d" }}</div>
+                <div class="text-xl font-medium uppercase text-gray-400">{{ event.date|date:"M Y" }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <div class="lg:col-span-2 space-y-8">
+            <div class="rounded-xl overflow-hidden shadow-lg h-64 md:h-96 w-full relative">
+                {% if event.image %}
+                    <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-full object-cover">
+                {% else %}
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-4xl text-gray-400 font-bold opacity-30">PNAC RDC</span>
+                    </div>
+                {% endif %}
+                
+                <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-center px-4 py-2 rounded-lg shadow md:hidden">
+                    <span class="block text-2xl font-bold text-pnacGreen">{{ event.date|date:"d" }}</span>
+                    <span class="block text-xs font-bold uppercase text-gray-600">{{ event.date|date:"M" }}</span>
+                </div>
+            </div>
+
+            <div class="prose prose-lg text-gray-700 max-w-none">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Le contexte de l'action</h3>
+                <p>
+                    {{ event.description|linebreaks }}
+                </p>
+
+                <blockquote class="border-l-4 border-pnacBlue pl-4 italic bg-blue-50 py-4 pr-4 my-6 rounded-r-lg text-gray-800">
+                    "Le PNAC a pour mission de promouvoir, structurer et renforcer les actions communautaires d’assainissement."
+                </blockquote>
+
+                <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Pourquoi participer ?</h3>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Contribuer directement à l'assainissement de <strong>{{ event.location }}</strong>.</li>
+                    <li>Rencontrer les autres membres de la communauté et les autorités locales.</li>
+                    <li>Participer à une dynamique citoyenne forte et apolitique.</li>
+                    </ul>
+            </div>
+            
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mt-8 flex items-start gap-4">
+                <div class="bg-pnacGreen/10 p-3 rounded-full text-pnacGreen">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900">Matériel requis</h4>
+                    <p class="text-sm text-gray-600 mt-1">
+                        Si vous en possédez, apportez des gants, des râteaux ou des pelles. 
+                        Le PNAC fournira des sacs poubelles et des équipements de protection de base grâce aux dons.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-1">
+            <div class="sticky top-24 space-y-6">
+                
+                <div class="bg-white rounded-xl shadow-xl border-t-4 border-pnacGreen overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-xl font-extrabold text-gray-900 mb-2">Je participe !</h3>
+                        <p class="text-gray-500 text-sm mb-6">Rejoignez l'équipe sur le terrain à {{ event.location }}.</p>
+                        
+                        <form method="POST" action="{% url 'join_event' event.id %}" class="space-y-4">
+                            {% csrf_token %}
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nom Complet</label>
+                                <input type="text" name="full_name" required class="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:ring-2 focus:ring-pnacGreen focus:border-pnacGreen transition outline-none" placeholder="Ex: Jean Kapenda">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Téléphone / WhatsApp</label>
+                                <input type="tel" name="phone" required class="w-full bg-gray-50 border border-gray-300 rounded p-3 focus:ring-2 focus:ring-pnacGreen focus:border-pnacGreen transition outline-none" placeholder="Ex: 081 234 ...">
+                            </div>
+
+                            <div class="bg-green-50 p-3 rounded border border-green-100">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" name="is_eco_brigade" class="mt-1 w-5 h-5 text-pnacGreen border-gray-300 rounded focus:ring-pnacGreen">
+                                    <span class="text-sm text-gray-700">
+                                        Je souhaite rejoindre les <strong class="text-pnacGreen">Éco-brigades</strong> (Engagement régulier & Formation).
+                                        </span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-pnacGreen hover:bg-green-700 text-white font-bold py-4 rounded-lg shadow-md hover:shadow-lg transform transition active:scale-95 text-lg">
+                                CONFIRMER MA PRÉSENCE
+                            </button>
+                            <p class="text-xs text-center text-gray-400 mt-2">Inscription gratuite et ouverte à tous.</p>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 text-white text-center">
+                    <h3 class="text-lg font-bold mb-2">Pas disponible ce jour-là ?</h3>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Votre soutien financier permet d'acheter des pelles, des brouettes et des gants pour les volontaires.
+                    </p>
+                    <a href="{% url 'donate' %}" class="block w-full bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 rounded border border-transparent transition">
+                        Faire un don de soutien
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-4 pt-4">
+                    <span class="text-gray-500 text-sm font-medium">Partager :</span>
+                    <a href="#" class="text-gray-400 hover:text-pnacBlue transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-blue-700 transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
