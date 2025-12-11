@@ -44,17 +44,53 @@
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
+                
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="h-16 w-auto" src="{% static 'images/Logo.png' %}" alt="Logo PNAC">
+                    <a href="{% url 'home' %}" class="flex items-center">
+                        <img class="h-12 w-auto md:h-16 mr-3" src="{% static 'images/Logo.png' %}" alt="Logo PNAC">
+                        <div class="flex flex-col">
+                            <span class="block text-lg md:text-xl font-bold text-pnacGreen leading-none">PNAC-RDC</span>
+                            <span class="block text-[10px] md:text-xs text-pnacBlue font-medium tracking-wide">Unis pour assainir</span>
+                        </div>
+                    </a>
                 </div>
+
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/" class="text-gray-600 hover:text-pnacGreen font-medium">Accueil</a>
-                    <a href="{% url 'mission' %}" class="text-gray-600 hover:text-pnacGreen font-medium">Missions</a>
-                    <a href="{% url 'team' %}" class="text-gray-600 hover:text-pnacGreen font-medium">Notre Equipe</a>
-                    <a href="/events" class="text-gray-600 hover:text-pnacGreen font-medium">Événements</a>
-                    <a href="/donate" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg">Faire un Don</a>
-               
+                    <a href="{% url 'home' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Accueil</a>
+                    <a href="{% url 'mission' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Notre Mission</a>
+                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Actions</a>
+                    <a href="{% url 'team' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">L'Équipe</a>
+                    <a href="{% url 'donate' %}" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5">
+                        Faire un Don
+                    </a>
                 </div>
+
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-pnacGreen hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-pnacGreen" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Ouvrir le menu</span>
+                        
+                        <svg id="icon-menu-closed" class="block h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        
+                        <svg id="icon-menu-open" class="hidden h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden bg-white border-t border-gray-100" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="{% url 'home' %}" class="text-gray-700 hover:text-pnacGreen hover:bg-green-50 block px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                <a href="{% url 'mission' %}" class="text-gray-700 hover:text-pnacGreen hover:bg-green-50 block px-3 py-2 rounded-md text-base font-medium">Notre Mission</a>
+                <a href="{% url 'event_list' %}" class="text-gray-700 hover:text-pnacGreen hover:bg-green-50 block px-3 py-2 rounded-md text-base font-medium">Nos Actions</a>
+                <a href="{% url 'team' %}" class="text-gray-700 hover:text-pnacGreen hover:bg-green-50 block px-3 py-2 rounded-md text-base font-medium">L'Équipe</a>
+                
+                <a href="{% url 'donate' %}" class="text-pnacGreen font-bold bg-green-50 block px-3 py-2 rounded-md text-base mt-4 border border-pnacGreen text-center">
+                    ❤️ Faire un Don
+                </a>
             </div>
         </div>
     </nav>
@@ -91,6 +127,24 @@
             &copy; 2025 PNAC RDC. Tous droits réservés.
         </div>
     </footer>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const iconClosed = document.getElementById('icon-menu-closed');
+            const iconOpen = document.getElementById('icon-menu-open');
 
+            if (menu.classList.contains('hidden')) {
+                // Ouvrir
+                menu.classList.remove('hidden');
+                iconClosed.classList.add('hidden');
+                iconOpen.classList.remove('hidden');
+            } else {
+                // Fermer
+                menu.classList.add('hidden');
+                iconClosed.classList.remove('hidden');
+                iconOpen.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
