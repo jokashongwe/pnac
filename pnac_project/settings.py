@@ -109,11 +109,11 @@ WSGI_APPLICATION = 'pnac_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mote8725_pnac',
-        'USER': 'mote8725_mote8725',
-        'PASSWORD': 'SuperD8U1ser',
-        'HOST': 'localhost', # Use 'localhost' for local development
-        'PORT': '',          # Leave blank to use default port (5432)
+        'NAME': os.getenv("DBNAME"),
+        'USER': os.getenv("DBUSER"),
+        'PASSWORD': os.getenv("DBPASSWORD"),
+        'HOST': os.getenv("DBHOST", "localhost"), # Use 'localhost' for local development
+        'PORT': os.getenv("DBPORT", "5432"),          # Leave blank to use default port (5432)
     }
 }
 
