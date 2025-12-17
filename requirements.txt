@@ -2,3 +2,4 @@ django
 django-tailwind
 django-jazzmin
 Pillow
+psycopg2-binary
