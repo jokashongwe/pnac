@@ -44,7 +44,7 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{% url 'home' %}" class="flex items-center">
                         {% load static %}
-                        <img class="h-12 w-auto md:h-16 mr-3" src="{% static 'img/Logo.jpg' %}" alt="Logo PNAC">
+                        <img class="h-12 w-auto md:h-16 mr-3" src="{% static 'images/Logo.png' %}" alt="Logo PNAC">
                         <div class="flex flex-col">
                             <span class="block text-lg md:text-xl font-bold text-pnacGreen leading-none">PNAC-RDC</span>
                             <span class="block text-[10px] md:text-xs text-pnacBlue font-medium tracking-wide">Unis pour assainir</span>
@@ -87,9 +87,10 @@
 
                     <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Notre travail</a>
 
-                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Événements</a>
+                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Nos Actions</a>
 
-                    <a href="#" class="text-gray-600 hover:text-pnacGreen font-medium transition">Médias et ressources</a>
+                    <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Galerie</a>
+                    <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Médias et ressources</a>
 
                     <a href="{% url 'donate' %}" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5 ml-4">
                         Faire un Don
@@ -134,7 +135,7 @@
                 </div>
 
                 <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">Notre travail</a>
-                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">Événements</a>
+                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">Nos Actions</a>
                 <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Galerie</a>
                 <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Médias et ressources</a>
                 

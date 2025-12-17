@@ -108,8 +108,12 @@ WSGI_APPLICATION = 'pnac_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mote8725_pnac',
+        'USER': 'mote8725_mote8725',
+        'PASSWORD': 'SuperD8U1ser',
+        'HOST': 'localhost', # Use 'localhost' for local development
+        'PORT': '',          # Leave blank to use default port (5432)
     }
 }
 

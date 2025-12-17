@@ -8,6 +8,8 @@ from core.views import home, mission
 from events.views import event_list, join_event, event_detail, event_map_data
 from donations.views import donate
 from team.views import team_page
+from gallery.views import gallery_view
+from resources.views import resource_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,14 +19,16 @@ urlpatterns = [
     path('notre-mission/', mission, name='mission'),
     
     # Événements
-    path('events/', event_list, name='event_list'),
-    path('events/<int:event_id>/', event_detail, name='event_detail'),
-    path('events/join/<int:event_id>/', join_event, name='join_event'),
+    path('actions/', event_list, name='event_list'),
+    path('actions/<int:event_id>/', event_detail, name='event_detail'),
+    path('actions/join/<int:event_id>/', join_event, name='join_event'),
     path('api/map-data/', event_map_data, name='event_map_data'),
     
     # Dons
     path('donate/', donate, name='donate'),
 
+    path('gallery', gallery_view, name='gallery'),
+    path('resources/', resource_list, name='resource_list'),
     # Team
     path('equipe/', team_page, name='team'),
 
