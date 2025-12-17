@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-extrabold mb-4">Nos Actions en Images</h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Plongez au cœur du changement. Des conférences stratégiques aux actions de terrain dans les quartiers.
+        </p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="filter-btn active px-6 py-2 rounded-full font-bold transition-all duration-300 bg-pnacGreen text-white shadow-lg transform scale-105" data-filter="all">
+            Tout Voir
+        </button>
+        {% for code, label in categories %}
+        <button class="filter-btn px-6 py-2 rounded-full font-medium bg-white text-gray-600 border border-gray-200 hover:border-pnacGreen hover:text-pnacGreen transition-all duration-300" data-filter="{{ code }}">
+            {{ label }}
+        </button>
+        {% endfor %}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+        {% for item in images %}
+        <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer shadow-md transition-all duration-500 transform scale-100 opacity-100" 
+             data-category="{{ item.category }}"
+             onclick="openLightbox('{{ item.image.url }}', '{{ item.title|escapejs }}', '{{ item.description|default:""|escapejs }}')">
+            
+            <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <span class="text-xs font-bold text-pnacGreen uppercase mb-1">{{ item.get_category_display }}</span>
+                <h3 class="text-white font-bold text-lg leading-tight">{{ item.title }}</h3>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-span-3 text-center py-20 text-gray-400">
+            <p>La galerie est en cours de construction.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-pnacGreen transition">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <div class="max-w-5xl w-full px-4 text-center">
+        <img id="lightbox-img" src="" class="max-h-[80vh] mx-auto rounded shadow-2xl mb-4 object-contain">
+        <h3 id="lightbox-title" class="text-2xl font-bold text-white mb-2"></h3>
+        <p id="lightbox-desc" class="text-gray-400 max-w-2xl mx-auto"></p>
+    </div>
+</div>
+
+<script>
+    // --- 1. LOGIQUE DE FILTRE ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Gestion style boutons
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-pnacGreen', 'text-white', 'shadow-lg', 'scale-105');
+                b.classList.add('bg-white', 'text-gray-600', 'border');
+            });
+            btn.classList.remove('bg-white', 'text-gray-600', 'border');
+            btn.classList.add('bg-pnacGreen', 'text-white', 'shadow-lg', 'scale-105');
+
+            // Filtrage éléments
+            const filterValue = btn.getAttribute('data-filter');
+            
+            items.forEach(item => {
+                const itemCat = item.getAttribute('data-category');
+                
+                if (filterValue === 'all' || filterValue === itemCat) {
+                    item.classList.remove('hidden', 'scale-0', 'opacity-0');
+                    item.classList.add('scale-100', 'opacity-100');
+                    // Petit délai pour permettre l'animation CSS si on retirait 'hidden'
+                    setTimeout(() => item.style.display = 'block', 0); 
+                } else {
+                    item.classList.remove('scale-100', 'opacity-100');
+                    item.classList.add('scale-0', 'opacity-0');
+                    setTimeout(() => item.classList.add('hidden'), 500); // Attend la fin de la transition
+                }
+            });
+        });
+    });
+
+    // --- 2. LOGIQUE LIGHTBOX ---
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbDesc = document.getElementById('lightbox-desc');
+
+    function openLightbox(url, title, desc) {
+        lbImg.src = url;
+        lbTitle.textContent = title;
+        lbDesc.textContent = desc;
+        
+        lightbox.classList.remove('hidden');
+        // Petit délai pour activer l'opacité (fade in)
+        setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('opacity-0');
+        setTimeout(() => {
+            lightbox.classList.add('hidden');
+            lbImg.src = '';
+        }, 300);
+    }
+
+    // Fermer avec Echap
+    document.addEventListener('keydown', function(e) {
+        if(e.key === "Escape") closeLightbox();
+    });
+</script>
+{% endblock %}

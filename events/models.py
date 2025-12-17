@@ -26,6 +26,17 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.date.strftime('%d/%m/%Y')}"
+    
+class EventImage(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ImageField(upload_to='events/gallery/')
+    caption = models.CharField(max_length=200, blank=True, verbose_name="Légende (ex: Équipe secteur Nord)")
+    is_before_after = models.BooleanField(default=False, verbose_name="Est-ce une comparaison Avant/Après ?")
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Image pour {self.event.title}"
 
 class Volunteer(models.Model):
     STATUS_CHOICES = (

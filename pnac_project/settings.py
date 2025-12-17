@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'core',
     'donations',
     'events',
-    'team'
+    'team',
+    'seminars',
+    'resources',
+    'gallery'
 ]
 
 JAZZMIN_SETTINGS = {

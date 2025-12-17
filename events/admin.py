@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Volunteer
+from .models import Event, Volunteer, EventImage
 from django.utils.html import format_html
 import csv
 from django.http import HttpResponse
@@ -59,12 +59,18 @@ class VolunteerAdmin(admin.ModelAdmin):
         return icons.get(obj.status, '')
     status_icon.short_description = "État"
 
+class EventImageInline(admin.TabularInline):
+    model = EventImage
+    extra = 3 # Affiche 3 champs vides par défaut pour uploader rapidement
+    fields = ('image', 'caption')
+
 # --- Configuration des Événements ---
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'location', 'participant_count', 'is_active')
     list_filter = ('event_type', 'is_active')
     search_fields = ('title', 'location')
+    inlines = [EventImageInline]
 
     def participant_count(self, obj):
         count = obj.volunteers.count()

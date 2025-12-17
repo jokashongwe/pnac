@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+        <span class="bg-pnacBlue text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">Conférence PNAC</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-4">{{ seminar.title }}</h1>
+        <p class="text-gray-400 mt-2 text-lg">{{ seminar.start_date|date:"d M Y" }} • {{ seminar.location }}</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+    
+    <div class="lg:col-span-2 space-y-6 text-gray-700">
+        {% if seminar.image %}
+            <img src="{{ seminar.image.url }}" class="w-full h-80 object-cover rounded-xl shadow-lg mb-6">
+        {% endif %}
+        
+        <div class="prose max-w-none">
+            <h3 class="text-2xl font-bold text-gray-900">À propos de l'événement</h3>
+            <p>{{ seminar.description|linebreaks }}</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 mt-8">
+            <h4 class="font-bold text-gray-900 mb-4">Grille Tarifaire</h4>
+            <ul class="space-y-3">
+                <li class="flex justify-between border-b pb-2">
+                    <span>Inscription (Accès complet)</span>
+                    <span class="font-bold text-pnacGreen">{{ seminar.registration_fee }} $</span>
+                </li>
+                {% if seminar.accommodation_fee > 0 %}
+                <li class="flex justify-between border-b pb-2">
+                    <span>Hébergement (Par nuitée)</span>
+                    <span class="font-bold text-pnacBlue">{{ seminar.accommodation_fee }} $</span>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="lg:col-span-1">
+        <div class="sticky top-24 bg-white shadow-xl rounded-xl border-t-4 border-pnacGreen p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Réserver ma place</h3>
+            
+            <form method="POST" id="registrationForm">
+                {% csrf_token %}
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Nom Complet</label>
+                        <input type="text" name="full_name" required class="w-full border-gray-300 rounded-md shadow-sm focus:ring-pnacGreen focus:border-pnacGreen mt-1 p-2 border">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" name="email" required class="w-full border-gray-300 rounded-md shadow-sm mt-1 p-2 border">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Téléphone</label>
+                            <input type="text" name="phone" required class="w-full border-gray-300 rounded-md shadow-sm mt-1 p-2 border">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Profil</label>
+                            <select name="participant_type" class="w-full border-gray-300 rounded-md shadow-sm mt-1 p-2 border bg-white">
+                                <option value="PARTICIPANT">Participant</option>
+                                <option value="PARTNER">Partenaire</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Origine</label>
+                            <select name="origin" id="originSelect" class="w-full border-gray-300 rounded-md shadow-sm mt-1 p-2 border bg-white">
+                                <option value="LOCAL">RDC (Local)</option>
+                                <option value="INTL">International</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {% if seminar.accommodation_fee > 0 %}
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 transition-all" id="accommodationSection">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="needs_accommodation" name="needs_accommodation" type="checkbox" class="focus:ring-pnacBlue h-4 w-4 text-pnacBlue border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="needs_accommodation" class="font-medium text-gray-700">Ajouter l'hébergement</label>
+                                <p class="text-gray-500 text-xs">Recommandé pour les participants internationaux.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3 hidden" id="nightsContainer">
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Nombre de nuits</label>
+                            <input type="number" name="nights" id="nightsInput" value="1" min="1" max="10" class="w-20 border-gray-300 rounded-md p-1 mt-1 text-sm">
+                            <span class="text-xs text-pnacBlue font-bold ml-2">x {{ seminar.accommodation_fee }} $</span>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="mt-8 border-t pt-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-600 font-medium">Total à payer</span>
+                        <span class="text-3xl font-extrabold text-pnacGreen" id="displayTotal">0 $</span>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-pnacGreen text-white font-bold py-3 rounded hover:bg-green-700 transition shadow-lg">
+                        Procéder au paiement
+                    </button>
+                    <p class="text-center text-xs text-gray-400 mt-2">Paiement sécurisé via MaxiCash (Carte & Mobile Money)</p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const baseFee = {{ seminar.registration_fee }}; // Variable Django
+        const accFee = {{ seminar.accommodation_fee }}; // Variable Django
+        
+        const accCheckbox = document.getElementById('needs_accommodation');
+        const nightsContainer = document.getElementById('nightsContainer');
+        const nightsInput = document.getElementById('nightsInput');
+        const displayTotal = document.getElementById('displayTotal');
+        const originSelect = document.getElementById('originSelect');
+
+        function calculateTotal() {
+            let total = baseFee;
+            
+            if (accCheckbox && accCheckbox.checked) {
+                const nights = parseInt(nightsInput.value) || 1;
+                total += (accFee * nights);
+                nightsContainer.classList.remove('hidden');
+            } else if (nightsContainer) {
+                nightsContainer.classList.add('hidden');
+            }
+            
+            displayTotal.textContent = total.toFixed(2) + ' $';
+        }
+
+        // Écouteurs d'événements
+        if (accCheckbox) {
+            accCheckbox.addEventListener('change', calculateTotal);
+            nightsInput.addEventListener('input', calculateTotal);
+        }
+
+        // Auto-check hébergement si "International" est sélectionné
+        if (originSelect && accCheckbox) {
+            originSelect.addEventListener('change', function() {
+                if (this.value === 'INTL') {
+                    accCheckbox.checked = true;
+                    // On peut aussi déclencher une animation ici pour attirer l'attention
+                } else {
+                    accCheckbox.checked = false;
+                }
+                calculateTotal();
+            });
+        }
+
+        // Init
+        calculateTotal();
+    });
+</script>
+{% endblock %}
