@@ -31,17 +31,13 @@ SECRET_KEY = 'django-insecure-xlse3^i8mwcoy*tm!ol-k3b7v97&ad(0&x%)d5=c9mm2d%ep*_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-=======
     'modeltranslation',
-    'jazzmin',
->>>>>>> add_multi_language
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
