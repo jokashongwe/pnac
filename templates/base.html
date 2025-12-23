@@ -1,5 +1,6 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,8 +70,13 @@
                         <img class="h-12 w-auto md:h-16 mr-3" src="{% static 'images/Logo.png' %}" alt="Logo PNAC">
                         <!-- <div class="flex flex-col">
                             <span class="block text-lg md:text-xl font-bold text-pnacGreen leading-none">PNAC-RDC</span>
+<<<<<<< HEAD
                             <span class="block text-[10px] md:text-xs text-pnacBlue font-medium tracking-wide">Unis pour assainir</span> 
                         </div>-->
+=======
+                            <span class="block text-[10px] md:text-xs text-pnacBlue font-medium tracking-wide">{% trans "Unis pour assainir" %}</span>
+                        </div>
+>>>>>>> add_multi_language
                     </a>
                 </div>
 
@@ -78,45 +84,59 @@
                     
                     <div class="relative group h-full flex items-center">
                         <button class="text-gray-600 group-hover:text-pnacGreen font-medium flex items-center h-full transition focus:outline-none">
-                            Qui sommes-nous
+                            {% trans "Qui sommes-nous" %}
                             <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
                         
                         <div class="absolute left-0 top-20 w-[600px] bg-white shadow-2xl rounded-b-xl border-t-4 border-pnacGreen hidden group-hover:block transition-all duration-200 opacity-0 group-hover:opacity-100 transform origin-top">
                             <div class="grid grid-cols-2 gap-0">
                                 <div class="p-6 bg-white rounded-bl-xl">
-                                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">À Propos</h3>
+                                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">{% trans "À propos" %}</h3>
                                     <ul class="space-y-3">
-                                        <li><a href="{% url 'mission' %}" class="block text-gray-700 hover:text-pnacGreen font-medium">Qui sommes-nous (Mission)</a></li> <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">Financements et donateurs</a></li>
-                                        <li><a href="{% url 'team' %}" class="block text-gray-700 hover:text-pnacGreen">Gouvernance et direction</a></li>
-                                        <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">Histoire</a></li>
-                                        <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">Stratégie institutionnelle</a></li> </ul>
+                                        <li><a href="{% url 'mission' %}" class="block text-gray-700 hover:text-pnacGreen font-medium">{% trans "Qui sommes-nous" %} (Mission)</a></li> <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Financements et donateurs" %}</a></li>
+                                        <li><a href="{% url 'team' %}" class="block text-gray-700 hover:text-pnacGreen">{% trans "Gouvernance et direction" %}</a></li>
+                                        <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Histoire" %}</a></li>
+                                        <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Stratégie institutionnelle" %}</a></li> </ul>
                                 </div>
                                 
                                 <div class="p-6 bg-gray-50 rounded-br-xl">
-                                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">Partenariats</h3> <ul class="space-y-3">
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Agences de l’ONU & Internationales</a></li>
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Gouvernements</a></li>
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Partenariats multi-partites</a></li>
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Organisations non gouvernementales</a></li>
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Recherche et Think Tanks</a></li>
-                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">Secteur privé</a></li>
+                                    <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 border-b pb-2">{% trans "Partenariats" %}</h3> <ul class="space-y-3">
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Agences de l’ONU & Internationales" %}</a></li>
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Gouvernements" %}</a></li>
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Partenariats" %} multi-partites</a></li>
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Organisations non gouvernementales" %}</a></li>
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Recherche et Think Tanks" %}</a></li>
+                                        <li><a href="#" class="block text-gray-600 hover:text-pnacBlue text-sm">{% trans "Secteur privé" %}</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Notre travail</a>
+                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Notre travail" %}</a>
 
-                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Nos Actions</a>
+                    <a href="{% url 'event_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Nos Actions" %}</a>
 
-                    <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Galerie</a>
-                    <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Médias et ressources</a>
+                    <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Galerie" %}</a>
+                    <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Médias et ressources" %}</a>
 
                     <a href="{% url 'donate' %}" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5 ml-4">
-                        Faire un Don
+                        {% trans "Faire un Don" %}
                     </a>
+                    <form action="{% url 'set_language' %}" method="post" class="inline-block ml-4">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language" onchange="this.form.submit()" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-pnacGreen focus:border-pnacGreen block p-2">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                    {{ language.code|upper }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
                 </div>
 
                 <div class="-mr-2 flex lg:hidden">
@@ -137,33 +157,47 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 
                 <div class="border-b border-gray-100 pb-2 mb-2">
-                    <span class="block px-3 py-2 text-base font-bold text-pnacGreen uppercase">Qui sommes-nous</span>
+                    <span class="block px-3 py-2 text-base font-bold text-pnacGreen uppercase">{% trans "Qui sommes-nous" %}</span>
                     
                     <div class="pl-4 mt-1 space-y-1 border-l-2 border-gray-100 ml-3">
-                        <span class="block px-2 text-xs font-bold text-gray-400 uppercase">À propos</span>
-                        <a href="{% url 'mission' %}" class="block px-3 py-1 text-sm text-gray-600">Qui sommes-nous</a>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">Financements</a>
-                        <a href="{% url 'team' %}" class="block px-3 py-1 text-sm text-gray-600">Gouvernance</a>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">Histoire</a>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">Stratégie</a>
+                        <span class="block px-2 text-xs font-bold text-gray-400 uppercase">{% trans "À propos" %}</span>
+                        <a href="{% url 'mission' %}" class="block px-3 py-1 text-sm text-gray-600">{% trans "Qui sommes-nous" %}</a>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Financements" %}</a>
+                        <a href="{% url 'team' %}" class="block px-3 py-1 text-sm text-gray-600">{% trans "Gouvernance" %}</a>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Histoire" %}</a>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Stratégie" %}</a>
                     </div>
 
                     <div class="pl-4 mt-3 space-y-1 border-l-2 border-blue-100 ml-3">
-                        <span class="block px-2 text-xs font-bold text-gray-400 uppercase">Partenariats</span>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">Agences ONU</a>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">Gouvernements</a>
-                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">ONG & Privé</a>
+                        <span class="block px-2 text-xs font-bold text-gray-400 uppercase">{% trans "Partenariats" %}</span>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Agences ONU" %}</a>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Gouvernements" %}</a>
+                        <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "ONG & Privé" %}</a>
                     </div>
                 </div>
 
-                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">Notre travail</a>
-                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">Nos Actions</a>
-                <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Galerie</a>
-                <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Médias et ressources</a>
+                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">{% trans "Notre travail" %}</a>
+                <a href="{% url 'event_list' %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-pnacGreen hover:bg-green-50">{% trans "Nos Actions" %}</a>
+                <a href="{% url 'gallery' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Galerie" %}</a>
+                <a href="{% url 'resource_list' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">{% trans "Médias et ressources" %}</a>
                 
                 <a href="{% url 'donate' %}" class="block w-full text-center mt-4 bg-pnacGreen text-white px-5 py-3 rounded-lg font-bold shadow-md">
-                    Faire un Don
+                    {% trans "Faire un Don" %}
                 </a>
+                <form action="{% url 'set_language' %}" method="post" class="inline-block ml-4">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language" onchange="this.form.submit()" class="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-pnacGreen focus:border-pnacGreen block p-2">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                {{ language.code|upper }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
             </div>
         </div>
     </nav>
@@ -187,8 +221,8 @@
             <div>
                 <h3 class="text-xl font-bold text-pnacBlue mb-4">PNAC RDC</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    Partenariat Novateur pour l’Assainissement Communautaire.
-                    Une initiative de l'Association Mouvement Jaune (AMOJA-RDC).
+                    {% trans "Partenariat Novateur pour l’Assainissement Communautaire.
+                    Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)." %}
                 </p>
                 <div class="mt-4 flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white">FB</a>
@@ -199,20 +233,20 @@
             <div>
                 <h3 class="text-lg font-bold mb-4">Contact</h3>
                 <p class="text-gray-400 text-sm">Kinshasa, RDC</p>
-                <p class="text-gray-400 text-sm">contact@pnac-rdc.org</p>
+                <p class="text-gray-400 text-sm">info@pnac-rdc.org</p>
                 <p class="text-gray-400 text-sm mt-2 font-bold text-pnacGreen">+243 81 000 0000</p>
             </div>
             <div>
-                <h3 class="text-lg font-bold mb-4">Liens Rapides</h3>
+                <h3 class="text-lg font-bold mb-4">{% trans "Liens Rapides" %}</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
-                    <li><a href="{% url 'mission' %}" class="hover:text-pnacGreen">Qui sommes-nous</a></li>
-                    <li><a href="{% url 'event_list' %}" class="hover:text-pnacGreen">Rejoindre une Éco-Brigade</a></li>
-                    <li><a href="{% url 'donate' %}" class="hover:text-pnacGreen">Faire un don</a></li>
+                    <li><a href="{% url 'mission' %}" class="hover:text-pnacGreen">{% trans "Qui sommes-nous" %}</a></li>
+                    <li><a href="{% url 'event_list' %}" class="hover:text-pnacGreen">{% trans "Rejoindre une Éco-Brigade" %}</a></li>
+                    <li><a href="{% url 'donate' %}" class="hover:text-pnacGreen">{% trans "Faire un Don" %}</a></li>
                 </ul>
             </div>
         </div>
         <div class="text-center mt-10 text-gray-600 text-sm border-t border-gray-800 pt-6">
-            &copy; 2025 PNAC RDC. Tous droits réservés.
+            &copy; 2025 PNAC RDC. {% trans "Tous droits réservés." %}
         </div>
     </footer>
 

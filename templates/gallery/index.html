@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
 <div class="bg-gray-900 text-white py-16">
     <div class="max-w-7xl mx-auto px-4 text-center">
-        <h1 class="text-4xl font-extrabold mb-4">Nos Actions en Images</h1>
+        <h1 class="text-4xl font-extrabold mb-4">{% trans "Nos Actions en Images" %}</h1>
         <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-            Plongez au cœur du changement. Des conférences stratégiques aux actions de terrain dans les quartiers.
+           {% trans "Plongez au cœur du changement. Des conférences stratégiques aux actions de terrain dans les quartiers." %}
         </p>
     </div>
 </div>
@@ -15,7 +16,7 @@
 
     <div class="flex flex-wrap justify-center gap-4 mb-12">
         <button class="filter-btn active px-6 py-2 rounded-full font-bold transition-all duration-300 bg-pnacGreen text-white shadow-lg transform scale-105" data-filter="all">
-            Tout Voir
+            {% trans "Tout Voir" %}
         </button>
         {% for code, label in categories %}
         <button class="filter-btn px-6 py-2 rounded-full font-medium bg-white text-gray-600 border border-gray-200 hover:border-pnacGreen hover:text-pnacGreen transition-all duration-300" data-filter="{{ code }}">
@@ -39,7 +40,7 @@
         </div>
         {% empty %}
         <div class="col-span-3 text-center py-20 text-gray-400">
-            <p>La galerie est en cours de construction.</p>
+            <p>{% trans "La galerie est en cours de construction." %}</p>
         </div>
         {% endfor %}
     </div>

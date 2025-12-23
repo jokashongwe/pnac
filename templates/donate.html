@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900">Faire un don sécurisé</h2>
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">{% trans "Faire un don sécurisé" %}</h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-            Choisissez votre méthode de paiement préférée.
+            {% trans "Choisissez votre méthode de paiement préférée." %}
         </p>
         
         <div class="flex justify-center gap-4 mt-6  opacity-80">
@@ -29,22 +30,22 @@
                 </div>
 
                 <div>
-                    <label for="amount" class="block text-sm font-medium text-gray-700">Montant (USD)</label>
+                    <label for="amount" class="block text-sm font-medium text-gray-700">{% trans "Montant" %} (USD)</label>
                     <input type="number" name="amount" id="amount" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
                 </div>
 
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nom complet</label>
+                    <label for="name" class="block text-sm font-medium text-gray-700">{% trans "Nom complet" %}</label>
                     <input type="text" name="name" id="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
                 </div>
 
                 <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Téléphone (M-Pesa / Airtel / Orange)</label>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">{% trans "Téléphone" %} (M-Pesa / Airtel / Orange)</label>
                     <input type="tel" name="phone" id="phone" placeholder="Ex: 081..." class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
                 </div>
 
                 <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-pnacBlue hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pnacBlue transition">
-                    Procéder au paiement sécurisé
+                    {% trans "Procéder au paiement sécurisé" %}
                 </button>
             </form>
         </div>

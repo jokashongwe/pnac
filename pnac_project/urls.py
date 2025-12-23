@@ -1,8 +1,8 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls.i18n import i18n_patterns
 # Import des vues
 from core.views import home, mission
 from events.views import event_list, join_event, event_detail, event_map_data
@@ -12,6 +12,10 @@ from gallery.views import gallery_view
 from resources.views import resource_list
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')), 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     
     # Core
@@ -32,4 +36,4 @@ urlpatterns = [
     # Team
     path('equipe/', team_page, name='team'),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
