@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv() 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xlse3^i8mwcoy*tm!ol-k3b7v97&ad(0&x%)d5=c9mm2d%ep*_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
 
@@ -32,7 +36,6 @@ ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,12 +111,12 @@ WSGI_APPLICATION = 'pnac_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv("DBNAME"),
         'USER': os.getenv("DBUSER"),
         'PASSWORD': os.getenv("DBPASSWORD"),
         'HOST': os.getenv("DBHOST", "localhost"), # Use 'localhost' for local development
-        'PORT': os.getenv("DBPORT", "5432"),          # Leave blank to use default port (5432)
+        'PORT': os.getenv("DBPORT", "3306"),          # Leave blank to use default port 
     }
 }
 
@@ -153,9 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATIC_ROOT = "/home/mote8725/public_html/static"
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
