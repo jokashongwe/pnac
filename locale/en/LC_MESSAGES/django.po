@@ -124,6 +124,10 @@ msgstr "Join an Eco-Brigade"
 msgid "Tous droits réservés."
 msgstr "All rights reserved."
 
+#: .\templates\base.html:219
+msgid "Partenariat Novateur pour l’Assainissement Communautaire.Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
+msgstr "Innovative Partnership for Community Sanitation. An initiative of the Yellow Movement Association (AMOJA-DRC)."
+
 #: .\templates\components\map_section.html:7
 msgid "Carte des Interventions"
 msgstr "Intervention Map"
