@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xlse3^i8mwcoy*tm!ol-k3b7v97&ad(0&x%)d5=c9mm2d%ep*_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -108,12 +108,8 @@ WSGI_APPLICATION = 'pnac_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DBNAME"),
-        'USER': os.getenv("DBUSER"),
-        'PASSWORD': os.getenv("DBPASSWORD"),
-        'HOST': os.getenv("DBHOST", "localhost"), # Use 'localhost' for local development
-        'PORT': os.getenv("DBPORT", "5432"),          # Leave blank to use default port (5432)
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
