@@ -1,0 +1,730 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR jokashongwe@gmail.com, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-23 10:51+0100\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME jokashongwe@gmail.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\base.html:51
+msgid "Unis pour assainir"
+msgstr "United to clean up"
+
+#: .\templates\base.html:60 .\templates\base.html:69 .\templates\base.html:119
+#: .\templates\base.html:123 .\templates\base.html:201
+msgid "Qui sommes-nous"
+msgstr "Who are we"
+
+#: .\templates\base.html:67 .\templates\base.html:122
+msgid "À propos"
+msgstr "About"
+
+#: .\templates\base.html:69
+msgid "Financements et donateurs"
+msgstr "Funding and donors"
+
+#: .\templates\base.html:70
+msgid "Gouvernance et direction"
+msgstr "Governance and leadership"
+
+#: .\templates\base.html:71 .\templates\base.html:126
+msgid "Histoire"
+msgstr "History"
+
+#: .\templates\base.html:72
+msgid "Stratégie institutionnelle"
+msgstr "Institutional strategy"
+
+#: .\templates\base.html:76 .\templates\base.html:79 .\templates\base.html:131
+msgid "Partenariats"
+msgstr "Partnerships"
+
+#: .\templates\base.html:77
+msgid "Agences de l’ONU & Internationales"
+msgstr "UN & International Agencies"
+
+#: .\templates\base.html:78 .\templates\base.html:133
+msgid "Gouvernements"
+msgstr "Governments"
+
+#: .\templates\base.html:80
+msgid "Organisations non gouvernementales"
+msgstr "Non-governmental organizations"
+
+#: .\templates\base.html:81
+msgid "Recherche et Think Tanks"
+msgstr "Research and Think Tanks"
+
+#: .\templates\base.html:82
+msgid "Secteur privé"
+msgstr "Private sector"
+
+#: .\templates\base.html:89 .\templates\base.html:138
+msgid "Notre travail"
+msgstr "Our work"
+
+#: .\templates\base.html:91 .\templates\base.html:139
+msgid "Nos Actions"
+msgstr "Our Actions"
+
+#: .\templates\base.html:93 .\templates\base.html:140
+msgid "Galerie"
+msgstr "Gallery"
+
+#: .\templates\base.html:94 .\templates\base.html:141
+msgid "Médias et ressources"
+msgstr "Media and resources"
+
+#: .\templates\base.html:97 .\templates\base.html:144
+#: .\templates\base.html:203
+msgid "Faire un Don"
+msgstr "Make a Donation"
+
+#: .\templates\base.html:124
+msgid "Financements"
+msgstr "Financing"
+
+#: .\templates\base.html:125
+msgid "Gouvernance"
+msgstr "Governance"
+
+#: .\templates\base.html:127
+msgid "Stratégie"
+msgstr "Strategy"
+
+#: .\templates\base.html:132
+msgid "Agences ONU"
+msgstr "UN Agencies"
+
+#: .\templates\base.html:134
+msgid "ONG & Privé"
+msgstr "NGO & Private"
+
+#: .\templates\base.html:199
+msgid "Liens Rapides"
+msgstr "Quick Links"
+
+#: .\templates\base.html:202
+msgid "Rejoindre une Éco-Brigade"
+msgstr "Join an Eco-Brigade"
+
+#: .\templates\base.html:208
+msgid "Tous droits réservés."
+msgstr "All rights reserved."
+
+#: .\templates\components\map_section.html:7
+msgid "Carte des Interventions"
+msgstr "Intervention Map"
+
+#: .\templates\components\map_section.html:9
+msgid "Découvrez où nos équipes et les communautés agissent en ce moment."
+msgstr "Find out where our teams and communities are taking action right now."
+
+#: .\templates\components\map_section.html:12
+msgid "Actions Planifiées"
+msgstr "Planned Actions"
+
+#: .\templates\components\map_section.html:13
+msgid "Actions Réalisées"
+msgstr "Actions Carried Out"
+
+#: .\templates\donate.html:7 .\templates\donations\index.html:7
+msgid "Faire un don sécurisé"
+msgstr "Make a secure donation"
+
+#: .\templates\donate.html:9 .\templates\donations\index.html:9
+msgid "Choisissez votre méthode de paiement préférée."
+msgstr "Choose your preferred payment method."
+
+#: .\templates\donate.html:32
+msgid "Montant"
+msgstr "Amount"
+
+#: .\templates\donate.html:37 .\templates\donations\index.html:37
+msgid "Nom complet"
+msgstr "Full name"
+
+#: .\templates\donate.html:42 .\templates\seminars\detail.html:61
+msgid "Téléphone"
+msgstr "Phone"
+
+#: .\templates\donate.html:47 .\templates\donations\index.html:47
+msgid "Procéder au paiement sécurisé"
+msgstr "Proceed to secure payment"
+
+#: .\templates\donations\index.html:32
+msgid "Montant (USD)"
+msgstr "Amount (USD)"
+
+#: .\templates\donations\index.html:42
+msgid "Téléphone (M-Pesa / Airtel / Orange)"
+msgstr "Telephone (M-Pesa / Airtel / Orange)"
+
+#: .\templates\donations\redirect_maxicash.html:6
+msgid "Veuillez patienter, transaction sécurisée en cours."
+msgstr "Please wait, secure transaction in progress."
+
+#: .\templates\events\event_detail.html:10
+msgid "Retour aux actions"
+msgstr "Back to action"
+
+#: .\templates\events\event_detail.html:51
+msgid "Le contexte de l'action"
+msgstr "The context of the action"
+
+#: .\templates\events\event_detail.html:57
+msgid ""
+"Le PNAC a pour mission de promouvoir, structurer et renforcer les actions "
+"communautaires d’assainissement."
+msgstr ""
+"The mission of the PNAC is to promote, structure and strengthen community "
+"sanitation actions."
+
+#: .\templates\events\event_detail.html:60
+msgid "Pourquoi participer ?"
+msgstr "Why participate?"
+
+#: .\templates\events\event_detail.html:62
+msgid "Contribuer directement à l'assainissement de"
+msgstr "Contribute directly to the sanitation of"
+
+#: .\templates\events\event_detail.html:63
+msgid ""
+"Rencontrer les autres membres de la communauté et les autorités locales."
+msgstr "Meet other community members and local authorities."
+
+#: .\templates\events\event_detail.html:64
+msgid "Participer à une dynamique citoyenne forte et apolitique."
+msgstr "Participate in a strong and apolitical citizen dynamic."
+
+#: .\templates\events\event_detail.html:71
+msgid "Retour en images"
+msgstr "Back in pictures"
+
+#: .\templates\events\event_detail.html:94
+msgid "Matériel requis"
+msgstr "Materials required"
+
+#: .\templates\events\event_detail.html:108
+msgid "Je participe !"
+msgstr "I'm participating!"
+
+#: .\templates\events\event_detail.html:109
+msgid "Rejoignez l'équipe sur le terrain à"
+msgstr "Join the team on the ground at"
+
+#: .\templates\events\event_detail.html:114
+#: .\templates\seminars\detail.html:51
+msgid "Nom Complet"
+msgstr "Full Name"
+
+#: .\templates\events\event_detail.html:119
+msgid "Téléphone / WhatsApp"
+msgstr "Phone / WhatsApp"
+
+#: .\templates\events\event_detail.html:127
+msgid "Je souhaite rejoindre les"
+msgstr "I would like to join the"
+
+#: .\templates\events\event_detail.html:127
+#: .\templates\events\joint_event.html:16
+msgid "Éco-brigades"
+msgstr "Eco-brigades"
+
+#: .\templates\events\event_detail.html:127
+msgid "(Engagement régulier & Formation)"
+msgstr "(Regular engagement & Training)"
+
+#: .\templates\events\event_detail.html:133
+msgid "CONFIRMER MA PRÉSENCE"
+msgstr "CONFIRM MY PRESENCE"
+
+#: .\templates\events\event_detail.html:135
+msgid "Inscription gratuite et ouverte à tous."
+msgstr "Registration is free and open to all."
+
+#: .\templates\events\event_detail.html:141
+msgid "Pas disponible ce jour-là ?"
+msgstr "Not available that day?"
+
+#: .\templates\events\event_detail.html:143
+msgid ""
+"Votre soutien financier permet d'acheter des pelles, des brouettes et des "
+"gants pour les volontaires."
+msgstr ""
+"Your financial support helps purchase shovels, wheelbarrows and gloves for "
+"volunteers."
+
+#: .\templates\events\event_detail.html:146
+msgid "Faire un don de soutien"
+msgstr "Make a supportive donation"
+
+#: .\templates\events\event_detail.html:151
+msgid "Partager :"
+msgstr "Share :"
+
+#: .\templates\events\joint_event.html:2
+msgid "Rejoindre ce Salongo"
+msgstr "Join this Salongo"
+
+#: .\templates\events\joint_event.html:16
+msgid "Je souhaite rejoindre l'équipe des"
+msgstr "I would like to join the team of"
+
+#: .\templates\events\joint_event.html:16
+msgid "(Formation requise)"
+msgstr "(Training required)"
+
+#: .\templates\events\joint_event.html:21
+msgid "Confirmer ma présence"
+msgstr "Confirm my presence"
+
+#: .\templates\gallery\index.html:7
+msgid "Nos Actions en Images"
+msgstr "Our Actions in Images"
+
+#: .\templates\gallery\index.html:9
+msgid ""
+"Plongez au cœur du changement. Des conférences stratégiques aux actions de "
+"terrain dans les quartiers."
+msgstr ""
+"Dive into the heart of change. From strategic conferences to field actions "
+"in neighborhoods."
+
+#: .\templates\gallery\index.html:18
+msgid "Tout Voir"
+msgstr "View All"
+
+#: .\templates\gallery\index.html:42
+msgid "La galerie est en cours de construction."
+msgstr "The gallery is under construction."
+
+#: .\templates\home.html:36 .\templates\home.html:183
+msgid "Faire un don"
+msgstr "Make a donation"
+
+#: .\templates\home.html:45
+msgid "Veuillez ajouter des slides dans l'administration."
+msgstr "Please add slides in the administration."
+
+#: .\templates\home.html:74
+msgid "Citoyens Mobilisés"
+msgstr "Mobilized Citizens"
+
+#: .\templates\home.html:78
+msgid "Quartiers Assainis"
+msgstr "Sanitized Neighborhoods"
+
+#: .\templates\home.html:88
+msgid "Nos Actions Terrain"
+msgstr "Our Field Actions"
+
+#: .\templates\home.html:92
+msgid "Voir toutes les actions "
+msgstr "See all actions"
+
+#: .\templates\home.html:129
+msgid "Aucune campagne programmée pour l'instant."
+msgstr "No campaign scheduled at this time."
+
+#: .\templates\home.html:130
+msgid "Revenez bientôt pour les prochaines dates de Salongo."
+msgstr "Check back soon for upcoming Salongo dates."
+
+#: .\templates\home.html:142
+msgid "Notre approche"
+msgstr "Our approach"
+
+#: .\templates\home.html:144
+msgid ""
+"Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le"
+" PNAC répond à ce besoin par trois leviers d'action."
+msgstr ""
+"The current sanitation model in the DRC requires an integrated approach. The"
+" PNAC responds to this need through three levers of action."
+
+#: .\templates\home.html:153
+msgid "Mobilisation Citoyenne"
+msgstr "Citizen Mobilization"
+
+#: .\templates\home.html:154
+msgid ""
+"Encourager une citoyenneté active fondée sur le civisme et le Salongo "
+"populaire."
+msgstr ""
+"Encourage active citizenship based on good citizenship and popular Salongo."
+
+#: .\templates\home.html:161
+msgid "Innovation Verte"
+msgstr "Green Innovation"
+
+#: .\templates\home.html:162
+msgid ""
+"Tri sélectif, recyclage, points verts et création d'éco-brigades dans les "
+"quartiers."
+msgstr ""
+"Selective sorting, recycling, green points and creation of eco-brigades in "
+"neighborhoods."
+
+#: .\templates\home.html:169
+msgid "Partenariats Forts"
+msgstr "Strong Partnerships"
+
+#: .\templates\home.html:170
+msgid ""
+"Un cadre de collaboration réunissant secteur public, privé et société "
+"civile."
+msgstr ""
+"A collaborative framework bringing together the public, private and civil "
+"society sectors."
+
+#: .\templates\home.html:178
+msgid "Comment nous soutenir ?"
+msgstr "How to support us?"
+
+#: .\templates\home.html:184
+msgid "Soutenez la logistique de nos équipes terrain."
+msgstr "Support the logistics of our field teams."
+
+#: .\templates\home.html:192 .\templates\mission.html:189
+#: .\templates\team.html:66
+msgid "Devenir Bénévole"
+msgstr "Become a Volunteer"
+
+#: .\templates\home.html:193
+msgid "Rejoignez une Éco-brigade près de chez vous."
+msgstr "Join an Eco-brigade near you."
+
+#: .\templates\mission.html:13
+msgid "Notre Raison d'Être"
+msgstr "Our Purpose"
+
+#: .\templates\mission.html:16
+msgid ""
+"Le PNAC est une réponse structurée, durable et inclusive aux défis "
+"d’assainissement et de salubrité en République Démocratique du Congo."
+msgstr ""
+"The PNAC is a structured, sustainable and inclusive response to sanitation "
+"and safety challenges in the Democratic Republic of Congo."
+
+#: .\templates\mission.html:26
+msgid "Pourquoi le PNAC ?"
+msgstr "Why the PNAC?"
+
+#: .\templates\mission.html:30
+msgid ""
+"Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. "
+"Les actions étatiques, bien que cruciales, ne suffisent pas à relever les "
+"défis urbains et périurbains de la salubrité."
+msgstr ""
+"The current sanitation model in the DRC requires an integrated approach. "
+"State actions, although crucial, are not enough to meet the urban and peri-"
+"urban sanitation challenges."
+
+#: .\templates\mission.html:33
+msgid ""
+"Le PNAC répond à ce besoin en apportant une structure agile, une expertise "
+"associative et une capacité de mobilisation rapide des communautés."
+msgstr ""
+"The PNAC responds to this need by providing an agile structure, associative "
+"expertise and a capacity for rapid community mobilization."
+
+#: .\templates\mission.html:36
+msgid ""
+"Nous sommes un cadre de collaboration ouvert réunissant communautés, "
+"autorités, société civile et secteur privé."
+msgstr ""
+"We are an open collaborative framework bringing together communities, "
+"authorities, civil society and the private sector."
+
+#: .\templates\mission.html:45
+msgid "Initiative portée par"
+msgstr "Initiative led by"
+
+#: .\templates\mission.html:46
+msgid "L'Association Mouvement Jaune"
+msgstr "The Yellow Movement Association"
+
+#: .\templates\mission.html:61
+msgid "Notre Vision"
+msgstr "Our Vision"
+
+#: .\templates\mission.html:64
+msgid ""
+"Construire une République Démocratique du Congo propre, saine et résiliente,"
+" où chaque citoyen participe activement à l’assainissement, à la gestion des"
+" déchets et à la préservation de l’environnement."
+msgstr ""
+"Build a clean, healthy and resilient Democratic Republic of Congo, where "
+"every citizen actively participates in sanitation, waste management and "
+"preservation of the environment."
+
+#: .\templates\mission.html:72
+msgid "Notre Mission"
+msgstr "Our Mission"
+
+#: .\templates\mission.html:75
+msgid ""
+"Promouvoir, structurer et renforcer les actions communautaires "
+"d’assainissement, en mobilisant l’ensemble des acteurs autour d’approches "
+"participatives, novatrices et durables."
+msgstr ""
+"Promote, structure and strengthen community sanitation actions, by "
+"mobilizing all stakeholders around participatory, innovative and sustainable"
+" approaches."
+
+#: .\templates\mission.html:85
+msgid "Nos Valeurs Fondamentales"
+msgstr "Our Core Values"
+
+#: .\templates\mission.html:92
+msgid "Citoyenneté"
+msgstr "Citizenship"
+
+#: .\templates\mission.html:99
+msgid "Solidarité"
+msgstr "Solidarity"
+
+#: .\templates\mission.html:106
+msgid "Innovation"
+msgstr "Innovation"
+
+#: .\templates\mission.html:113
+msgid "Transparence"
+msgstr "Transparency"
+
+#: .\templates\mission.html:120
+msgid "Engagement"
+msgstr "Commitment"
+
+#: .\templates\mission.html:127
+msgid "Responsabilité"
+msgstr "Responsibility"
+
+#: .\templates\mission.html:135
+msgid "Nos Objectifs Stratégiques"
+msgstr "Our Strategic Objectives"
+
+#: .\templates\mission.html:140
+msgid "Généraux"
+msgstr "Generals"
+
+#: .\templates\mission.html:144
+msgid ""
+"Améliorer durablement le cadre de vie à travers l'assainissement "
+"communautaire."
+msgstr ""
+"Sustainably improve the living environment through community sanitation."
+
+#: .\templates\mission.html:148
+msgid ""
+"Créer des synergies entre partenaires publics, privés et communautaires."
+msgstr "Create synergies between public, private and community partners."
+
+#: .\templates\mission.html:152
+msgid "Encourager une citoyenneté active fondée sur le civisme et le salongo."
+msgstr "Encourage active citizenship based on good citizenship and salongo."
+
+#: .\templates\mission.html:157
+msgid "Spécifiques"
+msgstr "Specific"
+
+#: .\templates\mission.html:161
+msgid "Organiser des campagnes de salubrité régulières."
+msgstr "Organize regular sanitation campaigns."
+
+#: .\templates\mission.html:165
+msgid ""
+"Mettre en place des solutions innovantes : tri sélectif, recyclage, points "
+"verts."
+msgstr ""
+"Implement innovative solutions: selective sorting, recycling, green points."
+
+#: .\templates\mission.html:169
+msgid ""
+"Outiller les jeunes, femmes et leaders locaux par des formations pratiques."
+msgstr "Equip young people, women and local leaders with practical training."
+
+#: .\templates\mission.html:180
+msgid "Prêt à changer les choses ?"
+msgstr "Ready to make a change?"
+
+#: .\templates\mission.html:182
+msgid ""
+"Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. "
+"Rejoignez le mouvement pour un cadre de vie assaini."
+msgstr ""
+"The PNAC intervenes primarily in Kinshasa and in urban centers. Join the "
+"movement for a healthier living environment."
+
+#: .\templates\mission.html:186
+msgid "Soutenir nos actions"
+msgstr "Support our actions"
+
+#: .\templates\resources\card_resource.html:25
+msgid "Télécharger"
+msgstr "Download"
+
+#: .\templates\resources\list.html:8
+msgid "Médiathèque & Ressources"
+msgstr "Media Library & Resources"
+
+#: .\templates\resources\list.html:10
+msgid ""
+"Accédez à nos guides de sensibilisation, nos rapports d'activité et aux "
+"outils pour organiser votre propre Salongo."
+msgstr ""
+"Access our awareness guides, activity reports and tools to organize your own"
+" Salongo."
+
+#: .\templates\resources\list.html:23
+msgid "Guides de Sensibilisation"
+msgstr "Awareness Guides"
+
+#: .\templates\resources\list.html:24
+msgid "Pour l'éducation citoyenne et les écoles."
+msgstr "For civic education and schools."
+
+#: .\templates\resources\list.html:32
+msgid "Aucun guide disponible pour le moment."
+msgstr "No guides available at the moment."
+
+#: .\templates\resources\list.html:43
+msgid "Rapports & Transparence"
+msgstr "Reporting & Transparency"
+
+#: .\templates\resources\list.html:44
+msgid "Audits financiers et rapports d'impact."
+msgstr "Financial audits and impact reports."
+
+#: .\templates\resources\list.html:52
+msgid "Les rapports seront publiés prochainement."
+msgstr "The reports will be published soon."
+
+#: .\templates\resources\list.html:58
+msgid "Boîte à Outils & Documents Officiels"
+msgstr "Toolbox & Official Documents"
+
+#: .\templates\seminars\detail.html:7
+msgid "Conférence PNAC"
+msgstr "PNAC Conference"
+
+#: .\templates\seminars\detail.html:21
+msgid "À propos de l'événement"
+msgstr "About the event"
+
+#: .\templates\seminars\detail.html:26
+msgid "Grille Tarifaire"
+msgstr "Price list"
+
+#: .\templates\seminars\detail.html:29
+msgid "Inscription (Accès complet)"
+msgstr "Registration (Full Access)"
+
+#: .\templates\seminars\detail.html:34
+msgid "Hébergement (Par nuitée)"
+msgstr "Accommodation (Per night)"
+
+#: .\templates\seminars\detail.html:44
+msgid "Réserver ma place"
+msgstr "Reserve my place"
+
+#: .\templates\seminars\detail.html:57
+msgid "Email"
+msgstr "E-mail"
+
+#: .\templates\seminars\detail.html:68
+msgid "Profil"
+msgstr "Profile"
+
+#: .\templates\seminars\detail.html:70
+msgid "Participant"
+msgstr "Participant"
+
+#: .\templates\seminars\detail.html:71
+msgid "Partenaire"
+msgstr "Partner"
+
+#: .\templates\seminars\detail.html:75
+msgid "Origine"
+msgstr "Origin"
+
+#: .\templates\seminars\detail.html:77
+msgid "RDC (Local)"
+msgstr "Ground floor (Local)"
+
+#: .\templates\seminars\detail.html:78
+msgid "International"
+msgstr "International"
+
+#: .\templates\seminars\detail.html:90
+msgid "Ajouter l'hébergement"
+msgstr "Add hosting"
+
+#: .\templates\seminars\detail.html:91
+msgid "Recommandé pour les participants internationaux."
+msgstr "Recommended for international participants."
+
+#: .\templates\seminars\detail.html:96
+msgid "Nombre de nuits"
+msgstr "Number of nights"
+
+#: .\templates\seminars\detail.html:107
+msgid "Total à payer"
+msgstr "Total to pay"
+
+#: .\templates\seminars\detail.html:112
+msgid "Procéder au paiement"
+msgstr "Proceed to payment"
+
+#: .\templates\seminars\detail.html:114
+msgid "Paiement sécurisé via MaxiCash (Carte & Mobile Money)"
+msgstr "Secure payment via MaxiCash (Card & Mobile Money)"
+
+#: .\templates\team.html:8
+msgid "L'équipe du PNAC"
+msgstr "The PNAC team"
+
+#: .\templates\team.html:10
+msgid ""
+"Des citoyens engagés, des experts techniques et des leaders communautaires "
+"unis par une même vision : un Congo propre et résilient. "
+msgstr ""
+"Engaged citizens, technical experts and community leaders united by the same"
+" vision: a clean and resilient Congo."
+
+#: .\templates\team.html:20
+msgid "Coordination & Stratégie"
+msgstr "Coordination & Strategy"
+
+#: .\templates\team.html:35
+msgid "Opérations Terrain & Éco-Brigades"
+msgstr "Field Operations & Eco-Brigades"
+
+#: .\templates\team.html:50
+msgid "Support & Communication"
+msgstr "Support & Communication"
+
+#: .\templates\team.html:61
+msgid "Envie de rejoindre le mouvement ?"
+msgstr "Want to join the movement?"
+
+#: .\templates\team.html:63
+msgid ""
+"Le PNAC est une structure ouverte. Que vous soyez expert en environnement, "
+"logisticien ou simple citoyen motivé, votre place est ici. "
+msgstr ""
+"The PNAC is an open structure. Whether you are an environmental expert, a "
+"logistician or a simple motivated citizen, you belong here."

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block content %}
@@ -33,7 +34,7 @@
                             {{ slide.button_text }}
                         </a>
                         <a href="{% url 'donate' %}" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur border border-white text-white font-bold text-lg rounded shadow-lg transition text-center">
-                            Faire un don
+                            {% trans "Faire un don" %}
                         </a>
                     </div>
                     {% endif %}
@@ -42,7 +43,7 @@
         </div>
         {% empty %}
         <div class="absolute inset-0 flex items-center justify-center bg-gray-800">
-            <h2 class="text-white text-3xl">Veuillez ajouter des slides dans l'administration.</h2>
+            <h2 class="text-white text-3xl">{% trans "Veuillez ajouter des slides dans l'administration." %}</h2>
         </div>
         {% endfor %}
     </div>
@@ -71,11 +72,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-green-500 text-center">
             <div class="p-4">
                 <p class="text-5xl font-extrabold mb-1">{{ total_volunteers }}</p>
-                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Citoyens Mobilisés</p>
+                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">{% trans "Citoyens Mobilisés" %}</p>
             </div>
             <div class="p-4">
                 <p class="text-5xl font-extrabold mb-1">{{ total_events }}</p>
-                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">Quartiers Assainis</p>
+                <p class="text-sm uppercase tracking-wide font-semibold opacity-90">{% trans "Quartiers Assainis" %}</p>
             </div>
         </div>
     </div>
@@ -85,11 +86,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-12">
             <div>
-                <h2 class="text-4xl font-extrabold text-gray-900">Nos Actions Terrain</h2>
+                <h2 class="text-4xl font-extrabold text-gray-900">{% trans "Nos Actions Terrain" %}</h2>
                 <div class="h-1 w-20 bg-pnacBlue mt-4"></div>
             </div>
             <a href="{% url 'event_list' %}" class="hidden md:inline-flex items-center text-pnacGreen font-bold hover:underline">
-                Voir toutes les actions 
+                {% trans "Voir toutes les actions " %}
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
         </div>
@@ -126,8 +127,8 @@
             </article>
             {% empty %}
             <div class="col-span-3 bg-white p-12 text-center rounded-lg border border-gray-200">
-                <h3 class="text-xl font-bold text-gray-400">Aucune campagne programmée pour l'instant.</h3>
-                <p class="mt-2 text-gray-500">Revenez bientôt pour les prochaines dates de Salongo.</p>
+                <h3 class="text-xl font-bold text-gray-400">{% trans "Aucune campagne programmée pour l'instant." %}</h3>
+                <p class="mt-2 text-gray-500">{% trans "Revenez bientôt pour les prochaines dates de Salongo." %}</p>
             </div>
             {% endfor %}
         </div>
@@ -139,9 +140,9 @@
 <section class="py-20 bg-white border-t border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-extrabold text-gray-900">Notre approche</h2>
+            <h2 class="text-3xl font-extrabold text-gray-900">{% trans "Notre approche" %}</h2>
             <p class="mt-4 text-lg text-gray-600">
-                Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action.
+                {% trans "Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action." %}
             </p>
         </div>
 
@@ -150,24 +151,24 @@
                 <div class="w-20 h-20 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacGreen transition duration-300">
                     <svg class="w-10 h-10 text-pnacGreen group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Mobilisation Citoyenne</h3>
-                <p class="text-gray-500">Encourager une citoyenneté active fondée sur le civisme et le Salongo populaire. </p>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{% trans "Mobilisation Citoyenne" %}</h3>
+                <p class="text-gray-500">{% trans "Encourager une citoyenneté active fondée sur le civisme et le Salongo populaire." %} </p>
             </div>
             
             <div class="group">
                 <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacBlue transition duration-300">
                     <svg class="w-10 h-10 text-pnacBlue group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation Verte</h3>
-                <p class="text-gray-500">Tri sélectif, recyclage, points verts et création d'éco-brigades dans les quartiers. </p>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{% trans "Innovation Verte" %}</h3>
+                <p class="text-gray-500">{% trans "Tri sélectif, recyclage, points verts et création d'éco-brigades dans les quartiers." %} </p>
             </div>
 
             <div class="group">
                 <div class="w-20 h-20 mx-auto bg-green-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-pnacGreen transition duration-300">
                     <svg class="w-10 h-10 text-pnacGreen group-hover:text-white transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Partenariats Forts</h3>
-                <p class="text-gray-500">Un cadre de collaboration réunissant secteur public, privé et société civile. </p>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{% trans "Partenariats Forts" %}</h3>
+                <p class="text-gray-500">{% trans "Un cadre de collaboration réunissant secteur public, privé et société civile." %} </p>
             </div>
         </div>
     </div>
@@ -175,13 +176,13 @@
 
 <section class="bg-gray-900 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-extrabold text-white mb-8">Comment nous soutenir ?</h2>
+        <h2 class="text-3xl font-extrabold text-white mb-8">{% trans "Comment nous soutenir ?" %}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <a href="{% url 'donate' %}" class="block bg-pnacGreen hover:bg-green-700 transition p-8 rounded-lg text-left group">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Faire un don</h3>
-                        <p class="text-green-100">Soutenez la logistique de nos équipes terrain.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2">{% trans "Faire un don" %}</h3>
+                        <p class="text-green-100">{% trans "Soutenez la logistique de nos équipes terrain." %}</p>
                     </div>
                     <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </div>
@@ -189,8 +190,8 @@
             <a href="{% url 'event_list' %}" class="block bg-gray-800 hover:bg-gray-700 transition p-8 rounded-lg text-left group border border-gray-700">
                 <div class="flex items-center justify-between">
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Devenir Bénévole</h3>
-                        <p class="text-gray-400">Rejoignez une Éco-brigade près de chez vous.</p>
+                        <h3 class="text-2xl font-bold text-white mb-2">{% trans "Devenir Bénévole" %}</h3>
+                        <p class="text-gray-400">{% trans "Rejoignez une Éco-brigade près de chez vous." %}</p>
                     </div>
                     <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
                 </div>
