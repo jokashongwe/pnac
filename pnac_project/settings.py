@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'team',
     'seminars',
     'resources',
-    'gallery'
+    'gallery',
+    'blog'
 ]
 
 JAZZMIN_SETTINGS = {
