@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-xlse3^i8mwcoy*tm!ol-k3b7v97&ad(0&x%)d5=c9mm2d%ep*_
 DEBUG = False
 
 ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
-
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
