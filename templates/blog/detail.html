@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<div class="relative h-[50vh] min-h-[400px]">
+    {% if post.image %}
+        <img src="{{ post.image.url }}" class="w-full h-full object-cover absolute inset-0">
+    {% else %}
+        <div class="w-full h-full bg-gray-800 absolute inset-0"></div>
+    {% endif %}
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <div class="relative max-w-4xl mx-auto px-4 h-full flex flex-col justify-center text-center text-white">
+        <div class="mb-4">
+            <span class="bg-pnacGreen px-3 py-1 rounded text-sm font-bold uppercase tracking-wide">{{ post.get_category_display }}</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+            {{ post.title }}
+        </h1>
+        <div class="flex items-center justify-center space-x-4 text-sm md:text-base text-gray-300">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                {{ post.author.get_full_name|default:post.author.username }}
+            </div>
+            <span>•</span>
+            <div>{{ post.created_at|date:"d F Y" }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-xl md:text-2xl font-medium text-gray-800 leading-relaxed mb-10 border-l-4 border-pnacBlue pl-6 italic">
+        {{ post.excerpt }}
+    </div>
+
+    <div class="prose prose-lg prose-green max-w-none text-gray-600">
+        {{ post.content|linebreaks }}
+    </div>
+    
+    <div class="mt-12 pt-8 border-t border-gray-200">
+        <h3 class="font-bold text-gray-900 mb-4">{% trans "Partager cet article" %}</h3>
+        <div class="flex space-x-4">
+            <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">Facebook</button>
+            <button class="bg-sky-500 text-white px-4 py-2 rounded text-sm font-bold">Twitter</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded text-sm font-bold">WhatsApp</button>
+        </div>
+    </div>
+</div>
+
+{% if related_posts %}
+<div class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">{% trans "À lire aussi" %}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {% for rel in related_posts %}
+            <a href="{% url 'post_detail' rel.slug %}" class="block group">
+                <div class="h-40 rounded-lg overflow-hidden mb-4">
+                    {% if rel.image %}
+                        <img src="{{ rel.image.url }}" class="w-full h-full object-cover group-hover:scale-105 transition">
+                    {% else %}
+                        <div class="w-full h-full bg-gray-200"></div>
+                    {% endif %}
+                </div>
+                <h4 class="font-bold text-gray-900 group-hover:text-pnacGreen transition">{{ rel.title }}</h4>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
