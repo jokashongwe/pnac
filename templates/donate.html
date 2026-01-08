@@ -5,56 +5,7 @@
 {% block content %}
 <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900">{% trans "Faire un don sécurisé" %}</h2>
-        <p class="mt-2 text-center text-sm text-gray-600">
-            {% trans "Choisissez votre méthode de paiement préférée." %}
-        </p>
-        
-        <div class="flex justify-center gap-4 mt-6  opacity-80">
-            <img src="https://images.seeklogo.com/logo-png/62/2/m-pesa-logo-png_seeklogo-622552.png" class="h-8" alt="M-Pesa">
-            <img src="https://logos-world.net/wp-content/uploads/2023/02/Orange-Money-Logo.png" class="h-8" alt="Orange Money">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Airtel_Africa_logo.svg" class="h-8" alt="Airtel">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png" class="h-8" alt="Mastercard">
-        </div>
-    </div>
-
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 border-t-4 border-pnacGreen">
-            <form class="space-y-6" action="" method="POST">
-                {% csrf_token %}
-                
-                <div class="grid grid-cols-3 gap-3 mb-6">
-                    <button type="button" onclick="setAmount(10)" class="border border-gray-300 rounded p-2 hover:bg-pnacGreen hover:text-white transition font-bold text-gray-700">10$</button>
-                    <button type="button" onclick="setAmount(50)" class="border border-gray-300 rounded p-2 hover:bg-pnacGreen hover:text-white transition font-bold text-gray-700">50$</button>
-                    <button type="button" onclick="setAmount(100)" class="border border-gray-300 rounded p-2 hover:bg-pnacGreen hover:text-white transition font-bold text-gray-700">100$</button>
-                </div>
-
-                <div>
-                    <label for="amount" class="block text-sm font-medium text-gray-700">{% trans "Montant" %} (USD)</label>
-                    <input type="number" name="amount" id="amount" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
-                </div>
-
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">{% trans "Nom complet" %}</label>
-                    <input type="text" name="name" id="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
-                </div>
-
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">{% trans "Téléphone" %} (M-Pesa / Airtel / Orange)</label>
-                    <input type="tel" name="phone" id="phone" placeholder="Ex: 081..." class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-pnacGreen focus:border-pnacGreen sm:text-sm">
-                </div>
-
-                <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-pnacBlue hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pnacBlue transition">
-                    {% trans "Procéder au paiement sécurisé" %}
-                </button>
-            </form>
-        </div>
+        <h2 class="text-center text-3xl font-extrabold text-gray-900">NON DISPONIBLE</h2>
     </div>
 </div>
-
-<script>
-    function setAmount(val) {
-        document.getElementById('amount').value = val;
-    }
-</script>
 {% endblock %}
