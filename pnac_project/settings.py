@@ -115,7 +115,7 @@ WSGI_APPLICATION = 'pnac_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': os.getenv("DBENGINE"),
         'NAME': os.getenv("DBNAME"),
         'USER': os.getenv("DBUSER"),
         'PASSWORD': os.getenv("DBPASSWORD"),
