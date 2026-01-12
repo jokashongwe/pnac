@@ -36,5 +36,6 @@ urlpatterns += i18n_patterns(
     # Team
     path('equipe/', team_page, name='team'),
     path('actualites/', include('blog.urls')),
+    path('forum/', include('forum.urls')),
 
 )

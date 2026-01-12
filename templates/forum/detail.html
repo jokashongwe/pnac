@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-white min-h-screen pb-12">
+    
+    <div class="bg-gray-50 border-b border-gray-200 py-10">
+        <div class="max-w-4xl mx-auto px-4">
+            <a href="{% url 'forum_index' %}" class="inline-flex items-center text-sm text-gray-500 hover:text-pnacBlue mb-4">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Retour aux sujets
+            </a>
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-4">{{ topic.title }}</h1>
+            
+            <div class="bg-white p-6 rounded-xl border-l-4 border-pnacGreen shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-pnacGreen text-white flex items-center justify-center font-bold mr-3">
+                        P
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-gray-900">Modérateur PNAC</p>
+                        <p class="text-xs text-gray-500">Initié le {{ topic.created_at|date:"d M Y à H:i" }}</p>
+                    </div>
+                </div>
+                <div class="prose text-gray-700 max-w-none">
+                    {{ topic.description|linebreaks }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        
+        <h3 class="text-lg font-bold text-gray-900 mb-6">{{ post_count }} Réactions</h3>
+
+        <div class="space-y-6 mb-12">
+            {% for post in posts %}
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold uppercase">
+                        {{ post.visitor_name|slice:":1" }}
+                    </div>
+                </div>
+                
+                <div class="flex-1 bg-gray-50 rounded-2xl rounded-tl-none px-6 py-4 border border-gray-100">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-gray-900">{{ post.visitor_name }}</span>
+                        <span class="text-xs text-gray-400">{{ post.created_at|timesince }}</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">{{ post.content|linebreaksbr }}</p>
+                </div>
+            </div>
+            {% empty %}
+                <p class="text-gray-400 italic text-center">Soyez le premier à réagir à ce sujet.</p>
+            {% endfor %}
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6 md:p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Participer à la discussion</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="grid gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Votre Nom</label>
+                        {{ form.visitor_name }}
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Votre Message</label>
+                        {{ form.content }}
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button type="submit" class="bg-pnacBlue text-white font-bold py-2 px-6 rounded hover:bg-blue-600 transition shadow-md">
+                        Publier ma réponse
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
