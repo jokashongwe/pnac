@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'seminars',
     'resources',
     'gallery',
-    'blog'
+    'blog',
+    'forum'
 ]
 
 JAZZMIN_SETTINGS = {
