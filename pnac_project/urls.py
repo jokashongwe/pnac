@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 # Import des vues
-from core.views import home, mission
+from core.views import home, mission, policy
 from events.views import event_list, join_event, event_detail, event_map_data
 from donations.views import donate
 from team.views import team_page
@@ -37,5 +37,6 @@ urlpatterns += i18n_patterns(
     path('equipe/', team_page, name='team'),
     path('actualites/', include('blog.urls')),
     path('forum/', include('forum.urls')),
+    path('policy/', policy, name='policy'),
 
 )

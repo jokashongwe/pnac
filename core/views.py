@@ -7,6 +7,9 @@ from .models import CarouselItem
 def mission(request):
     return render(request, 'mission.html')
 
+def policy(request):
+    return render(request, 'policy.html')
+
 def home(request):
     # 1. Calcul des statistiques pour la section "Impact"
     total_volunteers = Volunteer.objects.count()
