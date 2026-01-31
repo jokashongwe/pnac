@@ -29,10 +29,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xlse3^i8mwcoy*tm!ol-k3b7v97&ad(0&x%)d5=c9mm2d%ep*_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-SECURE_SSL_REDIRECT = False
+ALLOWED_HOSTS = ['pnac-rdc.org', 'www.pnac-rdc.org']
+SECURE_SSL_REDIRECT = True
 
 # Application definition
 
