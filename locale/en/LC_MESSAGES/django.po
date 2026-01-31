@@ -92,6 +92,10 @@ msgstr "Media and resources"
 msgid "Faire un Don"
 msgstr "Make a Donation"
 
+#: .\templates\base.html:112
+msgid "Actualités"
+msgstr "News"
+
 #: .\templates\base.html:124
 msgid "Financements"
 msgstr "Financing"
@@ -221,6 +225,10 @@ msgstr "Back in pictures"
 msgid "Matériel requis"
 msgstr "Materials required"
 
+#: .\templates\events\event_detail.html:94
+msgid "Si vous en possédez, apportez des gants, des râteaux ou des pelles. Le PNAC fournira des sacs poubelles et des équipements de protection de base grâce aux dons."
+msgstr "If you have them, bring gloves, rakes or shovels. The PNAC will provide garbage bags and basic protective equipment thanks to donations."
+
 #: .\templates\events\event_detail.html:108
 msgid "Je participe !"
 msgstr "I'm participating!"
@@ -338,6 +346,10 @@ msgstr "Our Field Actions"
 #: .\templates\home.html:92
 msgid "Voir toutes les actions "
 msgstr "See all actions"
+
+#: .\templates\home.html:124
+msgid "En savoir plus"
+msgstr "Learn more"
 
 #: .\templates\home.html:129
 msgid "Aucune campagne programmée pour l'instant."

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+<section class="py-20 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-5">
+                <!-- Branding/Info Side -->
+                <div class="md:col-span-2 bg-pnacGreen p-8 text-white flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">{% trans "Rejoignez l'Équipe PNAC" %}</h2>
+                        <p class="text-green-50 mb-8">
+                            {% trans "Devenez acteur du changement dans votre communauté. Ensemble, assainissons notre environnement." %}
+                        </p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>{% trans "Actions de terrain (Salongo)" %}</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>{% trans "Sensibilisation citoyenne" %}</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span>{% trans "Eco-brigades locales" %}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <div class="text-sm opacity-75">{% trans "Suivez-nous sur les réseaux" %}</div>
+                        <div class="flex space-x-4 mt-4">
+                            <!-- Social Icons could go here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="md:col-span-3 p-8 md:p-12">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">{% trans "Formulaire d'adhésion" %}</h3>
+                    
+                    <form method="POST" class="space-y-6">
+                        {% csrf_token %}
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ form.full_name.label }}</label>
+                            {{ form.full_name }}
+                            {% if form.full_name.errors %}
+                                <p class="mt-1 text-sm text-red-600">{{ form.full_name.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">{{ form.email.label }}</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.email.errors.0 }}</p>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">{{ form.phone.label }}</label>
+                                {{ form.phone }}
+                                {% if form.phone.errors %}
+                                    <p class="mt-1 text-sm text-red-600">{{ form.phone.errors.0 }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ form.preferred_notification.label }}</label>
+                            {{ form.preferred_notification }}
+                            <p class="mt-1 text-xs text-gray-500">{% trans "Nous vous enverrons une confirmation par ce canal." %}</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ form.message.label }}</label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <p class="mt-1 text-sm text-red-600">{{ form.message.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full py-4 bg-pnacGreen hover:bg-green-700 text-white font-bold rounded-lg shadow-lg transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-green-500/50">
+                                {% trans "Envoyer ma candidature" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
