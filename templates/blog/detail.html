@@ -5,13 +5,13 @@
     <meta property="og:title" content="{{ post.title }}">
     <meta property="og:description" content="{{ post.excerpt }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
-    <meta property="og:image" content="{{ post.image.url }}">
+    <meta property="og:image" content="https://pnac-rdc.org{{ post.image.url }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ post.title }}">
     <meta name="twitter:description" content="{{ post.excerpt }}">
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
-    <meta name="twitter:image" content="{{ post.image.url }}">
+    <meta name="twitter:image" content="https://pnac-rdc.org{{ post.image.url }}">
 {% endblock meta %}
 
 {% block content %}
