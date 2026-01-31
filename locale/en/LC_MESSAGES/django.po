@@ -52,7 +52,7 @@ msgid "Partenariats"
 msgstr "Partnerships"
 
 #: .\templates\base.html:77
-msgid "Agences de l’ONU & Internationales"
+msgid "Agences de l'ONU & Internationales"
 msgstr "UN & International Agencies"
 
 #: .\templates\base.html:78 .\templates\base.html:133
@@ -129,7 +129,7 @@ msgid "Tous droits réservés."
 msgstr "All rights reserved."
 
 #: .\templates\base.html:219
-msgid "Partenariat Novateur pour l’Assainissement Communautaire.Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
+msgid "Partenariat Novateur pour l'Assainissement Communautaire.Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
 msgstr "Innovative Partnership for Community Sanitation. An initiative of the Yellow Movement Association (AMOJA-DRC)."
 
 #: .\templates\components\map_section.html:7
@@ -195,7 +195,7 @@ msgstr "The context of the action"
 #: .\templates\events\event_detail.html:57
 msgid ""
 "Le PNAC a pour mission de promouvoir, structurer et renforcer les actions "
-"communautaires d’assainissement."
+"communautaires d'assainissement."
 msgstr ""
 "The mission of the PNAC is to promote, structure and strengthen community "
 "sanitation actions."
@@ -365,7 +365,7 @@ msgstr "Our approach"
 
 #: .\templates\home.html:144
 msgid ""
-"Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Le"
+"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Le"
 " PNAC répond à ce besoin par trois leviers d'action."
 msgstr ""
 "The current sanitation model in the DRC requires an integrated approach. The"
@@ -429,11 +429,9 @@ msgstr "Our Purpose"
 
 #: .\templates\mission.html:16
 msgid ""
-"Le PNAC est une réponse structurée, durable et inclusive aux défis "
-"d’assainissement et de salubrité en République Démocratique du Congo."
+"Le PNAC est une réponse structurée, durable et inclusive aux défis d'assainissement et de salubrité en République Démocratique du Congo."
 msgstr ""
-"The PNAC is a structured, sustainable and inclusive response to sanitation "
-"and safety challenges in the Democratic Republic of Congo."
+"The PNAC is a structured, sustainable and inclusive response to sanitation and safety challenges in the Democratic Republic of Congo."
 
 #: .\templates\mission.html:26
 msgid "Pourquoi le PNAC ?"
@@ -441,29 +439,21 @@ msgstr "Why the PNAC?"
 
 #: .\templates\mission.html:30
 msgid ""
-"Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. "
-"Les actions étatiques, bien que cruciales, ne suffisent pas à relever les "
-"défis urbains et périurbains de la salubrité."
+"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Les actions étatiques, bien que cruciales, ne suffisent pas à relever les défis urbains et périurbains de la salubrité."
 msgstr ""
-"The current sanitation model in the DRC requires an integrated approach. "
-"State actions, although crucial, are not enough to meet the urban and peri-"
-"urban sanitation challenges."
+"The current sanitation model in the DRC requires an integrated approach. State actions, although crucial, are not enough to meet the urban and peri-urban sanitation challenges."
 
 #: .\templates\mission.html:33
 msgid ""
-"Le PNAC répond à ce besoin en apportant une structure agile, une expertise "
-"associative et une capacité de mobilisation rapide des communautés."
+"Le PNAC répond à ce besoin en apportant une structure agile, une expertise associative et une capacité de mobilisation rapide des communautés."
 msgstr ""
-"The PNAC responds to this need by providing an agile structure, associative "
-"expertise and a capacity for rapid community mobilization."
+"The PNAC responds to this need by providing an agile structure, associative expertise and a capacity for rapid community mobilization."
 
 #: .\templates\mission.html:36
 msgid ""
-"Nous sommes un cadre de collaboration ouvert réunissant communautés, "
-"autorités, société civile et secteur privé."
+"Nous sommes un cadre de collaboration ouvert réunissant communautés, autorités, société civile et secteur privé."
 msgstr ""
-"We are an open collaborative framework bringing together communities, "
-"authorities, civil society and the private sector."
+"We are an open collaborative framework bringing together communities, authorities, civil society and the private sector."
 
 #: .\templates\mission.html:45
 msgid "Initiative portée par"
@@ -479,13 +469,9 @@ msgstr "Our Vision"
 
 #: .\templates\mission.html:64
 msgid ""
-"Construire une République Démocratique du Congo propre, saine et résiliente,"
-" où chaque citoyen participe activement à l’assainissement, à la gestion des"
-" déchets et à la préservation de l’environnement."
+"Construire une République Démocratique du Congo propre, saine et résiliente, où chaque citoyen participe activement à l'assainissement, à la gestion des déchets et à la préservation de l'environnement."
 msgstr ""
-"Build a clean, healthy and resilient Democratic Republic of Congo, where "
-"every citizen actively participates in sanitation, waste management and "
-"preservation of the environment."
+"Build a clean, healthy and resilient Democratic Republic of Congo, where every citizen actively participates in sanitation, waste management and preservation of the environment."
 
 #: .\templates\mission.html:72
 msgid "Notre Mission"
@@ -493,12 +479,9 @@ msgstr "Our Mission"
 
 #: .\templates\mission.html:75
 msgid ""
-"Promouvoir, structurer et renforcer les actions communautaires "
-"d’assainissement, en mobilisant l’ensemble des acteurs autour d’approches "
-"participatives, novatrices et durables."
+"Promouvoir, structurer et renforcer les actions communautaires d'assainissement, en mobilisant l'ensemble des acteurs autour d'approches participatives, novatrices et durables."
 msgstr ""
-"Promote, structure and strengthen community sanitation actions, by "
-"mobilizing all stakeholders around participatory, innovative and sustainable"
+"Promote, structure and strengthen community sanitation actions, by mobilizing all stakeholders around participatory, innovative and sustainable"
 " approaches."
 
 #: .\templates\mission.html:85
@@ -539,8 +522,7 @@ msgstr "Generals"
 
 #: .\templates\mission.html:144
 msgid ""
-"Améliorer durablement le cadre de vie à travers l'assainissement "
-"communautaire."
+"Améliorer durablement le cadre de vie à travers l'assainissement communautaire."
 msgstr ""
 "Sustainably improve the living environment through community sanitation."
 
@@ -563,8 +545,7 @@ msgstr "Organize regular sanitation campaigns."
 
 #: .\templates\mission.html:165
 msgid ""
-"Mettre en place des solutions innovantes : tri sélectif, recyclage, points "
-"verts."
+"Mettre en place des solutions innovantes : tri sélectif, recyclage, points verts."
 msgstr ""
 "Implement innovative solutions: selective sorting, recycling, green points."
 
@@ -579,11 +560,9 @@ msgstr "Ready to make a change?"
 
 #: .\templates\mission.html:182
 msgid ""
-"Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. "
-"Rejoignez le mouvement pour un cadre de vie assaini."
+"Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. Rejoignez le mouvement pour un cadre de vie assaini."
 msgstr ""
-"The PNAC intervenes primarily in Kinshasa and in urban centers. Join the "
-"movement for a healthier living environment."
+"The PNAC intervenes primarily in Kinshasa and in urban centers. Join the movement for a healthier living environment."
 
 #: .\templates\mission.html:186
 msgid "Soutenir nos actions"
