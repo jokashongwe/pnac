@@ -187,3 +187,15 @@ MAXICASH_MERCHANT_PASSWORD = os.getenv("MAXICASH_MERCHANT_ID") # Fourni par Maxi
 MAXICASH_ENV = "sandbox" # ou "live" pour la production
 MAXICASH_GATEWAY_URL = "https://api-test.maxicashapp.com/PayEntryPost" # URL de test
 # Pour la prod : "https://api.maxicashapp.com/PayEntryPost"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
