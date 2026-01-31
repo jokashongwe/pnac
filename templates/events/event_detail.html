@@ -2,6 +2,19 @@
 {% load i18n %}
 {% load static %}
 
+{% block meta %}
+    <meta property="og:title" content="{{ event.title }}">
+    <meta property="og:description" content="{{ event.description }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ event.image.url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ event.title }}">
+    <meta name="twitter:description" content="{{ event.description }}">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+    <meta name="twitter:image" content="{{ event.image.url }}">
+{% endblock meta %}
+
 {% block content %}
 
 <div class="bg-gray-900 text-white py-12">

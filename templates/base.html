@@ -12,21 +12,25 @@
     <meta name="description" content="Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo.">
     <meta name="keywords" content="Assainissement,communautaire,programme,nature">
     
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PNAC - Programme Novateur pour l'Assainissement Communautaire">
-    <meta name="twitter:description" content="Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo.">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:image" content="">
+    {% block meta %}
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="PNAC - Programme Novateur pour l'Assainissement Communautaire">
+        <meta name="twitter:description" content="Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo.">
+        <meta name="twitter:site" content="@">
+        <meta name="twitter:creator" content="@">
+        <meta name="twitter:image" content="">
+        
+        <!-- Open Graph general (Facebook, Pinterest)-->
+        <meta property="og:title" content="PNAC - Programme Novateur pour l'Assainissement Communautaire">
+        <meta property="og:description" content="Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo.">
+        <meta property="og:url" content="https://pnac-rdc.org">
+        <meta property="og:site_name" content="pnac-rdc.org">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="">
+    {% endblock meta %}
     
-    <!-- Open Graph general (Facebook, Pinterest)-->
-    <meta property="og:title" content="PNAC - Programme Novateur pour l'Assainissement Communautaire">
-    <meta property="og:description" content="Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo.">
-    <meta property="og:url" content="https://pnac-rdc.org">
-    <meta property="og:site_name" content="pnac-rdc.org">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="">
+    
 
     <script>
         tailwind.config = {
