@@ -40,9 +40,9 @@
     <div class="mt-12 pt-8 border-t border-gray-200">
         <h3 class="font-bold text-gray-900 mb-4">{% trans "Partager cet article" %}</h3>
         <div class="flex space-x-4">
-            <button class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">Facebook</button>
-            <button class="bg-sky-500 text-white px-4 py-2 rounded text-sm font-bold">Twitter</button>
-            <button class="bg-green-500 text-white px-4 py-2 rounded text-sm font-bold">WhatsApp</button>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" class="bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold">Facebook</a>
+            <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ request.build_absolute_uri }}" class="bg-sky-500 text-white px-4 py-2 rounded text-sm font-bold">Twitter</a>
+            <a href="https://wa.me/?text={{ post.title }}%0A%0A{{ post.content }}%0A%0A{{ request.build_absolute_uri }}" class="bg-green-500 text-white px-4 py-2 rounded text-sm font-bold">WhatsApp</a>
         </div>
     </div>
 </div>
