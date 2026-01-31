@@ -23,9 +23,9 @@ urlpatterns += i18n_patterns(
     path('notre-mission/', mission, name='mission'),
     
     # Événements
-    path('events/', event_list, name='event_list'),
-    path('events/<int:event_id>/', event_detail, name='event_detail'),
-    path('events/join/<int:event_id>/', join_event, name='join_event'),
+    path('actions/', event_list, name='event_list'),
+    path('actions/<int:event_id>/', event_detail, name='event_detail'),
+    path('actions/join/<int:event_id>/', join_event, name='join_event'),
     path('api/map-data/', event_map_data, name='event_map_data'),
     
     # Dons
