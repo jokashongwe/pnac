@@ -14,7 +14,7 @@
             {% trans "Notre Raison d'Être" %}
         </h1>
         <p class="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
-            {% trans "Le PNAC est une réponse structurée, durable et inclusive aux défis d’assainissement et de salubrité en République Démocratique du Congo." %}
+            {% trans "Le PNAC est une réponse structurée, durable et inclusive aux défis d'assainissement et de salubrité en République Démocratique du Congo." %}
         </p>
     </div>
 </div>
@@ -28,7 +28,7 @@
                 </h2>
                 <div class="prose text-gray-500 text-lg">
                     <p class="mb-4">
-                        {% trans "Le modèle actuel d’assainissement en RDC nécessite une approche intégrée. Les actions étatiques, bien que cruciales, ne suffisent pas à relever les défis urbains et périurbains de la salubrité." %}
+                        {% trans "Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Les actions étatiques, bien que cruciales, ne suffisent pas à relever les défis urbains et périurbains de la salubrité." %}
                     </p>
                     <p class="mb-4">
                         {% trans "Le PNAC répond à ce besoin en apportant une structure agile, une expertise associative et une capacité de mobilisation rapide des communautés." %}
@@ -62,7 +62,7 @@
                     {% trans "Notre Vision" %}
                 </h3>
                 <p class="text-gray-600 text-lg leading-relaxed">
-                    {% trans "Construire une République Démocratique du Congo propre, saine et résiliente, où chaque citoyen participe activement à l’assainissement, à la gestion des déchets et à la préservation de l’environnement." %}
+                    {% trans "Construire une République Démocratique du Congo propre, saine et résiliente, où chaque citoyen participe activement à l'assainissement, à la gestion des déchets et à la préservation de l'environnement." %}
                 </p>
             </div>
 
@@ -73,7 +73,7 @@
                     {% trans "Notre Mission" %}
                 </h3>
                 <p class="text-gray-600 text-lg leading-relaxed">
-                    {% trans "Promouvoir, structurer et renforcer les actions communautaires d’assainissement, en mobilisant l’ensemble des acteurs autour d’approches participatives, novatrices et durables." %}
+                    {% trans "Promouvoir, structurer et renforcer les actions communautaires d'assainissement, en mobilisant l'ensemble des acteurs autour d'approches participatives, novatrices et durables." %}
                 </p>
             </div>
 
@@ -183,10 +183,10 @@
             {% trans "Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. Rejoignez le mouvement pour un cadre de vie assaini." %}
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="{% url 'donate' %}" class="bg-white text-pnacBlue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition">
+            {% comment %} <a href="{% url 'donate' %}" class="bg-white text-pnacBlue font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition">
                 {% trans "Soutenir nos actions" %}
-            </a>
-            <a href="{% url 'event_list' %}" class="bg-pnacGreen text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-700 transition">
+            </a> {% endcomment %}
+            <a href="{% url 'volunteer_apply' %}" class="bg-pnacGreen text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-green-700 transition">
                 {% trans "Devenir Bénévole" %}
             </a>
         </div>
