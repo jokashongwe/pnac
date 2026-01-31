@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'core',
     'donations',
     'events',
@@ -52,7 +53,8 @@ INSTALLED_APPS = [
     'resources',
     'gallery',
     'blog',
-    'forum'
+    'forum',
+
 ]
 
 JAZZMIN_SETTINGS = {

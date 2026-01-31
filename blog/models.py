@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
-
+from ckeditor.fields import RichTextField 
 class Post(models.Model):
     CATEGORY_CHOICES = (
         ('NEWS', 'Actualités'),
@@ -18,7 +18,7 @@ class Post(models.Model):
     
     # Contenu principal
     excerpt = models.TextField(max_length=300, verbose_name="Extrait (Introduction)")
-    content = models.TextField(verbose_name="Contenu de l'article")
+    content = RichTextField(verbose_name="Contenu de l'article")
     
     is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
