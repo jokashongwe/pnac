@@ -865,3 +865,6 @@ msgstr "Read the article"
 msgid "Partager cet article"
 msgstr "Share this article"
 
+#: .\templates\blog\detail.html:62
+msgid "À lire aussi"
+msgstr "Read also"
