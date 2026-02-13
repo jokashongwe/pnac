@@ -95,7 +95,7 @@
                                         <li><a href="{% url 'mission' %}" class="block text-gray-700 hover:text-pnacGreen font-medium">{% trans "Qui sommes-nous" %} (Mission)</a></li> <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Financements et donateurs" %}</a></li>
                                         <li><a href="{% url 'team' %}" class="block text-gray-700 hover:text-pnacGreen">{% trans "Gouvernance et direction" %}</a></li>
                                         <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Histoire" %}</a></li>
-                                        <li><a href="{% url 'post_list' %}" class="block text-gray-700 hover:text-pnacGreen">Blog</a></li>
+                                        <li><a href="{% url 'post_list' %}" class="block text-gray-700 hover:text-pnacGreen">{% trans "Actualités" %}</a></li>
                                         <li><a href="{% url 'forum_index' %}" class="text-gray-600 hover:text-pnacGreen font-medium transition">Forum</a></li>
                                         <li><a href="#" class="block text-gray-700 hover:text-pnacGreen">{% trans "Stratégie institutionnelle" %}</a></li> </ul>
                                 </div>
@@ -168,7 +168,7 @@
                         <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Financements" %}</a>
                         <a href="{% url 'team' %}" class="block px-3 py-1 text-sm text-gray-600">{% trans "Gouvernance" %}</a>
                         <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Histoire" %}</a>
-                        <a href="{% url 'post_list' %}" class="block px-3 py-1 text-sm text-gray-600">Blog</a>
+                        <a href="{% url 'post_list' %}" class="block px-3 py-1 text-sm text-gray-600">{% trans "Actualités" %}</a>
                         <a href="{% url 'forum_index' %}" class="block px-3 py-1 text-sm text-gray-600">Forum</a>
                         <a href="#" class="block px-3 py-1 text-sm text-gray-600">{% trans "Stratégie" %}</a>
 
@@ -225,7 +225,9 @@
             <div>
                 <h3 class="text-xl font-bold text-pnacBlue mb-4">PNAC RDC</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    {% trans "Partenariat Novateur pour l'Assainissement Communautaire.Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)." %}
+                    <a href="https://www.facebook.com/share/17z3mg2hDF/?mibextid=wwXIfr"> 
+                        {% trans "Partenariat Novateur pour l'Assainissement Communautaire. Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)." %}
+                    </a>
                 </p>
                 <div class="mt-4 flex space-x-4">
                     <a href="https://www.facebook.com/share/17z3mg2hDF/?mibextid=wwXIfr" class="bg-gray-800 text-gray-400 hover:text-white hover:bg-pnacGreen flex items-center justify-center w-10 h-10 rounded-full transition duration-300">
@@ -260,8 +262,8 @@
                 <h3 class="text-lg font-bold mb-4">{% trans "Liens Rapides" %}</h3>
                 <ul class="space-y-2 text-sm text-gray-400">
                     <li><a href="{% url 'mission' %}" class="hover:text-pnacGreen">{% trans "Qui sommes-nous" %}</a></li>
-                    <li><a href="{% url 'post_list' %}" class="hover:text-pnacGreen">Blog</a></li>
-                    <li><a href="{% url 'policy' %}" class="hover:text-pnacGreen">Politique de confidentialité</a></li>
+                    <li><a href="{% url 'post_list' %}" class="hover:text-pnacGreen">{% trans "Actualités" %}</a></li>
+                    <li><a href="{% url 'policy' %}" class="hover:text-pnacGreen">{% trans "Politique de confidentialité" %}</a></li>
                     {% comment %} <li><a href="{% url 'donate' %}" class="hover:text-pnacGreen">{% trans "Faire un Don" %}</a></li> {% endcomment %}
                 </ul>
             </div>

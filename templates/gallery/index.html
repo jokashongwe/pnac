@@ -20,7 +20,7 @@
         </button>
         {% for code, label in categories %}
         <button class="filter-btn px-6 py-2 rounded-full font-medium bg-white text-gray-600 border border-gray-200 hover:border-pnacGreen hover:text-pnacGreen transition-all duration-300" data-filter="{{ code }}">
-            {{ label }}
+            {% translate label %}
         </button>
         {% endfor %}
     </div>

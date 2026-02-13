@@ -129,7 +129,7 @@ msgid "Tous droits réservés."
 msgstr "All rights reserved."
 
 #: .\templates\base.html:219
-msgid "Partenariat Novateur pour l'Assainissement Communautaire.Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
+msgid "Partenariat Novateur pour l'Assainissement Communautaire. Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
 msgstr "Innovative Partnership for Community Sanitation. An initiative of the Yellow Movement Association (AMOJA-DRC)."
 
 #: .\templates\components\map_section.html:7
@@ -184,9 +184,21 @@ msgstr "Telephone (M-Pesa / Airtel / Orange)"
 msgid "Veuillez patienter, transaction sécurisée en cours."
 msgstr "Please wait, secure transaction in progress."
 
+#: .\templates\events\index.html:10
+msgid "Nos Actions sur le Terrain"
+msgstr "Our Actions on the Field"
+
+#: .\templates\events\index.html:12
+msgid "Participez au Salongo populaire et aux campagnes de sensibilisation."
+msgstr "Participate in popular Salongo and awareness campaigns."
+
+#: .\templates\events\index.html:23
+msgid "Aucune action disponible pour le moment."
+msgstr "No actions available at the moment."
+
 #: .\templates\events\event_detail.html:10
 msgid "Retour aux actions"
-msgstr "Back to action"
+msgstr "Back to actions"
 
 #: .\templates\events\event_detail.html:51
 msgid "Le contexte de l'action"
@@ -365,11 +377,9 @@ msgstr "Our approach"
 
 #: .\templates\home.html:144
 msgid ""
-"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Le"
-" PNAC répond à ce besoin par trois leviers d'action."
+"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action."
 msgstr ""
-"The current sanitation model in the DRC requires an integrated approach. The"
-" PNAC responds to this need through three levers of action."
+"The current sanitation model in the DRC requires an integrated approach. The PNAC responds to this need through three levers of action."
 
 #: .\templates\home.html:153
 msgid "Mobilisation Citoyenne"
@@ -480,9 +490,7 @@ msgstr "Our Mission"
 #: .\templates\mission.html:75
 msgid ""
 "Promouvoir, structurer et renforcer les actions communautaires d'assainissement, en mobilisant l'ensemble des acteurs autour d'approches participatives, novatrices et durables."
-msgstr ""
-"Promote, structure and strengthen community sanitation actions, by mobilizing all stakeholders around participatory, innovative and sustainable"
-" approaches."
+msgstr "Promote, structure and strengthen community sanitation actions, by mobilizing all stakeholders around participatory, innovative and sustainable approaches."
 
 #: .\templates\mission.html:85
 msgid "Nos Valeurs Fondamentales"
@@ -518,7 +526,7 @@ msgstr "Our Strategic Objectives"
 
 #: .\templates\mission.html:140
 msgid "Généraux"
-msgstr "Generals"
+msgstr "General"
 
 #: .\templates\mission.html:144
 msgid ""
@@ -533,7 +541,7 @@ msgstr "Create synergies between public, private and community partners."
 
 #: .\templates\mission.html:152
 msgid "Encourager une citoyenneté active fondée sur le civisme et le salongo."
-msgstr "Encourage active citizenship based on good citizenship and salongo."
+msgstr "Encourage active citizenship based on good citizenship and Salongo."
 
 #: .\templates\mission.html:157
 msgid "Spécifiques"
@@ -658,7 +666,7 @@ msgstr "Origin"
 
 #: .\templates\seminars\detail.html:77
 msgid "RDC (Local)"
-msgstr "Ground floor (Local)"
+msgstr "DRC (Local)"
 
 #: .\templates\seminars\detail.html:78
 msgid "International"
@@ -666,7 +674,7 @@ msgstr "International"
 
 #: .\templates\seminars\detail.html:90
 msgid "Ajouter l'hébergement"
-msgstr "Add hosting"
+msgstr "Add accommodation"
 
 #: .\templates\seminars\detail.html:91
 msgid "Recommandé pour les participants internationaux."
@@ -717,9 +725,135 @@ msgid "Envie de rejoindre le mouvement ?"
 msgstr "Want to join the movement?"
 
 #: .\templates\team.html:63
-msgid ""
-"Le PNAC est une structure ouverte. Que vous soyez expert en environnement, "
-"logisticien ou simple citoyen motivé, votre place est ici. "
-msgstr ""
-"The PNAC is an open structure. Whether you are an environmental expert, a "
-"logistician or a simple motivated citizen, you belong here."
+msgid "Le PNAC est une structure ouverte. Que vous soyez expert en environnement, logisticien ou simple citoyen motivé, votre place est ici. "
+msgstr "The PNAC is an open structure. Whether you are an environmental expert, a logistician or a simple motivated citizen, you belong here."
+
+#: .\templates\blog\list.html:10
+msgid "Suivez les dernières actions du PNAC, nos histoires de terrain et nos annonces officielles."
+msgstr "Follow the latest actions of the PNAC, our field stories and our official announcements."
+
+#: .\templates\blog\list.html:23
+msgid "Aucun article publié pour le moment."
+msgstr "No articles published at the moment."
+
+#: .\templates\blog\detail.html:7
+msgid "Actualité PNAC"
+msgstr "PNAC News"
+
+#: .\templates\forum\index.html:10
+msgid "Échangez avec le PNAC et les autres citoyens sur les priorités d'assainissement de votre quartier."
+msgstr "Exchange with the PNAC and other citizens on the sanitation priorities of your neighborhood."
+
+#: .\templates\forum\index.html:23
+msgid "Aucune discussion pour le moment."
+msgstr "No discussions at the moment."
+
+#: .\templates\forum\detail.html:7
+msgid "Forum PNAC"
+msgstr "PNAC Forum"
+
+#: .\templates\forum\detail.html:23
+msgid "Aucune réponse pour le moment."
+msgstr "No responses at the moment."
+
+#: .\templates\forum\detail.html:34
+msgid "Répondre à cette discussion"
+msgstr "Reply to this discussion"
+
+#: .\templates\forum\detail.html:45
+msgid "Envoyer la réponse"
+msgstr "Send response"
+
+#: .\templates\forum\detail.html:56
+msgid "Vous avez déjà répondu à cette discussion."
+msgstr "You have already replied to this discussion."
+
+#: .\templates\forum\detail.html:67 .\templates\forum\detail.html:100
+msgid "Vous devez être connecté pour participer au forum."
+msgstr "You must be logged in to participate in the forum."
+
+#: .\templates\forum\detail.html:78
+msgid "Vous devez être connecté pour répondre."
+msgstr "You must be logged in to reply."
+
+#: .\templates\forum\detail.html:89
+msgid "Vous avez atteint la limite de réponses autorisées."
+msgstr "You have reached the limit of allowed responses."
+
+#: .\templates\forum\index.html:10
+msgid "Espace Citoyen"
+msgstr "Citizen Space"
+
+#: .\templates\forum\index.html:32
+msgid "Par PNAC"
+msgstr "By PNAC"
+
+#: .\templates\forum\index.html:48
+msgid "Réponses"
+msgstr "Responses"
+
+#: .\templates\forum\index.html:48
+msgid "Forum de Discussion"
+msgstr "Discussion Forum"
+
+#: .\templates\forum\index.html:48
+msgid "Aucun sujet de discussion n'a été ouvert pour le moment."
+msgstr "No discussion topics have been opened at the moment."
+
+
+#: .\templates\base.html:261
+msgid "Politique de confidentialité"
+msgstr "Privacy Policy"
+
+#: .\templates\forum\detail.html:11
+msgid "Retour aux sujets"
+msgstr "Back to topics"
+
+#: .\templates\forum\detail.html:21
+msgid "Modérateur PNAC"
+msgstr "PNAC Moderator"
+
+#: .\templates\forum\detail.html:22
+msgid "Initié le"
+msgstr "Initiated on"
+
+#: .\templates\forum\detail.html:34
+msgid "Réactions"
+msgstr "Reactions"
+
+#: .\templates\forum\detail.html:54
+msgid "Soyez le premier à réagir à ce sujet."
+msgstr "Be the first to react to this topic."
+
+#: .\templates\forum\detail.html:59
+msgid "Participer à la discussion"
+msgstr "Join the discussion"
+
+#: .\templates\forum\detail.html:64
+msgid "Votre Nom"
+msgstr "Your Name"
+
+#: .\templates\forum\detail.html:68
+msgid "Votre Message"
+msgstr "Your Message"
+
+#: .\templates\forum\detail.html:75
+msgid "Publier ma réponse"
+msgstr "Publish my response"
+
+#: gallery/models.py:5
+msgid "Activités & Salongo"
+msgstr "Activities & Salongo"
+
+#: gallery/models.py:6
+msgid "Séminaires & Conférences"
+msgstr "Seminars & Conferences"
+
+#: gallery/models.py:7
+msgid "Impact (Avant/Après)"
+msgstr "Impact (Before/After)"
+
+#: gallery/models.py:8
+msgid "Vie d'équipe"
+msgstr "Team life"
+
