@@ -857,3 +857,11 @@ msgstr "Impact (Before/After)"
 msgid "Vie d'équipe"
 msgstr "Team life"
 
+#: .\templates\blog\list.html:23
+msgid "Lire l'article"
+msgstr "Read the article"
+
+#: .\templates\blog\detail.html:57
+msgid "Partager cet article"
+msgstr "Share this article"
+
