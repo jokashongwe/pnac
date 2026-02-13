@@ -857,6 +857,26 @@ msgstr "Impact (Before/After)"
 msgid "Vie d'équipe"
 msgstr "Team life"
 
+#: events/models.py:5
+msgid "Salongo Populaire"
+msgstr "Popular Salongo"
+
+#: events/models.py:7
+msgid "Campagne de Salubrité"
+msgstr "Sanitation Campaign"
+
+#: events/models.py:49
+msgid "Participant Salongo"
+msgstr "Awareness Campaign"
+
+#: events/models.py:50
+msgid "Chef de Quartier / Leader"
+msgstr "Leader"
+
+#: events/models.py:51
+msgid "Membre Eco-Brigade"
+msgstr "Eco-Brigade Member"
+
 #: .\templates\blog\list.html:23
 msgid "Lire l'article"
 msgstr "Read the article"
