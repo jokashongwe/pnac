@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Espace membre" %} | PNAC{% endblock %}
+
+{% block content %}
+{% include 'team/space/_nav.html' %}
+<section class="py-10 bg-gray-50 min-h-[70vh]">
+    <div class="max-w-6xl mx-auto px-4 space-y-10">
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h2 class="font-bold text-gray-900 mb-2">{% trans "Profil" %}</h2>
+                <p class="text-gray-600">{{ member.role }}</p>
+                <p class="text-sm text-gray-500 mt-2">{{ member.get_category_display }}</p>
+                {% if member.phone %}
+                    <p class="text-sm mt-4">
+                        {% if member.phone_verified %}
+                            <span class="text-pnacGreen font-semibold">{% trans "Téléphone vérifié" %}</span>
+                        {% else %}
+                            <span class="text-amber-600 font-semibold">{% trans "Téléphone non vérifié" %}</span>
+                        {% endif %}
+                        · {{ member.phone }}
+                    </p>
+                {% endif %}
+                {% if member.is_forum_banned %}
+                    <p class="mt-3 text-sm text-red-600 font-semibold">{% trans "Votre accès au forum est suspendu." %}</p>
+                {% endif %}
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm md:col-span-2">
+                <h2 class="font-bold text-gray-900 mb-4">{% trans "Sujets ouverts" %}</h2>
+                <ul class="space-y-3">
+                    {% for topic in open_topics %}
+                    <li>
+                        <a href="{% url 'topic_detail' topic.slug %}" class="text-pnacBlue font-semibold hover:underline">{{ topic.title }}</a>
+                        <span class="text-xs text-gray-400 ml-2">{{ topic.get_post_count }} {% trans "réponses" %}</span>
+                    </li>
+                    {% empty %}
+                    <li class="text-gray-500">{% trans "Aucun sujet ouvert pour le moment." %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <h2 class="font-bold text-gray-900 mb-4">{% trans "Sujets à accès restreint" %}</h2>
+            <div class="space-y-4">
+                {% for row in restricted_rows %}
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-gray-50 pb-4">
+                    <div>
+                        <p class="font-semibold text-gray-900">{{ row.topic.title }}</p>
+                        <p class="text-sm text-gray-500 line-clamp-2">{{ row.topic.description }}</p>
+                    </div>
+                    <div>
+                        {% if is_forum_moderator or row.request.status == 'APPROVED' %}
+                            <a href="{% url 'topic_detail' row.topic.slug %}" class="inline-block bg-pnacGreen text-white text-sm font-bold px-4 py-2 rounded-lg">{% trans "Ouvrir" %}</a>
+                        {% elif row.request.status == 'PENDING' %}
+                            <span class="text-sm text-amber-600 font-semibold">{% trans "Demande en attente" %}</span>
+                        {% elif member.is_forum_banned %}
+                            <span class="text-sm text-red-600">{% trans "Accès suspendu" %}</span>
+                        {% else %}
+                            <form method="post" action="{% url 'request_topic_access' row.topic.slug %}">
+                                {% csrf_token %}
+                                <button class="bg-pnacBlue text-white text-sm font-bold px-4 py-2 rounded-lg">{% trans "Demander l'accès" %}</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-gray-500">{% trans "Aucun sujet restreint pour le moment." %}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+            <h2 class="font-bold text-gray-900 mb-4">{% trans "Mes messages" %}</h2>
+            <ul class="space-y-3">
+                {% for post in my_posts %}
+                <li class="text-sm">
+                    <a href="{% url 'topic_detail' post.topic.slug %}" class="font-semibold text-gray-800 hover:text-pnacGreen">{{ post.topic.title }}</a>
+                    <p class="text-gray-500 line-clamp-2">{{ post.content }}</p>
+                </li>
+                {% empty %}
+                <li class="text-gray-500">{% trans "Vous n'avez pas encore publié de message." %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        {% if is_forum_moderator %}
+        <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+            <h2 class="font-bold text-gray-900 mb-2">{% trans "Modération" %}</h2>
+            <p class="text-sm text-gray-600 mb-4">{{ pending_count }} {% trans "demande(s) d'accès en attente." %}</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="{% url 'moderation_requests' %}" class="bg-pnacGreen text-white font-bold px-4 py-2 rounded-lg">{% trans "Traiter les demandes" %}</a>
+                <a href="{% url 'moderation_topic_create' %}" class="bg-white border border-gray-200 font-bold px-4 py-2 rounded-lg">{% trans "Créer un sujet" %}</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

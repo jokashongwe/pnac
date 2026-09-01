@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Accès restreint" %} | PNAC{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="bg-white rounded-2xl border border-amber-100 p-8 shadow-sm">
+        <a href="{% url 'forum_index' %}" class="inline-flex items-center text-sm text-gray-500 hover:text-pnacGreen mb-6 font-medium">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            {% trans "Retour aux sujets" %}
+        </a>
+        <p class="text-xs uppercase tracking-wide text-amber-600 font-bold mb-2">{% trans "Accès restreint" %}</p>
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-4">{{ topic.title }}</h1>
+        <p class="text-gray-600 mb-8">{% trans "Ce sujet est réservé aux membres dont l'accès a été validé par la coordination." %}</p>
+        {% if access_request.status == 'PENDING' %}
+            <p class="text-amber-700 font-semibold">{% trans "Votre demande est en cours d'examen." %}</p>
+        {% elif access_request.status == 'DENIED' %}
+            <p class="text-red-600 mb-4">{% trans "Votre précédente demande a été refusée. Vous pouvez renvoyer une demande." %}</p>
+            {% if not member.is_forum_banned %}
+            <form method="post" action="{% url 'request_topic_access' topic.slug %}">
+                {% csrf_token %}
+                <button class="bg-pnacBlue text-white font-bold px-5 py-2 rounded-lg">{% trans "Renvoyer la demande" %}</button>
+            </form>
+            {% endif %}
+        {% elif member.is_forum_banned %}
+            <p class="text-red-600">{% trans "Votre accès au forum a été suspendu." %}</p>
+        {% else %}
+            <form method="post" action="{% url 'request_topic_access' topic.slug %}">
+                {% csrf_token %}
+                <button class="bg-pnacGreen text-white font-bold px-5 py-2 rounded-lg">{% trans "Demander l'accès" %}</button>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

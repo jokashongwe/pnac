@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class Event(models.Model):
     TYPES = (
-        ('SALONGO', 'Salongo Populaire'),
-        ('FORMATION', 'Formation & Sensibilisation'),
-        ('CAMPAGNE', 'Campagne de Salubrité'),
+        ('SALONGO', _('Salongo Populaire')),
+        ('FORMATION', _('Formation & Sensibilisation')),
+        ('CAMPAGNE', _('Campagne de Salubrité')),
     )
 
     latitude = models.FloatField(verbose_name="Latitude", help_text="Ex: -4.325 (Kinshasa)", blank=True, null=True)

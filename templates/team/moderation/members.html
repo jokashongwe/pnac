@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+{% include 'team/space/_nav.html' %}
+<section class="py-10 bg-gray-50 min-h-[70vh]">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-6 border-b">
+                <h1 class="text-2xl font-bold">{% trans "Membres du forum" %}</h1>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-gray-50 text-left text-gray-500">
+                        <tr>
+                            <th class="px-4 py-3">{% trans "Nom" %}</th>
+                            <th class="px-4 py-3">{% trans "Rôle" %}</th>
+                            <th class="px-4 py-3">{% trans "Forum" %}</th>
+                            <th class="px-4 py-3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in members %}
+                        <tr class="border-t">
+                            <td class="px-4 py-3 font-medium">{{ m.name }}</td>
+                            <td class="px-4 py-3">{{ m.get_category_display }}</td>
+                            <td class="px-4 py-3">
+                                {% if m.is_forum_banned %}
+                                    <span class="text-red-600 font-semibold">{% trans "Banni" %}</span>
+                                {% else %}
+                                    <span class="text-pnacGreen font-semibold">{% trans "Actif" %}</span>
+                                {% endif %}
+                            </td>
+                            <td class="px-4 py-3 text-right">
+                                {% if m.pk != current_member.pk %}
+                                <form method="post" action="{% url 'moderation_member_ban' m.pk %}">
+                                    {% csrf_token %}
+                                    <button class="text-sm font-bold {% if m.is_forum_banned %}text-pnacGreen{% else %}text-red-600{% endif %}">
+                                        {% if m.is_forum_banned %}{% trans "Lever le ban" %}{% else %}{% trans "Bannir" %}{% endif %}
+                                    </button>
+                                </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

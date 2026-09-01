@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <body onload="document.forms['maxicash_form'].submit()">
     <div style="text-align: center; margin-top: 20%;">
-        <h1>Redirection vers MaxiCash...</h1>
+        <h1>{% trans "Redirection vers MaxiCash..." %}</h1>
         <p>{% trans "Veuillez patienter, transaction sécurisée en cours." %}</p>
         <img src="https://maxicashapp.com/assets/images/logo.png" alt="MaxiCash" style="width: 150px;">
     </div>

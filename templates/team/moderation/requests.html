@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+{% include 'team/space/_nav.html' %}
+<section class="py-10 bg-gray-50 min-h-[70vh]">
+    <div class="max-w-5xl mx-auto px-4 space-y-10">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <h1 class="text-2xl font-bold mb-6">{% trans "Demandes d'accès" %}</h1>
+            <div class="space-y-4">
+                {% for req in pending %}
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border border-gray-100 rounded-lg p-4">
+                    <div>
+                        <p class="font-semibold">{{ req.member.name }} → {{ req.topic.title }}</p>
+                        <p class="text-xs text-gray-400">{{ req.created_at|date:"d M Y H:i" }}</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <form method="post" action="{% url 'moderation_request_review' req.id 'approve' %}">
+                            {% csrf_token %}
+                            <button class="bg-pnacGreen text-white text-sm font-bold px-4 py-2 rounded-lg">{% trans "Approuver" %}</button>
+                        </form>
+                        <form method="post" action="{% url 'moderation_request_review' req.id 'deny' %}">
+                            {% csrf_token %}
+                            <button class="bg-red-600 text-white text-sm font-bold px-4 py-2 rounded-lg">{% trans "Refuser" %}</button>
+                        </form>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-gray-500">{% trans "Aucune demande en attente." %}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <h2 class="text-lg font-bold mb-4">{% trans "Historique récent" %}</h2>
+            <ul class="space-y-2 text-sm text-gray-600">
+                {% for req in recent %}
+                <li>{{ req.member.name }} — {{ req.topic.title }} — {{ req.get_status_display }}</li>
+                {% empty %}
+                <li>{% trans "Pas encore d'historique." %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

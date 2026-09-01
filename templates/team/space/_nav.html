@@ -1,0 +1,20 @@
+{% load i18n %}
+<div class="bg-white border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+        <div>
+            <p class="text-xs uppercase tracking-wide text-pnacBlue font-bold">{% trans "Espace membre" %}</p>
+            <p class="font-bold text-gray-900">{{ current_member.name }}</p>
+        </div>
+        <nav class="flex flex-wrap items-center gap-2 text-sm">
+            <a href="{% url 'member_dashboard' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'member_dashboard' %}bg-green-50 text-pnacGreen font-bold{% else %}hover:bg-green-50 text-gray-700{% endif %}">{% trans "Tableau de bord" %}</a>
+            <a href="{% url 'forum_index' %}" class="px-3 py-2 rounded-lg hover:bg-green-50 text-gray-700">{% trans "Forum" %}</a>
+            {% if is_forum_moderator %}
+            <a href="{% url 'moderation_topic_create' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'moderation_topic_create' %}bg-green-50 text-pnacGreen font-bold{% else %}hover:bg-green-50 text-gray-700{% endif %}">{% trans "Nouveau sujet" %}</a>
+            <a href="{% url 'moderation_requests' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'moderation_requests' %}bg-green-50 text-pnacGreen font-bold{% else %}hover:bg-green-50 text-gray-700{% endif %}">{% trans "Demandes d'accès" %}</a>
+            <a href="{% url 'moderation_members' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'moderation_members' %}bg-green-50 text-pnacGreen font-bold{% else %}hover:bg-green-50 text-gray-700{% endif %}">{% trans "Membres" %}</a>
+            {% endif %}
+            <a href="{% url 'member_password' %}" class="px-3 py-2 rounded-lg {% if request.resolver_match.url_name == 'member_password' %}bg-green-50 text-pnacGreen font-bold{% else %}hover:bg-green-50 text-gray-700{% endif %}">{% trans "Mot de passe" %}</a>
+            <a href="{% url 'member_logout' %}" class="px-3 py-2 rounded-full bg-pnacGreen text-white font-semibold hover:bg-green-700">{% trans "Déconnexion" %}</a>
+        </nav>
+    </div>
+</div>

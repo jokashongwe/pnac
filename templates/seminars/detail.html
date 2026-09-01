@@ -2,12 +2,16 @@
 {% load static %}
 {% load i18n %}
 
+{% block title %}{{ seminar.title }} | PNAC{% endblock %}
+
 {% block content %}
-<div class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <span class="bg-pnacBlue text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">{% trans "Conférence PNAC" %}</span>
-        <h1 class="text-3xl md:text-5xl font-extrabold mt-4">{{ seminar.title }}</h1>
-        <p class="text-gray-400 mt-2 text-lg">{{ seminar.start_date|date:"d M Y" }} • {{ seminar.location }}</p>
+<div class="relative overflow-hidden border-b border-gray-100">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-sky-50"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
+        <span class="bg-pnacBlue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{% trans "Conférence PNAC" %}</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold mt-4 text-gray-900">{{ seminar.title }}</h1>
+        <div class="h-1 w-16 bg-pnacBlue mx-auto mt-5 rounded-full"></div>
+        <p class="text-gray-600 mt-4 text-lg">{{ seminar.start_date|date:"d M Y" }} · {{ seminar.location }}</p>
     </div>
 </div>
 
@@ -15,7 +19,7 @@
     
     <div class="lg:col-span-2 space-y-6 text-gray-700">
         {% if seminar.image %}
-            <img src="{{ seminar.image.url }}" class="w-full h-80 object-cover rounded-xl shadow-lg mb-6">
+            <img src="{{ seminar.image.url }}" alt="{{ seminar.title }}" class="w-full h-80 object-cover rounded-2xl shadow-sm mb-6">
         {% endif %}
         
         <div class="prose max-w-none">

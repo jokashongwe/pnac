@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR jokashongwe@gmail.com, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-23 10:51+0100\n"
 "PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME jokashongwe@gmail.com\n"
+"Last-Translator: PNAC <info@pnac-rdc.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,8 +128,12 @@ msgid "Tous droits réservés."
 msgstr "All rights reserved."
 
 #: .\templates\base.html:219
-msgid "Partenariat Novateur pour l'Assainissement Communautaire. Une initiative de l'Association Mouvement Jaune (AMOJA-RDC)."
-msgstr "Innovative Partnership for Community Sanitation. An initiative of the Yellow Movement Association (AMOJA-DRC)."
+msgid ""
+"Partenariat Novateur pour l'Assainissement Communautaire. Une initiative de "
+"l'Association Mouvement Jaune (AMOJA-RDC)."
+msgstr ""
+"Innovative Partnership for Community Sanitation. An initiative of the Yellow"
+" Movement Association (AMOJA-DRC)."
 
 #: .\templates\components\map_section.html:7
 msgid "Carte des Interventions"
@@ -238,8 +241,13 @@ msgid "Matériel requis"
 msgstr "Materials required"
 
 #: .\templates\events\event_detail.html:94
-msgid "Si vous en possédez, apportez des gants, des râteaux ou des pelles. Le PNAC fournira des sacs poubelles et des équipements de protection de base grâce aux dons."
-msgstr "If you have them, bring gloves, rakes or shovels. The PNAC will provide garbage bags and basic protective equipment thanks to donations."
+msgid ""
+"Si vous en possédez, apportez des gants, des râteaux ou des pelles. Le PNAC "
+"fournira des sacs poubelles et des équipements de protection de base grâce "
+"aux dons."
+msgstr ""
+"If you have them, bring gloves, rakes or shovels. The PNAC will provide "
+"garbage bags and basic protective equipment thanks to donations."
 
 #: .\templates\events\event_detail.html:108
 msgid "Je participe !"
@@ -377,9 +385,11 @@ msgstr "Our approach"
 
 #: .\templates\home.html:144
 msgid ""
-"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Le PNAC répond à ce besoin par trois leviers d'action."
+"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Le"
+" PNAC répond à ce besoin par trois leviers d'action."
 msgstr ""
-"The current sanitation model in the DRC requires an integrated approach. The PNAC responds to this need through three levers of action."
+"The current sanitation model in the DRC requires an integrated approach. The"
+" PNAC responds to this need through three levers of action."
 
 #: .\templates\home.html:153
 msgid "Mobilisation Citoyenne"
@@ -439,9 +449,11 @@ msgstr "Our Purpose"
 
 #: .\templates\mission.html:16
 msgid ""
-"Le PNAC est une réponse structurée, durable et inclusive aux défis d'assainissement et de salubrité en République Démocratique du Congo."
+"Le PNAC est une réponse structurée, durable et inclusive aux défis "
+"d'assainissement et de salubrité en République Démocratique du Congo."
 msgstr ""
-"The PNAC is a structured, sustainable and inclusive response to sanitation and safety challenges in the Democratic Republic of Congo."
+"The PNAC is a structured, sustainable and inclusive response to sanitation "
+"and safety challenges in the Democratic Republic of Congo."
 
 #: .\templates\mission.html:26
 msgid "Pourquoi le PNAC ?"
@@ -449,21 +461,29 @@ msgstr "Why the PNAC?"
 
 #: .\templates\mission.html:30
 msgid ""
-"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. Les actions étatiques, bien que cruciales, ne suffisent pas à relever les défis urbains et périurbains de la salubrité."
+"Le modèle actuel d'assainissement en RDC nécessite une approche intégrée. "
+"Les actions étatiques, bien que cruciales, ne suffisent pas à relever les "
+"défis urbains et périurbains de la salubrité."
 msgstr ""
-"The current sanitation model in the DRC requires an integrated approach. State actions, although crucial, are not enough to meet the urban and peri-urban sanitation challenges."
+"The current sanitation model in the DRC requires an integrated approach. "
+"State actions, although crucial, are not enough to meet the urban and peri-"
+"urban sanitation challenges."
 
 #: .\templates\mission.html:33
 msgid ""
-"Le PNAC répond à ce besoin en apportant une structure agile, une expertise associative et une capacité de mobilisation rapide des communautés."
+"Le PNAC répond à ce besoin en apportant une structure agile, une expertise "
+"associative et une capacité de mobilisation rapide des communautés."
 msgstr ""
-"The PNAC responds to this need by providing an agile structure, associative expertise and a capacity for rapid community mobilization."
+"The PNAC responds to this need by providing an agile structure, associative "
+"expertise and a capacity for rapid community mobilization."
 
 #: .\templates\mission.html:36
 msgid ""
-"Nous sommes un cadre de collaboration ouvert réunissant communautés, autorités, société civile et secteur privé."
+"Nous sommes un cadre de collaboration ouvert réunissant communautés, "
+"autorités, société civile et secteur privé."
 msgstr ""
-"We are an open collaborative framework bringing together communities, authorities, civil society and the private sector."
+"We are an open collaborative framework bringing together communities, "
+"authorities, civil society and the private sector."
 
 #: .\templates\mission.html:45
 msgid "Initiative portée par"
@@ -479,9 +499,13 @@ msgstr "Our Vision"
 
 #: .\templates\mission.html:64
 msgid ""
-"Construire une République Démocratique du Congo propre, saine et résiliente, où chaque citoyen participe activement à l'assainissement, à la gestion des déchets et à la préservation de l'environnement."
+"Construire une République Démocratique du Congo propre, saine et résiliente,"
+" où chaque citoyen participe activement à l'assainissement, à la gestion des"
+" déchets et à la préservation de l'environnement."
 msgstr ""
-"Build a clean, healthy and resilient Democratic Republic of Congo, where every citizen actively participates in sanitation, waste management and preservation of the environment."
+"Build a clean, healthy and resilient Democratic Republic of Congo, where "
+"every citizen actively participates in sanitation, waste management and "
+"preservation of the environment."
 
 #: .\templates\mission.html:72
 msgid "Notre Mission"
@@ -489,8 +513,13 @@ msgstr "Our Mission"
 
 #: .\templates\mission.html:75
 msgid ""
-"Promouvoir, structurer et renforcer les actions communautaires d'assainissement, en mobilisant l'ensemble des acteurs autour d'approches participatives, novatrices et durables."
-msgstr "Promote, structure and strengthen community sanitation actions, by mobilizing all stakeholders around participatory, innovative and sustainable approaches."
+"Promouvoir, structurer et renforcer les actions communautaires "
+"d'assainissement, en mobilisant l'ensemble des acteurs autour d'approches "
+"participatives, novatrices et durables."
+msgstr ""
+"Promote, structure and strengthen community sanitation actions, by "
+"mobilizing all stakeholders around participatory, innovative and sustainable"
+" approaches."
 
 #: .\templates\mission.html:85
 msgid "Nos Valeurs Fondamentales"
@@ -530,7 +559,8 @@ msgstr "General"
 
 #: .\templates\mission.html:144
 msgid ""
-"Améliorer durablement le cadre de vie à travers l'assainissement communautaire."
+"Améliorer durablement le cadre de vie à travers l'assainissement "
+"communautaire."
 msgstr ""
 "Sustainably improve the living environment through community sanitation."
 
@@ -553,7 +583,8 @@ msgstr "Organize regular sanitation campaigns."
 
 #: .\templates\mission.html:165
 msgid ""
-"Mettre en place des solutions innovantes : tri sélectif, recyclage, points verts."
+"Mettre en place des solutions innovantes : tri sélectif, recyclage, points "
+"verts."
 msgstr ""
 "Implement innovative solutions: selective sorting, recycling, green points."
 
@@ -568,9 +599,11 @@ msgstr "Ready to make a change?"
 
 #: .\templates\mission.html:182
 msgid ""
-"Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. Rejoignez le mouvement pour un cadre de vie assaini."
+"Le PNAC intervient prioritairement à Kinshasa et dans les centres urbains. "
+"Rejoignez le mouvement pour un cadre de vie assaini."
 msgstr ""
-"The PNAC intervenes primarily in Kinshasa and in urban centers. Join the movement for a healthier living environment."
+"The PNAC intervenes primarily in Kinshasa and in urban centers. Join the "
+"movement for a healthier living environment."
 
 #: .\templates\mission.html:186
 msgid "Soutenir nos actions"
@@ -725,12 +758,20 @@ msgid "Envie de rejoindre le mouvement ?"
 msgstr "Want to join the movement?"
 
 #: .\templates\team.html:63
-msgid "Le PNAC est une structure ouverte. Que vous soyez expert en environnement, logisticien ou simple citoyen motivé, votre place est ici. "
-msgstr "The PNAC is an open structure. Whether you are an environmental expert, a logistician or a simple motivated citizen, you belong here."
+msgid ""
+"Le PNAC est une structure ouverte. Que vous soyez expert en environnement, "
+"logisticien ou simple citoyen motivé, votre place est ici. "
+msgstr ""
+"The PNAC is an open structure. Whether you are an environmental expert, a "
+"logistician or a simple motivated citizen, you belong here."
 
 #: .\templates\blog\list.html:10
-msgid "Suivez les dernières actions du PNAC, nos histoires de terrain et nos annonces officielles."
-msgstr "Follow the latest actions of the PNAC, our field stories and our official announcements."
+msgid ""
+"Suivez les dernières actions du PNAC, nos histoires de terrain et nos "
+"annonces officielles."
+msgstr ""
+"Follow the latest actions of the PNAC, our field stories and our official "
+"announcements."
 
 #: .\templates\blog\list.html:23
 msgid "Aucun article publié pour le moment."
@@ -741,8 +782,12 @@ msgid "Actualité PNAC"
 msgstr "PNAC News"
 
 #: .\templates\forum\index.html:10
-msgid "Échangez avec le PNAC et les autres citoyens sur les priorités d'assainissement de votre quartier."
-msgstr "Exchange with the PNAC and other citizens on the sanitation priorities of your neighborhood."
+msgid ""
+"Échangez avec le PNAC et les autres citoyens sur les priorités "
+"d'assainissement de votre quartier."
+msgstr ""
+"Exchange with the PNAC and other citizens on the sanitation priorities of "
+"your neighborhood."
 
 #: .\templates\forum\index.html:23
 msgid "Aucune discussion pour le moment."
@@ -799,7 +844,6 @@ msgstr "Discussion Forum"
 #: .\templates\forum\index.html:48
 msgid "Aucun sujet de discussion n'a été ouvert pour le moment."
 msgstr "No discussion topics have been opened at the moment."
-
 
 #: .\templates\base.html:261
 msgid "Politique de confidentialité"
@@ -888,3 +932,673 @@ msgstr "Share this article"
 #: .\templates\blog\detail.html:62
 msgid "À lire aussi"
 msgstr "Read also"
+
+msgid "Forum"
+msgstr "Forum"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Action PNAC"
+msgstr "PNAC Action"
+
+msgid "Voir toutes les actions"
+msgstr "See all actions"
+
+msgid "Qui sommes-nous (Mission)"
+msgstr "Who we are (Mission)"
+
+msgid "Partenariats multi-partites"
+msgstr "Multi-stakeholder partnerships"
+
+msgid "Non disponible"
+msgstr "Unavailable"
+
+msgid "Aucun événement prévu pour le moment."
+msgstr "No events scheduled at the moment."
+
+msgid "Zone d'intervention prioritaire"
+msgstr "Priority intervention area"
+
+msgid "Voir détails"
+msgstr "View details"
+
+msgid "Redirection vers MaxiCash..."
+msgstr "Redirecting to MaxiCash..."
+
+msgid "Numéro de Téléphone"
+msgstr "Phone number"
+
+msgid "PNAC - RDC | Partenariat Novateur pour l'Assainissement Communautaire"
+msgstr "PNAC - DRC | Innovative Partnership for Community Sanitation"
+
+msgid "PNAC - Programme Novateur pour l'Assainissement Communautaire"
+msgstr "PNAC - Innovative Program for Community Sanitation"
+
+msgid "Politique de Confidentialité"
+msgstr "Privacy Policy"
+
+msgid ""
+"Votre vie privée est importante pour nous. Découvrez comment le PNAC protège"
+" et utilise vos informations."
+msgstr ""
+"Your privacy matters to us. Learn how PNAC protects and uses your "
+"information."
+
+msgid "Introduction"
+msgstr "Introduction"
+
+msgid ""
+"Le Programme Novateur pour l'Assainissement Communautaire (PNAC) s'engage à "
+"protéger la confidentialité des utilisateurs de son site web. Cette "
+"politique de confidentialité explique quelles informations nous recueillons,"
+" comment nous les utilisons et comment nous les protégeons."
+msgstr ""
+"The Innovative Community Sanitation Program (PNAC) is committed to "
+"protecting the privacy of its website users. This privacy policy explains "
+"what information we collect, how we use it, and how we protect it."
+
+msgid "Collecte des Informations"
+msgstr "Information Collection"
+
+msgid "Nous pouvons collecter les types d'informations suivants :"
+msgstr "We may collect the following types of information:"
+
+msgid "Informations personnelles"
+msgstr "Personal information"
+
+msgid ""
+"Nom, adresse e-mail, numéro de téléphone, et autres coordonnées que vous "
+"nous fournissez volontairement lors de l'inscription à notre newsletter, de "
+"l'utilisation de nos formulaires de contact ou lors de la participation à "
+"nos forums."
+msgstr ""
+"Name, email address, phone number, and other contact details that you "
+"voluntarily provide when signing up for our newsletter, using our contact "
+"forms, or participating in our forums."
+
+msgid "Informations non personnelles"
+msgstr "Non-personal information"
+
+msgid ""
+"Données de navigation, type de navigateur, adresse IP, et pages visitées sur"
+" notre site, collectées via des cookies et des outils d'analyse."
+msgstr ""
+"Browsing data, browser type, IP address, and pages visited on our site, "
+"collected via cookies and analytics tools."
+
+msgid "Utilisation des Informations"
+msgstr "Use of Information"
+
+msgid "Les informations collectées sont utilisées pour :"
+msgstr "The information collected is used to:"
+
+msgid "Vous fournir les services demandés et répondre à vos questions."
+msgstr "Provide the requested services and answer your questions."
+
+msgid "Améliorer le contenu et la fonctionnalité de notre site web."
+msgstr "Improve the content and functionality of our website."
+
+msgid ""
+"Vous envoyer des newsletters, des mises à jour sur nos projets et des appels"
+" à l'action (vous pouvez vous désinscrire à tout moment)."
+msgstr ""
+"Send you newsletters, project updates, and calls to action (you may "
+"unsubscribe at any time)."
+
+msgid "Analyser les tendances d'utilisation pour optimiser notre impact."
+msgstr "Analyze usage trends to optimize our impact."
+
+msgid "Protection des Données"
+msgstr "Data Protection"
+
+msgid ""
+"Nous mettons en œuvre des mesures de sécurité appropriées pour protéger vos "
+"informations contre l'accès non autorisé, la modification, la divulgation ou"
+" la destruction. Cependant, aucune transmission de données sur Internet "
+"n'est totalement sécurisée, et nous ne pouvons garantir une sécurité "
+"absolue."
+msgstr ""
+"We implement appropriate security measures to protect your information "
+"against unauthorized access, alteration, disclosure, or destruction. "
+"However, no data transmission over the Internet is completely secure, and we"
+" cannot guarantee absolute security."
+
+msgid "Cookies"
+msgstr "Cookies"
+
+msgid ""
+"Notre site utilise des cookies pour améliorer votre expérience utilisateur. "
+"Vous pouvez choisir de désactiver les cookies dans les paramètres de votre "
+"navigateur, mais cela pourrait affecter certaines fonctionnalités du site."
+msgstr ""
+"Our site uses cookies to improve your user experience. You can disable "
+"cookies in your browser settings, but this may affect some site features."
+
+msgid "Vos Droits"
+msgstr "Your Rights"
+
+msgid ""
+"Conformément à la législation en vigueur, vous disposez d'un droit d'accès, "
+"de rectification et de suppression de vos données personnelles. Pour exercer"
+" ce droit, veuillez nous contacter à l'adresse ci-dessous."
+msgstr ""
+"In accordance with applicable law, you have the right to access, correct, "
+"and delete your personal data. To exercise this right, please contact us at "
+"the address below."
+
+msgid "Nous Contacter"
+msgstr "Contact Us"
+
+msgid ""
+"Si vous avez des questions concernant cette politique de confidentialité, "
+"vous pouvez nous contacter à :"
+msgstr ""
+"If you have questions about this privacy policy, you can contact us at:"
+
+msgid "Dernière mise à jour :"
+msgstr "Last updated:"
+
+msgid "Rejoignez l'Équipe PNAC"
+msgstr "Join the PNAC Team"
+
+msgid ""
+"Devenez acteur du changement dans votre communauté. Ensemble, assainissons "
+"notre environnement."
+msgstr ""
+"Become an agent of change in your community. Together, let's clean up our "
+"environment."
+
+msgid "Actions de terrain (Salongo)"
+msgstr "Field actions (Salongo)"
+
+msgid "Sensibilisation citoyenne"
+msgstr "Citizen awareness"
+
+msgid "Eco-brigades locales"
+msgstr "Local eco-brigades"
+
+msgid "Suivez-nous sur les réseaux"
+msgstr "Follow us on social media"
+
+msgid "Formulaire d'adhésion"
+msgstr "Membership form"
+
+msgid "Nous vous enverrons une confirmation par ce canal."
+msgstr "We will send you a confirmation through this channel."
+
+msgid "Envoyer ma candidature"
+msgstr "Submit my application"
+
+msgid "Message de motivation"
+msgstr "Motivation message"
+
+msgid "Mode de communication préféré"
+msgstr "Preferred communication method"
+
+msgid "Votre nom complet"
+msgstr "Your full name"
+
+msgid "Dites-nous pourquoi vous voulez rejoindre notre équipe..."
+msgstr "Tell us why you want to join our team..."
+
+msgid ""
+"Votre demande d'adhésion a été envoyée avec succès ! Nous vous contacterons "
+"bientôt."
+msgstr ""
+"Your membership request has been sent successfully! We will contact you "
+"soon."
+
+msgid "Votre nom ou pseudo"
+msgstr "Your name or username"
+
+msgid "Partagez votre avis ou signalez un problème..."
+msgstr "Share your opinion or report a problem..."
+
+msgid "Votre message a été publié avec succès !"
+msgstr "Your message has been published successfully!"
+
+msgid "Formation & Sensibilisation"
+msgstr "Training & Awareness"
+
+msgid "Guides & Sensibilisation"
+msgstr "Guides & Awareness"
+
+msgid "Outils Salongo & Technique"
+msgstr "Salongo Tools & Technical Resources"
+
+msgid "Documents Officiels"
+msgstr "Official Documents"
+
+msgid "Français"
+msgstr "French"
+
+msgid "English"
+msgstr "English"
+
+#, python-format
+msgid "Merci %(name)s ! Votre inscription pour « %(event)s » est enregistrée."
+msgstr ""
+"Thank you %(name)s! Your registration for \"%(event)s\" has been recorded."
+
+msgid "22 janvier 2026"
+msgstr "January 22, 2026"
+
+msgid "Espace membre"
+msgstr "Member space"
+
+msgid "Connectez-vous avec votre email ou votre numéro de téléphone."
+msgstr "Sign in with your email or phone number."
+
+msgid "Se connecter"
+msgstr "Sign in"
+
+msgid "Vérification du téléphone"
+msgstr "Phone verification"
+
+msgid "Un code SMS a été envoyé au numéro"
+msgstr "An SMS code was sent to"
+
+msgid "Valider le code"
+msgstr "Verify code"
+
+msgid "Renvoyer le SMS"
+msgstr "Resend SMS"
+
+msgid "Tableau de bord"
+msgstr "Dashboard"
+
+msgid "Nouveau sujet"
+msgstr "New topic"
+
+msgid "Demandes d'accès"
+msgstr "Access requests"
+
+msgid "Membres"
+msgstr "Members"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Déconnexion"
+msgstr "Log out"
+
+msgid "Connexion"
+msgstr "Sign in"
+
+msgid "Téléphone vérifié"
+msgstr "Phone verified"
+
+msgid "Téléphone non vérifié"
+msgstr "Phone not verified"
+
+msgid "Votre accès au forum est suspendu."
+msgstr "Your forum access has been suspended."
+
+msgid "Votre accès au forum a été suspendu."
+msgstr "Your forum access has been suspended."
+
+msgid "Sujets ouverts"
+msgstr "Open topics"
+
+msgid "réponses"
+msgstr "replies"
+
+msgid "Aucun sujet ouvert pour le moment."
+msgstr "No open topics at the moment."
+
+msgid "Sujets à accès restreint"
+msgstr "Restricted topics"
+
+msgid "Ouvrir"
+msgstr "Open"
+
+msgid "Demande en attente"
+msgstr "Request pending"
+
+msgid "Accès suspendu"
+msgstr "Access suspended"
+
+msgid "Demander l'accès"
+msgstr "Request access"
+
+msgid "Aucun sujet restreint pour le moment."
+msgstr "No restricted topics at the moment."
+
+msgid "Mes messages"
+msgstr "My posts"
+
+msgid "Vous n'avez pas encore publié de message."
+msgstr "You have not posted any messages yet."
+
+msgid "Modération"
+msgstr "Moderation"
+
+msgid "demande(s) d'accès en attente."
+msgstr "pending access request(s)."
+
+msgid "Traiter les demandes"
+msgstr "Review requests"
+
+msgid "Créer un sujet"
+msgstr "Create a topic"
+
+msgid "Changer le mot de passe"
+msgstr "Change password"
+
+msgid "Enregistrer"
+msgstr "Save"
+
+msgid "Publier le sujet"
+msgstr "Publish topic"
+
+msgid "Approuver"
+msgstr "Approve"
+
+msgid "Refuser"
+msgstr "Deny"
+
+msgid "Aucune demande en attente."
+msgstr "No pending requests."
+
+msgid "Historique récent"
+msgstr "Recent history"
+
+msgid "Pas encore d'historique."
+msgstr "No history yet."
+
+msgid "Membres du forum"
+msgstr "Forum members"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Rôle"
+msgstr "Role"
+
+msgid "Banni"
+msgstr "Banned"
+
+msgid "Actif"
+msgstr "Active"
+
+msgid "Lever le ban"
+msgstr "Lift ban"
+
+msgid "Bannir"
+msgstr "Ban"
+
+msgid "Accès restreint"
+msgstr "Restricted access"
+
+msgid ""
+"Ce sujet est réservé aux membres dont l'accès a été validé par la "
+"coordination."
+msgstr ""
+"This topic is reserved for members whose access has been approved by "
+"coordination."
+
+msgid "Votre demande est en cours d'examen."
+msgstr "Your request is under review."
+
+msgid ""
+"Votre précédente demande a été refusée. Vous pouvez renvoyer une demande."
+msgstr "Your previous request was denied. You may submit a new request."
+
+msgid "Renvoyer la demande"
+msgstr "Resubmit request"
+
+msgid "Connectez-vous pour participer"
+msgstr "Sign in to take part"
+
+msgid "Supprimer ce message ?"
+msgstr "Delete this message?"
+
+msgid "Supprimer"
+msgstr "Delete"
+
+msgid "Seuls les membres connectés peuvent participer."
+msgstr "Only signed-in members can take part."
+
+msgid "Email ou téléphone"
+msgstr "Email or phone"
+
+msgid "Code de vérification"
+msgstr "Verification code"
+
+msgid "Titre"
+msgstr "Title"
+
+msgid "Mode d'accès"
+msgstr "Access mode"
+
+msgid "Discussion ouverte"
+msgstr "Discussion open"
+
+msgid "Ouvert"
+msgstr "Open"
+
+msgid "Connectez-vous avec votre espace membre."
+msgstr "Please sign in to your member space."
+
+msgid "Cette action est réservée à la coordination et à la communication."
+msgstr "This action is reserved for coordination and communications."
+
+msgid "Identifiant ou mot de passe incorrect."
+msgstr "Incorrect username or password."
+
+msgid "Un code de vérification a été envoyé par SMS."
+msgstr "A verification code was sent by SMS."
+
+msgid "Vous êtes déconnecté."
+msgstr "You have been signed out."
+
+msgid "Votre numéro de téléphone a été vérifié."
+msgstr "Your phone number has been verified."
+
+msgid "Un nouveau code a été envoyé par SMS."
+msgstr "A new code was sent by SMS."
+
+msgid "Votre mot de passe a été mis à jour."
+msgstr "Your password has been updated."
+
+msgid "Le sujet a été créé."
+msgstr "The topic has been created."
+
+msgid "Accès accordé."
+msgstr "Access granted."
+
+msgid "Demande refusée."
+msgstr "Request denied."
+
+msgid "Vous ne pouvez pas vous bannir vous-même."
+msgstr "You cannot ban yourself."
+
+msgid "Le membre a été banni du forum."
+msgstr "The member has been banned from the forum."
+
+msgid "Le bannissement a été levé."
+msgstr "The ban has been lifted."
+
+msgid "Connectez-vous pour demander l'accès à ce sujet."
+msgstr "Sign in to request access to this topic."
+
+msgid "Vous n'êtes pas autorisé à publier sur ce sujet."
+msgstr "You are not allowed to post on this topic."
+
+msgid "Votre demande est déjà en cours d'examen."
+msgstr "Your request is already under review."
+
+msgid "Votre demande d'accès a été renvoyée."
+msgstr "Your access request has been resubmitted."
+
+msgid "Votre demande d'accès a été envoyée."
+msgstr "Your access request has been sent."
+
+msgid "Le message a été supprimé."
+msgstr "The message has been deleted."
+
+msgid "Aucun numéro de téléphone à vérifier."
+msgstr "There is no phone number to verify."
+
+msgid "Veuillez patienter avant de demander un nouveau code."
+msgstr "Please wait before requesting a new code."
+
+msgid "L'envoi du SMS a échoué. Réessayez dans un instant."
+msgstr "The SMS could not be sent. Please try again shortly."
+
+msgid "Aucun code valide. Demandez un nouveau SMS."
+msgstr "No valid code. Request a new SMS."
+
+msgid "Trop de tentatives. Demandez un nouveau code."
+msgstr "Too many attempts. Request a new code."
+
+msgid "Code incorrect."
+msgstr "Incorrect code."
+
+msgid "Le membre doit avoir un email ou un téléphone pour ouvrir un accès."
+msgstr "The member must have an email or phone number to open access."
+
+msgid "L'espace membre a été créé ou le mot de passe a été mis à jour."
+msgstr "The member space was created or the password was updated."
+
+msgid "Mot de passe de l'espace"
+msgstr "Space password"
+
+msgid "Renseignez un mot de passe pour créer ou réinitialiser l'accès membre."
+msgstr "Enter a password to create or reset member access."
+
+msgid "Pas de photo"
+msgstr "No photo"
+
+msgid "Accès"
+msgstr "Access"
+
+msgid "Compte de connexion"
+msgstr "Login account"
+
+msgid "Banni du forum"
+msgstr "Banned from the forum"
+
+msgid "Créé par"
+msgstr "Created by"
+
+msgid "Auteur"
+msgstr "Author"
+
+msgid "Demande d'accès"
+msgstr "Access request"
+
+msgid "Sujets / Discussions"
+msgstr "Topics / Discussions"
+
+msgid "Réactions / Messages"
+msgstr "Replies / Messages"
+
+msgid "Coordination Générale"
+msgstr "General Coordination"
+
+msgid "Opérations & Terrain"
+msgstr "Field Operations"
+
+msgid "Communication & Partenariats"
+msgstr "Communications & Partnerships"
+
+msgid "Support Technique & Logistique"
+msgstr "Technical Support & Logistics"
+
+msgid "Bénévole"
+msgstr "Volunteer"
+
+msgid "Réseaux"
+msgstr "Networks"
+
+msgid "email@exemple.com ou +243 ..."
+msgstr "email@example.com or +243 ..."
+
+msgid "Filtrer par catégorie"
+msgstr "Filter by category"
+
+msgid "Tout"
+msgstr "All"
+
+msgid "Revenez bientôt pour les prochaines actualités du PNAC."
+msgstr "Check back soon for the latest PNAC news."
+
+msgid "Retour aux actualités"
+msgstr "Back to news"
+
+msgid "X / Twitter"
+msgstr "X / Twitter"
+
+msgid "Aller au contenu"
+msgstr "Skip to content"
+
+msgid "Langue"
+msgstr "Language"
+
+msgid "Histoires de succès"
+msgstr "Success stories"
+
+msgid "Communiqués de presse"
+msgstr "Press releases"
+
+msgid "Ressources"
+msgstr "Resources"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Bientôt"
+msgstr "Soon"
+
+msgid "Bientôt disponible"
+msgstr "Coming soon"
+
+msgid "article"
+msgstr "article"
+
+msgid "articles"
+msgstr "articles"
+
+msgid "Aucun article dans cette catégorie."
+msgstr "No articles in this category."
+
+msgid "Voir toutes les actualités"
+msgstr "See all news"
+
+msgid "Fermer"
+msgstr "Close"
+
+msgid "Précédent"
+msgstr "Previous"
+
+msgid "Suivant"
+msgstr "Next"
+
+msgid "S'engager"
+msgstr "Get involved"
+
+msgid "Pourquoi s'engager ?"
+msgstr "Why join?"
+
+msgid ""
+"Cette fonctionnalité n'est pas encore disponible. Merci de votre intérêt "
+"pour le PNAC."
+msgstr ""
+"This feature is not available yet. Thank you for your interest in PNAC."
+
+msgid "Les documents officiels seront publiés prochainement."
+msgstr "Official documents will be published soon."
+
+msgid "Soutenir"
+msgstr "Support"

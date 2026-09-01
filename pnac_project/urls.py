@@ -35,6 +35,7 @@ urlpatterns += i18n_patterns(
     path('resources/', resource_list, name='resource_list'),
     # Team
     path('equipe/', include('team.urls')),
+    path('espace/', include('team.space_urls')),
 
     path('actualites/', include('blog.urls')),
     path('forum/', include('forum.urls')),

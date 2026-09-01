@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.utils.translation import gettext as _
 from .models import TeamMember, VolunteerApplication
 from .forms import VolunteerApplicationForm
 
@@ -37,7 +38,7 @@ def volunteer_apply(request):
                 # Code pour envoyer un SMS
                 print(f"Simulation d'envoi de SMS à {application.phone}: PNAC - Merci pour votre candidature !")
             
-            messages.success(request, "Votre demande d'adhésion a été envoyée avec succès ! Nous vous contacterons bientôt.")
+            messages.success(request, _("Votre demande d'adhésion a été envoyée avec succès ! Nous vous contacterons bientôt."))
             return redirect('home')
     else:
         form = VolunteerApplicationForm()

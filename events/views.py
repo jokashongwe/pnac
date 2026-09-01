@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.http import JsonResponse
+from django.urls import reverse
+from django.utils.translation import gettext as _
 from .models import Event, Volunteer
 
 def event_list(request):
@@ -22,7 +24,7 @@ def event_map_data(request):
             'lat': event.latitude,
             'lng': event.longitude,
             'status': event.map_status,
-            'url': f"/events/{event.id}/", # Lien vers le détail
+            'url': reverse('event_detail', args=[event.id]),
             'location': event.location,
             'date': event.date.strftime('%d/%m/%Y')
         })
@@ -51,7 +53,13 @@ def join_event(request, event_id):
         )
 
         # Message de succès (Vert)
-        messages.success(request, f"Merci {full_name} ! Votre inscription pour '{event.title}' est enregistrée.")
+        messages.success(
+            request,
+            _("Merci %(name)s ! Votre inscription pour « %(event)s » est enregistrée.") % {
+                'name': full_name,
+                'event': event.title,
+            }
+        )
         
         return redirect('event_list') # Retour à la liste
     

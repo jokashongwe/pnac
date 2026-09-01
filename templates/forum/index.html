@@ -2,52 +2,56 @@
 {% load static %}
 {% load i18n %}
 
-{% block content %}
-<div class="bg-blue-50 py-16 border-b border-blue-100">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <span class="text-pnacBlue font-bold tracking-wide uppercase text-sm">{% trans "Espace Citoyen" %}</span>
-        <h1 class="text-4xl font-extrabold text-gray-900 mt-2 mb-4">{% trans "Forum de Discussion" %}</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            {% trans "Échangez avec le PNAC et les autres citoyens sur les priorités d'assainissement de votre quartier." %}
-        </p>
-    </div>
-</div>
+{% block title %}{% trans "Forum" %} | PNAC{% endblock %}
 
-<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid gap-6">
+{% block content %}
+{% trans "Espace Citoyen" as hero_eyebrow %}
+{% trans "Forum de Discussion" as hero_title %}
+{% trans "Échangez avec le PNAC et les autres citoyens sur les priorités d'assainissement de votre quartier." as hero_subtitle %}
+{% include 'partials/page_hero.html' with eyebrow=hero_eyebrow title=hero_title subtitle=hero_subtitle %}
+
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    {% if not current_member %}
+    <div class="mb-8 flex justify-center">
+        <a href="{% url 'member_login' %}" class="inline-flex items-center bg-pnacGreen hover:bg-green-700 text-white font-bold px-6 py-3 rounded-full shadow-sm transition">
+            {% trans "Connectez-vous pour participer" %}
+        </a>
+    </div>
+    {% endif %}
+
+    <div class="grid gap-4">
         {% for topic in topics %}
-        <a href="{% url 'topic_detail' topic.slug %}" class="block group">
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md hover:border-pnacBlue transition duration-300 flex items-start justify-between">
-                
-                <div class="flex items-start space-x-4">
-                    <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 text-pnacBlue group-hover:bg-pnacBlue group-hover:text-white transition">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.772-1.116L2 18h13a2 2 0 002-2v-6a2 2 0 00-2-2zM9 2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l5-4.404L19 4a1 1 0 01.378-.052A2 2 0 0017 2H9z"/></svg>
+        <a href="{% url 'topic_detail' topic.slug %}" class="group block bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-lg hover:border-pnacBlue/40 transition duration-300">
+            <div class="flex items-start justify-between gap-4">
+                <div class="flex items-start space-x-4 min-w-0">
+                    <div class="flex-shrink-0 bg-blue-50 rounded-full p-3 text-pnacBlue group-hover:bg-pnacBlue group-hover:text-white transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                     </div>
-                    
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 group-hover:text-pnacBlue transition">
+                    <div class="min-w-0">
+                        {% if topic.access_mode == 'RESTRICTED' %}
+                        <span class="inline-block text-xs font-bold uppercase tracking-wide text-amber-600 mb-1">{% trans "Accès restreint" %}</span>
+                        {% endif %}
+                        <h2 class="text-lg font-bold text-gray-900 group-hover:text-pnacBlue transition">
                             {{ topic.title }}
-                        </h3>
+                        </h2>
                         <p class="text-gray-500 text-sm mt-1 line-clamp-2">
                             {{ topic.description }}
                         </p>
-                        <div class="flex items-center mt-3 text-xs text-gray-400 space-x-3">
-                            <span>{% trans "Par PNAC" %} ({{ topic.author.username }})</span>
-                            <span>•</span>
-                            <span>{{ topic.created_at|date:"d M Y" }}</span>
-                        </div>
+                        <p class="mt-3 text-xs text-gray-400">
+                            {% trans "Par PNAC" %}{% if topic.created_by %} ({{ topic.created_by.name }}){% elif topic.author %} ({{ topic.author.username }}){% endif %}
+                            · {{ topic.created_at|date:"d M Y" }}
+                        </p>
                     </div>
                 </div>
-
-                <div class="flex flex-col items-center justify-center bg-gray-50 rounded-lg px-4 py-2 border border-gray-100">
-                    <span class="text-xl font-bold text-gray-700">{{ topic.get_post_count }}</span>
-                    <span class="text-xs text-gray-500 uppercase">{% trans "Réponses" %}</span>
+                <div class="flex-shrink-0 flex flex-col items-center justify-center bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 min-w-[4.5rem]">
+                    <span class="text-xl font-bold text-gray-800">{{ topic.get_post_count }}</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-wide">{% trans "Réponses" %}</span>
                 </div>
             </div>
         </a>
         {% empty %}
-            <div class="text-center py-12 bg-white rounded-xl border border-dashed border-gray-300">
-                <p class="text-gray-500">{% trans "Aucun sujet de discussion n'a été ouvert pour le moment." %}</p>
+            <div class="text-center py-16 bg-white rounded-2xl border border-dashed border-gray-200">
+                <p class="text-gray-600 font-medium">{% trans "Aucun sujet de discussion n'a été ouvert pour le moment." %}</p>
             </div>
         {% endfor %}
     </div>

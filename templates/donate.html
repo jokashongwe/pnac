@@ -2,10 +2,11 @@
 {% load i18n %}
 {% load static %}
 
+{% block title %}{% trans "Faire un Don" %} | PNAC{% endblock %}
+
 {% block content %}
-<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900">NON DISPONIBLE</h2>
-    </div>
-</div>
+{% trans "Soutenir" as hero_eyebrow %}
+{% trans "Faire un Don" as hero_title %}
+{% trans "Cette fonctionnalité n'est pas encore disponible. Merci de votre intérêt pour le PNAC." as hero_subtitle %}
+{% include 'partials/page_hero.html' with eyebrow=hero_eyebrow title=hero_title subtitle=hero_subtitle %}
 {% endblock %}

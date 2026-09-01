@@ -1,12 +1,13 @@
+{% load i18n %}
 <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-pnacGreen mt-8">
     <h3 class="text-xl font-bold text-gray-900 mb-4">{% trans "Rejoindre ce Salongo" %}</h3>
     <form method="POST" action="{% url 'join_event' event.id %}">
         {% csrf_token %}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" name="full_name" placeholder="Votre Nom" required 
+            <input type="text" name="full_name" placeholder="{% trans 'Votre Nom' %}" required 
                    class="w-full p-2 border border-gray-300 rounded focus:ring-pnacGreen focus:border-pnacGreen">
             
-            <input type="tel" name="phone" placeholder="Numéro de Téléphone" required 
+            <input type="tel" name="phone" placeholder="{% trans 'Numéro de Téléphone' %}" required 
                    class="w-full p-2 border border-gray-300 rounded focus:ring-pnacGreen focus:border-pnacGreen">
         </div>
         

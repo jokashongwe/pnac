@@ -1,12 +1,13 @@
 from django.db import models
 import os
+from django.utils.translation import gettext_lazy as _
 
 class Resource(models.Model):
     CATEGORY_CHOICES = (
-        ('GUIDE', 'Guides & Sensibilisation'),   # Pour l'éducation citoyenne 
-        ('REPORT', 'Rapports & Transparence'),   # Pour la transparence 
-        ('TOOL', 'Outils Salongo & Technique'),  # Pour les actions communautaires
-        ('LEGAL', 'Documents Officiels'),
+        ('GUIDE', _('Guides & Sensibilisation')),
+        ('REPORT', _('Rapports & Transparence')),
+        ('TOOL', _('Outils Salongo & Technique')),
+        ('LEGAL', _('Documents Officiels')),
     )
 
     title = models.CharField(max_length=200, verbose_name="Titre du document")

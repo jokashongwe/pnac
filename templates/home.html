@@ -2,6 +2,8 @@
 {% load i18n %}
 {% load static %}
 
+{% block title %}PNAC{% endblock %}
+
 {% block content %}
 
 <div class="relative bg-gray-900 h-[85vh] overflow-hidden" id="hero-carousel">
@@ -19,7 +21,7 @@
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center h-full pt-20">
                 <div class="max-w-3xl animate-fade-in-up"> 
                     <span class="inline-block py-1 px-3 rounded-sm bg-pnacBlue text-white text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-                        Action PNAC
+                        {% trans "Action PNAC" %}
                     </span>
                     <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg">
                         {{ slide.title|linebreaksbr }}
@@ -48,10 +50,10 @@
         {% endfor %}
     </div>
 
-    <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
+    <button type="button" onclick="moveSlide(-1)" aria-label="{% trans 'Précédent' %}" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
     </button>
-    <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
+    <button type="button" onclick="moveSlide(1)" aria-label="{% trans 'Suivant' %}" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur z-20 transition">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </button>
 
@@ -90,43 +92,38 @@
                 <div class="h-1 w-20 bg-pnacBlue mt-4"></div>
             </div>
             <a href="{% url 'event_list' %}" class="hidden md:inline-flex items-center text-pnacGreen font-bold hover:underline">
-                {% trans "Voir tout les évènements " %}
+                {% trans "Voir toutes les actions" %}
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {% for event in upcoming_events %}
-            <article class="flex flex-col bg-white shadow-sm hover:shadow-xl transition duration-300 rounded-lg overflow-hidden group">
-                <div class="relative h-64 overflow-hidden">
-                    {% if event.image %}
-                        <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
-                    {% else %}
-                        <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
-                            <span class="text-4xl font-bold opacity-20">PNAC</span>
-                        </div>
-                    {% endif %}
-                    <div class="absolute top-0 right-0 bg-pnacBlue text-white text-xs font-bold px-3 py-1 m-4 rounded">
-                        {{ event.get_event_type_display }}
+            <article class="group h-full bg-white shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition duration-300 rounded-2xl overflow-hidden border border-gray-100">
+                <a href="{% url 'event_detail' event.id %}" class="flex flex-col h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-pnacGreen">
+                    <div class="relative h-64 overflow-hidden bg-gray-100">
+                        {% if event.image %}
+                            <img src="{{ event.image.url }}" alt="{{ event.title }}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                        {% else %}
+                            <div class="w-full h-full flex items-center justify-center text-gray-300 text-4xl font-extrabold">PNAC</div>
+                        {% endif %}
+                        <span class="absolute top-4 left-4 bg-pnacBlue text-white text-xs font-bold px-3 py-1 rounded-full">
+                            {{ event.get_event_type_display }}
+                        </span>
                     </div>
-                </div>
-                <div class="flex-1 p-6 flex flex-col justify-between">
-                    <div>
-                        <div class="text-sm text-gray-500 mb-2">{{ event.date|date:"d M Y" }} | {{ event.location }}</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pnacGreen transition">
-                            <a href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
-                        </h3>
-                        <p class="text-gray-600 line-clamp-3">
-                            {{ event.description }}
-                        </p>
+                    <div class="flex-1 p-6 flex flex-col">
+                        <p class="text-sm text-gray-400 mb-2">{{ event.date|date:"d M Y" }} · {{ event.location }}</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-pnacGreen transition">{{ event.title }}</h3>
+                        <p class="text-gray-600 text-sm line-clamp-3 flex-1">{{ event.description }}</p>
+                        <span class="mt-6 inline-flex items-center text-pnacGreen font-bold text-sm">
+                            {% trans "En savoir plus" %}
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
                     </div>
-                    <a href="{% url 'event_detail' event.id %}" class="mt-6 inline-block text-pnacGreen font-bold hover:text-green-700 uppercase text-sm tracking-wide">
-                        {% trans "En savoir plus" %} &rarr;
-                    </a>
-                </div>
+                </a>
             </article>
             {% empty %}
-            <div class="col-span-3 bg-white p-12 text-center rounded-lg border border-gray-200">
+            <div class="col-span-3 bg-white p-12 text-center rounded-2xl border border-dashed border-gray-200">
                 <h3 class="text-xl font-bold text-gray-400">{% trans "Aucune campagne programmée pour l'instant." %}</h3>
                 <p class="mt-2 text-gray-500">{% trans "Revenez bientôt pour les prochaines dates de Salongo." %}</p>
             </div>
@@ -186,13 +183,12 @@
                 </div>
             </a> {% endcomment %}
         
-            <a href="{% url 'volunteer_apply' %}" class="block bg-gray-800 hover:bg-gray-700 transition p-8 rounded-lg text-left group border border-gray-700">
+            <a href="{% url 'volunteer_apply' %}" class="block bg-pnacGreen hover:bg-green-700 transition p-8 rounded-2xl text-left group shadow-lg">
 
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-4">
                     <div>
                         <h3 class="text-2xl font-bold text-white mb-2">{% trans "Devenir Bénévole" %}</h3>
-                        <p class="text-green-100">{% trans "Soutenez la logistique de nos équipes terrain." %}</p>
-                        <p class="text-gray-400">{% trans "Rejoignez une Éco-brigade près de chez vous." %}</p>
+                        <p class="text-green-50">{% trans "Rejoignez une Éco-brigade près de chez vous." %}</p>
                     </div>
                     <svg class="w-8 h-8 text-white transform group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
                 </div>

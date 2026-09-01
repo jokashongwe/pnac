@@ -2,32 +2,30 @@
 {% load i18n %}
 {% load static %}
 
+{% block title %}{% trans "Galerie" %} | PNAC{% endblock %}
+
 {% block content %}
-<div class="bg-gray-900 text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <h1 class="text-4xl font-extrabold mb-4">{% trans "Nos Actions en Images" %}</h1>
-        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-           {% trans "Plongez au cœur du changement. Des conférences stratégiques aux actions de terrain dans les quartiers." %}
-        </p>
-    </div>
-</div>
+{% trans "Galerie" as hero_eyebrow %}
+{% trans "Nos Actions en Images" as hero_title %}
+{% trans "Plongez au cœur du changement. Des conférences stratégiques aux actions de terrain dans les quartiers." as hero_subtitle %}
+{% include 'partials/page_hero.html' with eyebrow=hero_eyebrow title=hero_title subtitle=hero_subtitle %}
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <button class="filter-btn active px-6 py-2 rounded-full font-bold transition-all duration-300 bg-pnacGreen text-white shadow-lg transform scale-105" data-filter="all">
+    <div class="flex flex-wrap justify-center gap-2 mb-12" role="tablist" aria-label="{% trans 'Filtrer par catégorie' %}">
+        <button type="button" class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold transition bg-pnacGreen text-white shadow-sm" data-filter="all">
             {% trans "Tout Voir" %}
         </button>
         {% for code, label in categories %}
-        <button class="filter-btn px-6 py-2 rounded-full font-medium bg-white text-gray-600 border border-gray-200 hover:border-pnacGreen hover:text-pnacGreen transition-all duration-300" data-filter="{{ code }}">
-            {% translate label %}
+        <button type="button" class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-600 border border-gray-200 hover:border-pnacGreen hover:text-pnacGreen transition" data-filter="{{ code }}">
+            {{ label }}
         </button>
         {% endfor %}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
         {% for item in images %}
-        <div class="gallery-item group relative h-64 rounded-xl overflow-hidden cursor-pointer shadow-md transition-all duration-500 transform scale-100 opacity-100" 
+        <div class="gallery-item group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-gray-100 transition-all duration-500 transform scale-100 opacity-100" 
              data-category="{{ item.category }}"
              onclick="openLightbox('{{ item.image.url }}', '{{ item.title|escapejs }}', '{{ item.description|default:""|escapejs }}')">
             
@@ -39,16 +37,16 @@
             </div>
         </div>
         {% empty %}
-        <div class="col-span-3 text-center py-20 text-gray-400">
-            <p>{% trans "La galerie est en cours de construction." %}</p>
+        <div class="col-span-full bg-white rounded-2xl border border-dashed border-gray-200 py-20 text-center text-gray-500">
+            <p class="font-semibold text-gray-700">{% trans "La galerie est en cours de construction." %}</p>
         </div>
         {% endfor %}
     </div>
 
 </div>
 
-<div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-pnacGreen transition">
+<div id="lightbox" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="{% trans 'Galerie' %}" onclick="if(event.target===this)closeLightbox()">
+    <button type="button" onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-pnacGreen transition" aria-label="{% trans 'Fermer' %}">
         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
 
@@ -68,11 +66,11 @@
         btn.addEventListener('click', () => {
             // Gestion style boutons
             filterBtns.forEach(b => {
-                b.classList.remove('bg-pnacGreen', 'text-white', 'shadow-lg', 'scale-105');
+                b.classList.remove('bg-pnacGreen', 'text-white', 'shadow-sm');
                 b.classList.add('bg-white', 'text-gray-600', 'border');
             });
             btn.classList.remove('bg-white', 'text-gray-600', 'border');
-            btn.classList.add('bg-pnacGreen', 'text-white', 'shadow-lg', 'scale-105');
+            btn.classList.add('bg-pnacGreen', 'text-white', 'shadow-sm');
 
             // Filtrage éléments
             const filterValue = btn.getAttribute('data-filter');

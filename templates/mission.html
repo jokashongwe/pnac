@@ -2,18 +2,22 @@
 {% load i18n %}
 {% load static %}
 
+{% block title %}{% trans "Notre Mission" %} | PNAC{% endblock %}
+
 {% block content %}
 
-<div class="relative bg-gray-900 py-24 sm:py-32">
+<div class="relative overflow-hidden py-24 sm:py-32">
     <div class="absolute inset-0 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Kinshasa environnement" class="w-full h-full object-cover opacity-30">
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80"></div>
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-900/80 to-sky-900/40"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-emerald-200 font-bold uppercase tracking-widest text-xs mb-3">{% trans "PNAC" %}</p>
         <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
             {% trans "Notre Raison d'Être" %}
         </h1>
-        <p class="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
+        <div class="h-1 w-16 bg-pnacBlue mx-auto mt-6 rounded-full"></div>
+        <p class="mt-6 text-xl text-emerald-50 max-w-3xl mx-auto">
             {% trans "Le PNAC est une réponse structurée, durable et inclusive aux défis d'assainissement et de salubrité en République Démocratique du Congo." %}
         </p>
     </div>

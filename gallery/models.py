@@ -1,11 +1,12 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class GalleryImage(models.Model):
     CATEGORY_CHOICES = (
-        ('SALONGO', 'Activités & Salongo'),
-        ('SEMINAR', 'Séminaires & Conférences'),
-        ('IMPACT', 'Impact (Avant/Après)'),
-        ('TEAM', 'Vie d\'équipe'),
+        ('SALONGO', _('Activités & Salongo')),
+        ('SEMINAR', _('Séminaires & Conférences')),
+        ('IMPACT', _('Impact (Avant/Après)')),
+        ('TEAM', _('Vie d\'équipe')),
     )
 
     title = models.CharField(max_length=100, verbose_name="Titre / Lieu")

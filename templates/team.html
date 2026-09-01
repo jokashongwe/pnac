@@ -2,16 +2,14 @@
 {% load static %}
 {% load i18n %}
 
+{% block title %}{% trans "L'équipe du PNAC" %} | PNAC{% endblock %}
+
 {% block content %}
 
-<div class="bg-gray-900 text-white py-20 text-center">
-    <div class="max-w-7xl mx-auto px-4">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">{% trans "L'équipe du PNAC" %}</h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-            {% trans "Des citoyens engagés, des experts techniques et des leaders communautaires unis par une même vision : un Congo propre et résilient. " %}
-        </p>
-    </div>
-</div>
+{% trans "Gouvernance" as hero_eyebrow %}
+{% trans "L'équipe du PNAC" as hero_title %}
+{% trans "Des citoyens engagés, des experts techniques et des leaders communautaires unis par une même vision : un Congo propre et résilient." as hero_subtitle %}
+{% include 'partials/page_hero.html' with eyebrow=hero_eyebrow title=hero_title subtitle=hero_subtitle %}
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     

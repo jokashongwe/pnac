@@ -103,8 +103,10 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
+                'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'team.context_processors.member_context',
             ],
         },
     },
@@ -145,6 +147,19 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'team.backends.MemberAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'member_login'
+LOGIN_REDIRECT_URL = 'member_dashboard'
+LOGOUT_REDIRECT_URL = 'member_login'
+
+INFOBIP_BASE_URL = os.getenv('INFOBIP_BASE_URL', '')
+INFOBIP_API_KEY = os.getenv('INFOBIP_API_KEY', '')
+INFOBIP_SENDER = os.getenv('INFOBIP_SENDER', 'PNAC')
 
 
 # Internationalization

@@ -2,21 +2,14 @@
 {% load i18n %}
 {% load static %}
 
+{% block title %}{% trans "Politique de Confidentialité" %} | PNAC{% endblock %}
+
 {% block content %}
 
-<!-- Header Section -->
-<div class="bg-gradient-to-r from-green-50 to-white border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-center max-w-3xl mx-auto">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">
-                {% trans "Politique de Confidentialité" %}
-            </h1>
-            <p class="text-lg text-gray-600 leading-relaxed">
-                {% trans "Votre vie privée est importante pour nous. Découvrez comment le PNAC protège et utilise vos informations." %}
-            </p>
-        </div>
-    </div>
-</div>
+{% trans "PNAC" as hero_eyebrow %}
+{% trans "Politique de Confidentialité" as hero_title %}
+{% trans "Votre vie privée est importante pour nous. Découvrez comment le PNAC protège et utilise vos informations." as hero_subtitle %}
+{% include 'partials/page_hero.html' with eyebrow=hero_eyebrow title=hero_title subtitle=hero_subtitle %}
 
 <!-- Content Section -->
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -99,7 +92,7 @@
                 </p>
                 <a href="mailto:info@pnac-rdc.org" class="text-pnacGreen font-bold hover:underline">info@pnac-rdc.org</a>
                 <p class="text-gray-500 text-sm mt-4">
-                    {% trans "Dernière mise à jour :" %} 22 Janvier 2026
+                    {% trans "Dernière mise à jour :" %} {% trans "22 janvier 2026" %}
                 </p>
             </div>
         </div>
