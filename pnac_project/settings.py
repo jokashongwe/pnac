@@ -37,6 +37,7 @@ SECURE_SSL_REDIRECT = True
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor',
+    'django_ckeditor_5',
     'core',
     'donations',
     'events',
@@ -54,30 +55,124 @@ INSTALLED_APPS = [
     'gallery',
     'blog',
     'forum',
-
 ]
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Admin PNAC",
+    "site_title": "CMS PNAC",
     "site_header": "PNAC RDC",
-    "site_brand": "PNAC Administration",
-    "welcome_sign": "Bienvenue sur le portail de gestion PNAC",
-    "copyright": "PNAC RDC - Unis pour assainir",
-    "search_model": "events.Volunteer", # Recherche rapide de bénévoles dès l'accueil
-
-    # Liens rapides sur le dashboard
+    "site_brand": "CMS PNAC",
+    "site_logo": "images/Logo.png",
+    "login_logo": "images/Logo.png",
+    "site_logo_classes": "img-circle",
+    "site_icon": "images/favicon-32x32.png",
+    "welcome_sign": "Espace de publication et de gestion du PNAC",
+    "copyright": "PNAC RDC — Unis pour assainir",
+    "search_model": ["blog.Post", "events.Event", "team.TeamMember"],
+    "user_avatar": None,
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "related_modal_active": True,
+    "language_chooser": True,
+    "use_google_fonts_cdn": True,
+    "changeform_format": "collapsible",
+    "changeform_format_overrides": {
+        "auth.user": "horizontal_tabs",
+        "auth.group": "vertical_tabs",
+    },
     "topmenu_links": [
-        {"name": "Site Public", "url": "home", "permissions": ["auth.view_user"]},
-        {"name": "Faire un Don (Simulé)", "url": "/donate"},
+        {"name": "Voir le site", "url": "home", "new_window": True},
+        {"name": "Nouvel article", "url": "admin:blog_post_add", "icon": "fas fa-plus"},
+        {"name": "Nouvelle action", "url": "admin:events_event_add"},
+        {"model": "blog.Post"},
     ],
+    "usermenu_links": [
+        {"name": "Site public", "url": "home", "new_window": True},
+    ],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.group": "fas fa-users",
+        "blog.Post": "fas fa-newspaper",
+        "core.CarouselItem": "fas fa-images",
+        "events.Event": "fas fa-broom",
+        "events.Volunteer": "fas fa-hand-paper",
+        "events.EventImage": "fas fa-camera",
+        "gallery.GalleryImage": "fas fa-photo-video",
+        "resources.Resource": "fas fa-file-alt",
+        "team.TeamMember": "fas fa-id-badge",
+        "team.VolunteerApplication": "fas fa-user-plus",
+        "team.PhoneOTP": "fas fa-sms",
+        "forum.Topic": "fas fa-comments",
+        "forum.Post": "fas fa-comment-dots",
+        "forum.TopicAccessRequest": "fas fa-user-lock",
+        "seminars.Seminar": "fas fa-chalkboard-teacher",
+        "seminars.SeminarRegistration": "fas fa-clipboard-list",
+    },
+    "order_with_respect_to": [
+        "blog",
+        "core",
+        "events",
+        "gallery",
+        "resources",
+        "seminars",
+        "team",
+        "forum",
+        "auth",
+    ],
+    "hide_models": ["team.PhoneOTP"],
+    "custom_css": "admin/css/pnac_cms.css",
+    "custom_js": "admin/js/pnac_cms.js",
+    "custom_links": {
+        "blog": [
+            {
+                "name": "Articles publiés",
+                "url": "post_list",
+                "icon": "fas fa-eye",
+                "permissions": ["blog.view_post"],
+            }
+        ],
+        "events": [
+            {
+                "name": "Actions sur le site",
+                "url": "event_list",
+                "icon": "fas fa-external-link-alt",
+                "permissions": ["events.view_event"],
+            }
+        ],
+    },
 }
 
 JAZZMIN_UI_TWEAKS = {
-    "theme": "flatly", # Un thème propre et moderne
-    "navbar": "navbar-dark bg-success", # Vert PNAC (approximatif via Bootstrap classes)
-    "sidebar": "sidebar-dark-primary",
-    "accent": "accent-primary",
+    "navbar_small_text": False,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": False,
     "brand_colour": "navbar-success",
+    "accent": "accent-success",
+    "navbar": "navbar-success navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar": "sidebar-dark-success",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": True,
+    "theme": "flatly",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-success",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success",
+    },
+    "actions_sticky_top": True,
 }
 
 MIDDLEWARE = [
@@ -191,9 +286,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = "/home/mote8725/public_html/static"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # settings.py
 
@@ -203,14 +301,84 @@ MAXICASH_ENV = "sandbox" # ou "live" pour la production
 MAXICASH_GATEWAY_URL = "https://api-test.maxicashapp.com/PayEntryPost" # URL de test
 # Pour la prod : "https://api.maxicashapp.com/PayEntryPost"
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ]
-    }
+CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
+CKEDITOR_5_MAX_FILE_SIZE = 5
+CKEDITOR_5_USER_LANGUAGE = True
+CKEDITOR_5_CUSTOM_CSS = "admin/css/ckeditor_content.css"
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "language": "fr",
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "underline",
+            "link",
+            "|",
+            "bulletedList",
+            "numberedList",
+            "blockQuote",
+            "|",
+            "undo",
+            "redo",
+        ],
+        "heading": {
+            "options": [
+                {"model": "paragraph", "title": "Paragraphe", "class": "ck-heading_paragraph"},
+                {"model": "heading2", "view": "h2", "title": "Titre", "class": "ck-heading_heading2"},
+                {"model": "heading3", "view": "h3", "title": "Sous-titre", "class": "ck-heading_heading3"},
+            ]
+        },
+    },
+    "cms": {
+        "language": "fr",
+        "toolbar": {
+            "items": [
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "underline",
+                "link",
+                "|",
+                "bulletedList",
+                "numberedList",
+                "outdent",
+                "indent",
+                "alignment",
+                "|",
+                "blockQuote",
+                "insertTable",
+                "insertImage",
+                "mediaEmbed",
+                "horizontalLine",
+                "|",
+                "undo",
+                "redo",
+                "sourceEditing",
+                "removeFormat",
+            ],
+            "shouldNotGroupWhenFull": True,
+        },
+        "image": {
+            "toolbar": [
+                "imageTextAlternative",
+                "|",
+                "imageStyle:alignLeft",
+                "imageStyle:alignCenter",
+                "imageStyle:alignRight",
+            ],
+        },
+        "table": {
+            "contentToolbar": ["tableColumn", "tableRow", "mergeTableCells"],
+        },
+        "heading": {
+            "options": [
+                {"model": "paragraph", "title": "Paragraphe", "class": "ck-heading_paragraph"},
+                {"model": "heading2", "view": "h2", "title": "Titre de section", "class": "ck-heading_heading2"},
+                {"model": "heading3", "view": "h3", "title": "Sous-titre", "class": "ck-heading_heading3"},
+            ]
+        },
+    },
 }

@@ -2,9 +2,11 @@ from django import forms
 from django.contrib import admin, messages
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TranslationAdmin
 
 from team.models import PhoneOTP, TeamMember, VolunteerApplication
 from team.services.accounts import provision_member_access
+from core.admin_utils import CKEditorAdminMixin
 
 
 class TeamMemberAdminForm(forms.ModelForm):
@@ -21,7 +23,9 @@ class TeamMemberAdminForm(forms.ModelForm):
 
 
 @admin.register(TeamMember)
-class TeamMemberAdmin(admin.ModelAdmin):
+class TeamMemberAdmin(CKEditorAdminMixin, TranslationAdmin):
+    group_fieldsets = True
+    save_on_top = True
     form = TeamMemberAdminForm
     list_display = (
         "photo_preview",
@@ -92,6 +96,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 
 @admin.register(VolunteerApplication)
 class VolunteerApplicationAdmin(admin.ModelAdmin):
+    save_on_top = True
     list_display = ("full_name", "email", "phone", "preferred_notification", "status", "created_at")
     list_filter = ("status", "preferred_notification")
     search_fields = ("full_name", "email", "phone")

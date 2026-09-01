@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import Event, Volunteer, EventImage
 from django.utils.html import format_html
+from modeltranslation.admin import TranslationAdmin
+from core.admin_utils import CKEditorAdminMixin
 import csv
 from django.http import HttpResponse
 
@@ -20,8 +22,9 @@ export_volunteers_csv.short_description = "Exporter la liste sélectionnée en C
 @admin.register(Volunteer)
 class VolunteerAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'phone_display', 'role_badge', 'event_link', 'status_icon', 'status')
-    list_filter = ('event__location', 'role', 'status', 'event__date') # Filtrer par Commune/Lieu [cite: 20]
+    list_filter = ('event__location', 'role', 'status', 'event__date')
     search_fields = ('full_name', 'phone', 'email')
+    autocomplete_fields = ('event',)
     actions = [export_volunteers_csv]
     list_editable = ('status',) # Permet de changer le statut (Présent/Confirmé) directement depuis la liste
 
@@ -61,18 +64,43 @@ class VolunteerAdmin(admin.ModelAdmin):
 
 class EventImageInline(admin.TabularInline):
     model = EventImage
-    extra = 3 # Affiche 3 champs vides par défaut pour uploader rapidement
-    fields = ('image', 'caption')
+    extra = 1
+    fields = ("preview", "image", "caption", "is_before_after")
+    readonly_fields = ("preview",)
 
-# --- Configuration des Événements ---
+    def preview(self, obj):
+        from core.admin_utils import image_preview
+        return image_preview(obj.image, size=64)
+
+    preview.short_description = "Aperçu"
+
+
 @admin.register(Event)
-class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'date', 'location', 'participant_count', 'is_active')
-    list_filter = ('event_type', 'is_active')
-    search_fields = ('title', 'location')
+class EventAdmin(CKEditorAdminMixin, TranslationAdmin):
+    group_fieldsets = True
+    save_on_top = True
+    date_hierarchy = "date"
+    list_display = ("cover_preview", "title", "date", "location", "event_type", "participant_count", "is_active")
+    list_display_links = ("title",)
+    list_filter = ("event_type", "is_active", "map_status")
+    list_editable = ("is_active",)
+    search_fields = ("title", "location", "description")
     inlines = [EventImageInline]
+    fieldsets = (
+        ("Contenu", {"fields": ("title", "description", "image")}),
+        ("Quand et où", {"fields": ("event_type", "date", "location")}),
+        ("Carte", {"fields": ("latitude", "longitude", "map_status")}),
+        ("Publication", {"fields": ("is_active",)}),
+    )
+
+    def cover_preview(self, obj):
+        from core.admin_utils import image_preview
+        return image_preview(obj.image)
+
+    cover_preview.short_description = "Visuel"
 
     def participant_count(self, obj):
         count = obj.volunteers.count()
         return format_html('<b style="color: #059669;">{} inscrits</b>', count)
+
     participant_count.short_description = "Mobilisation"

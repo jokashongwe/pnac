@@ -15,7 +15,7 @@
         
         {% if member.bio %}
         <p class="text-gray-500 text-sm leading-relaxed mb-4">
-            {{ member.bio|truncatechars:80 }}
+            {{ member.bio|striptags|truncatechars:80 }}
         </p>
         {% endif %}
     </div>

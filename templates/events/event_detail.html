@@ -4,11 +4,11 @@
 
 {% block meta %}
     <meta property="og:title" content="{{ event.title }}">
-    <meta property="og:description" content="{{ event.description }}">
+    <meta property="og:description" content="{{ event.description|striptags|truncatechars:200 }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ event.title }}">
-    <meta name="twitter:description" content="{{ event.description }}">
+    <meta name="twitter:description" content="{{ event.description|striptags|truncatechars:200 }}">
     {% if event.image %}
     <meta property="og:image" content="https://pnac-rdc.org{{ event.image.url }}">
     <meta name="twitter:image" content="https://pnac-rdc.org{{ event.image.url }}">
@@ -71,9 +71,7 @@
 
             <div class="prose prose-lg text-gray-700 max-w-none">
                 <h3 class="text-2xl font-bold text-gray-900 mb-4">{% trans "Le contexte de l'action" %}</h3>
-                <p>
-                    {{ event.description|linebreaks }}
-                </p>
+                {{ event.description|safe }}
 
                 <blockquote class="border-l-4 border-pnacBlue pl-4 italic bg-blue-50 py-4 pr-4 my-6 rounded-r-lg text-gray-800">
                     {% trans "Le PNAC a pour mission de promouvoir, structurer et renforcer les actions communautaires d'assainissement." %}

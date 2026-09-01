@@ -1,0 +1,15 @@
+.ck-content {
+    font-family: Inter, system-ui, sans-serif;
+    color: #334155;
+    line-height: 1.7;
+}
+
+.ck-content h2,
+.ck-content h3 {
+    color: #111827;
+    font-weight: 800;
+}
+
+.ck-content a {
+    color: #059669;
+}

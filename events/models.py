@@ -19,7 +19,7 @@ class Event(models.Model):
     
     title = models.CharField(max_length=200)
     event_type = models.CharField(max_length=20, choices=TYPES, default='SALONGO')
-    description = models.TextField()
+    description = models.TextField(verbose_name=_("Description"))
     date = models.DateTimeField()
     location = models.CharField(max_length=255, help_text="Commune ou Quartier (ex: Kinshasa)")
     image = models.ImageField(upload_to='events/', blank=True, null=True)

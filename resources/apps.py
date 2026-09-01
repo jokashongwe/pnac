@@ -1,5 +1,7 @@
 from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
 
 
 class ResourcesConfig(AppConfig):
-    name = 'resources'
+    name = "resources"
+    verbose_name = _("Médiathèque")

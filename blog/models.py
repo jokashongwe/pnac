@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
@@ -20,7 +19,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to="blog/", verbose_name=_("Image à la une"))
 
     excerpt = models.TextField(max_length=300, verbose_name=_("Extrait (Introduction)"))
-    content = RichTextField(verbose_name=_("Contenu de l'article"))
+    content = models.TextField(verbose_name=_("Contenu de l'article"))
 
     is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)

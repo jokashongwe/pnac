@@ -1,0 +1,101 @@
+:root {
+    --pnac-green: #059669;
+    --pnac-green-dark: #047857;
+    --pnac-blue: #0ea5e9;
+}
+
+body.login-page,
+body.login {
+    background: linear-gradient(135deg, #ecfdf5 0%, #fff 45%, #e0f2fe 100%) !important;
+}
+
+.login-logo img,
+.login-box .login-logo img {
+    max-height: 72px;
+}
+
+.main-header.navbar-success,
+.main-header.navbar.navbar-success,
+.navbar-success {
+    background-color: var(--pnac-green) !important;
+    border-bottom: 3px solid var(--pnac-blue);
+}
+
+.brand-link,
+.brand-link.navbar-success {
+    background-color: var(--pnac-green-dark) !important;
+    font-weight: 700;
+}
+
+.sidebar-dark-success .nav-sidebar > .nav-item > .nav-link.active,
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: var(--pnac-green) !important;
+    color: #fff !important;
+}
+
+.btn-success,
+.btn-primary,
+.submit-row input.default,
+.object-tools a.addlink {
+    background-color: var(--pnac-green) !important;
+    border-color: var(--pnac-green) !important;
+}
+
+.btn-info,
+.object-tools a {
+    background-color: var(--pnac-blue) !important;
+    border-color: var(--pnac-blue) !important;
+}
+
+.content-wrapper {
+    background-color: #f8fafc !important;
+}
+
+.card {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+fieldset.module h2,
+.card-header {
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.aligned label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.ck-editor {
+    max-width: 100%;
+}
+
+.ck-editor__editable_inline {
+    min-height: 280px;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.ck.ck-toolbar,
+.ck.ck-dropdown__panel,
+.ck.ck-balloon-panel {
+    z-index: 10050 !important;
+}
+
+.tab-content,
+.card-body,
+.jazzmin-card {
+    overflow: visible !important;
+}
+
+#changelist .results table thead th {
+    white-space: nowrap;
+}
+
+.object-tools {
+    margin-bottom: 1rem;
+}

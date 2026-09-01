@@ -12,7 +12,8 @@ from gallery.views import gallery_view
 from resources.views import resource_list
 
 urlpatterns = [
-    path('i18n/', include('django.conf.urls.i18n')), 
+    path('i18n/', include('django.conf.urls.i18n')),
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += i18n_patterns(
