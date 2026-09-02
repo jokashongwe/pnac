@@ -11,8 +11,10 @@ from donations.views import donate
 from gallery.views import gallery_view
 from resources.views import resource_list
 
+from core.i18n import set_language
+
 urlpatterns = [
-    path('i18n/', include('django.conf.urls.i18n')),
+    path('i18n/setlang/', set_language, name='set_language'),
     path("ckeditor5/", include("django_ckeditor_5.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

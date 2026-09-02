@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n i18n_urls %}
 <!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 {% trans "PNAC - RDC | Partenariat Novateur pour l'Assainissement Communautaire" as site_title %}
@@ -171,20 +171,7 @@
                     {% comment %} <a href="{% url 'donate' %}" class="bg-pnacGreen text-white px-5 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5 ml-4">
                         {% trans "Faire un Don" %}
                     </a> {% endcomment %}
-                    <form action="{% url 'set_language' %}" method="post" class="inline-block ml-4">
-                        {% csrf_token %}
-                        <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                        <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Langue' %}" class="bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-full focus:ring-pnacGreen focus:border-pnacGreen px-3 py-1.5">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
-                            {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                    {{ language.code|upper }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </form>
+                    {% include 'partials/language_switcher.html' with form_class='inline-block ml-4' select_class='bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-full focus:ring-pnacGreen focus:border-pnacGreen px-3 py-1.5' %}
                 </div>
 
                 <div class="-mr-2 flex lg:hidden">
@@ -241,20 +228,7 @@
                 {% comment %} <a href="{% url 'donate' %}" class="block w-full text-center mt-4 bg-pnacGreen text-white px-5 py-3 rounded-lg font-bold shadow-md">
                     {% trans "Faire un Don" %}
                 </a> {% endcomment %}
-                <form action="{% url 'set_language' %}" method="post" class="px-3 pt-3 pb-2">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                    <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Langue' %}" class="w-full bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-full focus:ring-pnacGreen focus:border-pnacGreen px-3 py-2">
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_language_info_list for LANGUAGES as languages %}
-                        {% for language in languages %}
-                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                                {{ language.code|upper }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </form>
+                {% include 'partials/language_switcher.html' with form_class='px-3 pt-3 pb-2' select_class='w-full bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-full focus:ring-pnacGreen focus:border-pnacGreen px-3 py-2' %}
             </div>
         </div>
     </nav>
